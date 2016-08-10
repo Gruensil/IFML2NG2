@@ -1,4 +1,4 @@
-package ifml.generator.ng2.m2t.dynamic
+package ifml.generator.ng2.m2t.dynamic.views
 
 import IFML.Extensions.IFMLWindow
 import IFML.Core.ViewComponent
@@ -24,11 +24,11 @@ class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 			
 			@Component({
 				selector: '«it.name.toFirstLower»',
-				templateUrl: '«fileName».html',
+				templateUrl: '«folderName»«fileName».html',
 				providers: [DataService,AuthenticationService]
 			})
 			
-			export class «it.name.toFirstUpper» {
+			export class «it.name.toFirstUpper»Component {
 				
 				constructor(
 					private _data: DataService,
