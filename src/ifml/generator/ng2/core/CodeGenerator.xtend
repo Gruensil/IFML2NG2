@@ -4,7 +4,7 @@ import IFML.Core.IFMLAction
 import IFML.Core.IFMLModel
 import IFML.Core.ViewElement
 import IFML.Extensions.IFMLWindow
-import ifml.generator.ng2.m2t.dynamic.ViewContainerGenerator
+import ifml.generator.ng2.m2t.dynamic.views.ViewContainerGenerator
 import ifml.generator.ng2.m2t.boilerplate.app.AppComponentGenerator
 import ifml.generator.ng2.m2t.boilerplate.app.MainGenerator
 import ifml.generator.ng2.m2t.boilerplate.config.SystemJsConfigGenerator
@@ -14,6 +14,7 @@ import ifml.generator.ng2.m2t.boilerplate.index.IndexGenerator
 import ifml.generator.ng2.m2t.boilerplate.npm.NpmPackageGenerator
 import ifml.generator.ng2.m2t.boilerplate.app.services.AuthenticationServiceGenerator
 import ifml.generator.ng2.m2t.boilerplate.app.services.DataServiceGenerator
+import ifml.generator.ng2.m2t.dynamic.app.RoutesGenerator
 
 class CodeGenerator {
 
@@ -27,10 +28,13 @@ class CodeGenerator {
 		val windows = viewElements.filter(typeof(IFMLWindow));
 		val viewComponents = windows.map[w|w.viewElements].flatten;
 		
+		// Dynamic Generation
 		windows.forEach [ w |
 			// ViewController
 			new ViewContainerGenerator().generateCode(w)
 		]
+		// routes
+		new RoutesGenerator().generateFile(windows);
 		
 		// Boilerplate Generation
 		// generate app.component.ts
