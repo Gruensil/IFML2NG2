@@ -29,9 +29,7 @@ class Main {
 				println("M2T IFML2NG2 finished!")
 				
 			}
-			
-			
-			
+
 		}	
 		
 	}

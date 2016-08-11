@@ -5,6 +5,11 @@ import IFML.Core.ViewComponent
 import ifml.generator.ng2.m2t.general.AbstractClassGenerator
 import ifml.generator.ng2.m2t.utils.GeneratorHelpers
 import ifml.generator.ng2.m2t.utils.MethodCollection
+import IFML.Extensions.List
+import IFML.Extensions.Details
+import IFML.Extensions.impl.FormImpl
+import IFML.Extensions.impl.DetailsImpl
+import IFML.Extensions.impl.ListImpl
 
 class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 	
@@ -42,10 +47,14 @@ class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 	}
 
 	override protected generateTemplate(IFMLWindow it) {
-
+		val viewElements = it.viewElements.filter(typeof(ListImpl));
 		'''
 			<div class="row">
-				Test Template
+				<div class="col-md-12">
+					<div name="content">
+			 			«new ListGenerator().generateCode(viewElements)»
+					</div>
+				</div>
 			</div>
 		'''
 	}
