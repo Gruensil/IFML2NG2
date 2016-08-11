@@ -9,13 +9,21 @@ abstract class AbstractCodeGenerator <T> extends AbstractGenerator <T> {
 	
 	protected abstract def void prepareGeneration(T it);
 	
-	protected def String generationHeader() {
+	protected def String generationJsHeader() {
 		
 		'''
 			//
-			// Created by IFMLGen on «new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date)»
+			// Created by IFML2NG2 on «new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date)»
 			//
 		'''
 	}
+	
+	protected def String generationHtmlHeader() {
 		
+		'''
+			<!--
+			   Created by IFML2NG2 on «new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date)»
+			-->
+		'''
+	}		
 }

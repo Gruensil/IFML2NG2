@@ -12,7 +12,7 @@ abstract class AbstractClassGenerator<T> extends AbstractCodeGenerator<T> {
 		// Generate Component File
 		FileManager::sharedInstance.generateFile(qualifiedName + ".ts",
 			'''
-				«generationHeader»
+				«generationJsHeader»
 				
 				«generateComponent»
 			''');
@@ -20,7 +20,7 @@ abstract class AbstractClassGenerator<T> extends AbstractCodeGenerator<T> {
 		// Generate Template Files
 		FileManager::sharedInstance.generateFile(qualifiedName + ".html",
 			'''
-				«generationHeader»
+				«generationHtmlHeader»
 				
 				«generateTemplate»
 			''');
