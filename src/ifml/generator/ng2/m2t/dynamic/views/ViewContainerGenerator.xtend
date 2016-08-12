@@ -50,7 +50,12 @@ class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 		val viewElements = it.viewElements.filter(typeof(ListImpl));
 		'''
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-2">
+					<div class="sidebar-navbar">
+						«new NavbarGenerator().generateCode(it)»
+					</div>
+				</div>
+				<div class="col-md-10">
 					<div name="content">
 			 			«new ListGenerator().generateCode(viewElements)»
 					</div>

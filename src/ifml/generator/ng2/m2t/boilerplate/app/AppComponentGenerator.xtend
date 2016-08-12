@@ -25,29 +25,7 @@ class AppComponentGenerator extends AbstractFileGenerator<String> {
 		        </div>
 		      </div>
 		      <div class="row">
-		
-		        <div id="navbar" class="col-md-2">
-		          <div id="sidebar-wrapper">
-		            <ul class="sidebar-nav">
-		              <li class="divLine" *ngIf="authService.isStudent()">
-		                <a *isDesktop href="\lentBooks">Lent Books</a>
-		              </li>
-		              <li class="divLine" *ngIf="authService.isStudent() || authService.isStaff()">
-		                <a *isDesktop href="\searchBooks">Search Books</a>
-		              </li>
-		              <li class="divLine" *ngIf="authService.isStaff()">
-		                <a *isDesktop href="\students">Search Students</a>
-		              </li>
-		              <li class="divLine" *ngIf="authService.isStaff()">
-		                <a *isDesktop href="\\reservations">View Reservations</a>
-		              </li>
-		              <li class="divLine" *ngIf="authService.isStaff()">
-		                <a *isDesktop href="\lendingForm">View Lending Form</a>
-		              </li>
-		            </ul>
-		          </div>
-		        </div>
-		        <div class="col-md-10" style="margin-left:0;width:83.33332%">
+		        <div class="col-md-12" style="margin-left:0;width:83.33332%">
 		          <router-outlet></router-outlet>
 		        </div>
 		      </div>

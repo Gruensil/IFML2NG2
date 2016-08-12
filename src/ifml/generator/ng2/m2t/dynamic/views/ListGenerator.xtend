@@ -10,7 +10,7 @@ public class ListGenerator extends AbstractViewElementGenerator<Iterable<ListImp
 	private List<ListImpl> list;
 	
 	override protected generateTemplate(Iterable<ListImpl> it) {
-		var output = " "
+		var output = ""
 		list = it.toList()
 		
 		for (listElement : list){
@@ -53,10 +53,6 @@ public class ListGenerator extends AbstractViewElementGenerator<Iterable<ListImp
 		}
 		
 		return output
-	}
-	
-	def String test(){
-		return "BLAAAAAAAAAA"
 	}
 	
 	override protected prepareGeneration(Iterable<ListImpl> it) {
