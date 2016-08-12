@@ -1,15 +1,7 @@
 package ifml.generator.ng2.m2t.dynamic.views
 
 import IFML.Extensions.IFMLWindow
-import IFML.Core.ViewComponent
 import ifml.generator.ng2.m2t.general.AbstractClassGenerator
-import ifml.generator.ng2.m2t.utils.GeneratorHelpers
-import ifml.generator.ng2.m2t.utils.MethodCollection
-import IFML.Extensions.List
-import IFML.Extensions.Details
-import IFML.Extensions.impl.FormImpl
-import IFML.Extensions.impl.DetailsImpl
-import IFML.Extensions.impl.ListImpl
 
 class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 	
@@ -35,6 +27,9 @@ class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 			
 			export class «it.name.toFirstUpper»Component {
 				
+				//PLACEHOLDER DATA FOR TESTING
+				public movieList = [{title:'Independence day',year:"1996"},{title:'Fight Club', year:'1999'}];
+				
 				constructor(
 					private _data: DataService,
 					private _auth: AuthenticationService,
@@ -47,7 +42,6 @@ class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 	}
 
 	override protected generateTemplate(IFMLWindow it) {
-		val viewElements = it.viewElements.filter(typeof(ListImpl));
 		'''
 			<div class="row">
 				<div class="col-md-2">
@@ -57,7 +51,7 @@ class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 				</div>
 				<div class="col-md-10">
 					<div name="content">
-			 			«new ListGenerator().generateCode(viewElements)»
+			 			«new ViewElementGenerator().generateCode(it.viewElements.toList)»
 					</div>
 				</div>
 			</div>

@@ -19,7 +19,7 @@ class AppComponentGenerator extends AbstractFileGenerator<String> {
 		    <div *isDesktop id="desktopViewContainter" class="container">
 		      <div id="headerBar" class="row divLine" style="margin-right:0px;padding-left:0px;padding-right:0px;">
 		        <div class="col-md-12" style="width:100%; padding-left:0;padding-right:0px; background-color:lightgray;">
-		          <a href="\" class="btn btn-link"><img src="./app/ressources/images/logo_transparent.png" alt="LibSoft" height="115" width="175"></a>
+		          <a href="\" class="btn btn-link"><img src="./ressources/images/logo_transparent.png" alt="LibSoft" height="115" width="175"></a>
 		        </div>
 		        <div>
 		        </div>
