@@ -4,6 +4,7 @@ import java.util.List
 import IFML.Extensions.impl.ListImpl
 import IFML.Core.ViewElement
 import IFML.Extensions.impl.FormImpl
+import IFML.Extensions.impl.DetailsImpl
 
 public class ViewElementGenerator {
 	
@@ -14,6 +15,7 @@ public class ViewElementGenerator {
 			switch viewElement {
 				ListImpl: output += new ListGenerator().generateTemplate(viewElement)
 				FormImpl: output += new FormGenerator().generateTemplate(viewElement)
+				DetailsImpl: output += new DetailsGenerator().generateTemplate(viewElement)
 				default: output += ""
 			}
 		}
