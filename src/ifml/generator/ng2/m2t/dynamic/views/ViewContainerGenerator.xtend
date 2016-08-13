@@ -27,9 +27,9 @@ class ViewContainerGenerator extends AbstractClassGenerator<IFMLWindow> {
 			
 			export class «it.name.toFirstUpper»Component {
 				
-				//PLACEHOLDER DATA FOR TESTING
-				public movieList = [{title:'Independence day',year:"1996"},{title:'Fight Club', year:'1999'}];
-				
+				// PROTECTED REGION ID «it.id».«it.name» ENABLED START
+				// PROTECTED REGION END
+	
 				constructor(
 					private _data: DataService,
 					private _auth: AuthenticationService,

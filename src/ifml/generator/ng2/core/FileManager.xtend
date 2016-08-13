@@ -6,6 +6,7 @@ import com.google.common.io.Files
 import java.io.IOException
 import com.google.common.base.Charsets
 import java.nio.file.Paths
+import ifml.generator.ng2.m2t.utils.Interceptor
 
 class FileManager {
 	
@@ -53,7 +54,7 @@ class FileManager {
 
 	def generateFile(String fileName, String contents) {
 
-		val file = new File(this._pathToOutputDirectory + fileName);
+		/*val file = new File(this._pathToOutputDirectory + fileName);
 
 		try {
 
@@ -63,7 +64,8 @@ class FileManager {
 		} catch (IOException e) {
 
 			println('''[ERROR] File «fileName» could not be created''');
-		}
+		}*/
+		Interceptor::sharedInstance.generateFile(this._pathToOutputDirectory + fileName, contents);
 
 	}
 
