@@ -28,6 +28,8 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		    <script src="node_modules/zone.js/dist/zone.js"></script>
 		    <script src="node_modules/reflect-metadata/Reflect.js"></script>
 		    <script src="node_modules/systemjs/dist/system.src.js"></script>
+			<script src="node_modules/nools/nools.js"></script>
+			<script src="node_modules/mobile-detect/mobile-detect.js"></script>
 		    
 		
 		    <!-- 2. Configure SystemJS -->

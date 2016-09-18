@@ -9,6 +9,9 @@ import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+import javax.xml.parsers.DocumentBuilderFactory
+import java.io.File
+import org.w3c.dom.Document
 
 class ModelLoader {
 
@@ -40,5 +43,13 @@ class ModelLoader {
 
 		return ifmlModel;
 
+	}
+	
+	def Document loadAdaptModel(String pathToAdaptFile) {
+	    // parse an XML document into a DOM tree
+	    var parser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	    var document = parser.parse(new File(pathToAdaptFile));
+	    
+	    return document;
 	}
 }

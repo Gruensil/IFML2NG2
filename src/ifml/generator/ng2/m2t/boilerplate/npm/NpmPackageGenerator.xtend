@@ -5,10 +5,10 @@ import ifml.generator.ng2.m2t.general.AbstractFileGenerator
 class NpmPackageGenerator extends AbstractFileGenerator<String> {
 
 	override protected fileContents(String it) {
-
 		'''
 		{
 		  "name": "«it»",
+		"name": "angular2-quickstart",
 		  "version": "1.0.0",
 		  "scripts": {
 		    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
@@ -33,12 +33,14 @@ class NpmPackageGenerator extends AbstractFileGenerator<String> {
 		    "angular2-in-memory-web-api": "0.0.14",
 		    "bootstrap": "^3.3.6",
 		    "core-js": "^2.4.0",
+		    "jquery": "2.2.4",
+		    "mobile-detect": "^1.3.3",
+		    "nools": "^0.4.1",
 		    "reflect-metadata": "^0.1.3",
 		    "responsive-directives-angular2": "^0.3.0",
 		    "rxjs": "5.0.0-beta.6",
 		    "systemjs": "0.19.27",
-		    "zone.js": "^0.6.12",
-		    "jquery": "2.2.4"
+		    "zone.js": "^0.6.12"
 		  },
 		  "devDependencies": {
 		    "concurrently": "^2.0.0",
@@ -47,7 +49,6 @@ class NpmPackageGenerator extends AbstractFileGenerator<String> {
 		    "typings": "^1.0.4"
 		  }
 		}
-
 		'''
 	}
 

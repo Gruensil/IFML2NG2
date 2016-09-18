@@ -3,11 +3,12 @@ package ifml.generator.ng2.m2t.dynamic.app
 import IFML.Extensions.IFMLWindow
 
 import ifml.generator.ng2.m2t.general.AbstractFileGenerator
+import IFML.Core.impl.ViewContainerImpl
 
-class RoutesGenerator extends AbstractFileGenerator<Iterable<IFMLWindow>> {
+class RoutesGenerator extends AbstractFileGenerator<Iterable<ViewContainerImpl>> {
 	
 	// Overridden Parent methods
-	override protected fileContents(Iterable<IFMLWindow> it) {
+	override protected fileContents(Iterable<ViewContainerImpl> it) {
 		'''
 			import { provideRouter, RouterConfig }  from '@angular/router';
 			
@@ -31,11 +32,11 @@ class RoutesGenerator extends AbstractFileGenerator<Iterable<IFMLWindow>> {
 		'''
 	}
 	
-	override protected fileName(Iterable<IFMLWindow> it) {
+	override protected fileName(Iterable<ViewContainerImpl> it) {
 		'''app.routes.ts'''
 	}
 	
-	override protected folderName(Iterable<IFMLWindow> it) {
+	override protected folderName(Iterable<ViewContainerImpl> it) {
 		'''app/'''
 	}
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+
+<adaptModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<services>
+		<service id="resourceServiceID" type="ResourceService" location="resource.service">
+			<function id="setLangID" name="setLang"/>
+		</service>
+	</services>
+	<flow name="Profile Evaluation">
+		<adaptationRule name="Lang ENUS" priority="4" factType="Profile" factName="m">
+			<conditions>
+				<conditionGroup>
+					<condition fact="m.getUser().getLanguage()" operator="==" value="enus" type="string"/>
+					<condition fact="m.getUser().getLangChecked()" operator="===" value="false" type="boolean"/>
+				</conditionGroup>
+			</conditions>
+			<actions>
+				<editFactOperation set="m.getUser().setLangChecked(true)"/>
+				<functionCall service="resourceServiceID" function="setLangID" value="enus"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Lang DEDE" priority="4" factType="Profile" factName="m">
+			<conditions>
+				<conditionGroup>
+					<condition fact="m.getUser().getLanguage()" operator="==" value="dede" type="string"/>
+					<condition fact="m.getUser().getLangChecked()" operator="===" value="false" type="boolean"/>
+				</conditionGroup>
+			</conditions>
+			<actions>
+				<editFactOperation set="m.getUser().setLangChecked(true)"/>
+				<functionCall service="resourceServiceID" function="setLangID" value="dede"/>
+			</actions>
+		</adaptationRule>
+	</flow>
+</adaptModel>

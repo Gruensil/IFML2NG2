@@ -25,6 +25,26 @@ class FileManager {
 		
 		return INSTANCE;
 	}
+	
+	def copyFiles(String pathToSourceFolder, String pathToOutputFolder){
+	 	var source = new File(pathToSourceFolder);
+	 	var destination = new File(pathToOutputFolder);
+	 	
+	 	if(source.isDirectory()){
+	 		var files = source.listFiles;
+	 		for (file : files) {
+	 			if(file.isFile()){
+	 				Files::createParentDirs(new File(destination.absolutePath +"\\" + file.name));
+					Files::copy(file, new File(destination.absolutePath + "\\" + file.name));
+	 			}else if(file.isDirectory()){
+	 				// recursive call to copyFiles
+	 				copyFiles(file.absolutePath, destination.absolutePath +"\\" + file.name);
+	 			}
+	 		}
+	 	}else{
+	 		println('''[ERROR] '«source.absolutePath»' is not a directory.''')
+	 	}
+	}
 
 	def registerPathToOutputDirectory(String pathToOutputFolder) {
 	

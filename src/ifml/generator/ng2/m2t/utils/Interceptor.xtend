@@ -4,6 +4,7 @@ import java.io.File
 import com.google.common.io.Files
 import com.google.common.base.Charsets
 import java.io.IOException
+import java.io.FileNotFoundException
 
 class Interceptor{
 	
@@ -24,7 +25,12 @@ class Interceptor{
 		
 		this.file = new File(filepath);
 
-		this.writeContentsToFile(replaceProtectedRegions(contents));
+		try{
+			this.writeContentsToFile(replaceProtectedRegions(contents));
+		}catch(FileNotFoundException e){
+			println('''[WARNING] File «file.name» does not exist. Protected Regions could not be replaced.''');
+			this.writeContentsToFile(contents);
+		}
 		
 	}
 	

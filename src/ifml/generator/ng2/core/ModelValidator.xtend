@@ -19,6 +19,17 @@ import IFML.Core.DataBinding
 import IFML.Core.VisualizationAttribute
 import IFML.Extensions.Field
 import IFML.Extensions.OnSelectEvent
+import java.io.InputStream
+import javax.xml.validation.SchemaFactory
+import javax.xml.XMLConstants
+import javax.xml.validation.Schema
+import javax.xml.transform.stream.StreamSource
+import javax.xml.parsers.DocumentBuilder
+import javax.xml.parsers.DocumentBuilderFactory
+import java.io.File
+import javax.xml.transform.dom.DOMSource
+import org.xml.sax.SAXException
+import org.w3c.dom.Document
 
 class ModelValidator {
 	
@@ -119,11 +130,11 @@ class ModelValidator {
 	// All the View Containers should be of Window type
 	private def Boolean validateViewContainersType(){
 	
-		if(!viewContainers.forall[e | e instanceof IFMLWindow]){
+		/*if(!viewContainers.forall[e | e instanceof IFMLWindow]){
 			
 			println("[ERROR] The current version of the M2T tool can only handle View Containers of type Window")
 			return false;	
-		}
+		}*/
 		
 		return true;
 	}
@@ -196,6 +207,28 @@ class ModelValidator {
 		}
 		
 		return true;
+	}
+	
+	public def Boolean validateAdaptFile(Document xml, String xsd){
+	    // create a SchemaFactory capable of understanding WXS schemas
+	    var factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+	
+	    // load a WXS schema, represented by a Schema instance
+	    var schemaFile = new StreamSource(new File(xsd));
+	    var schema = factory.newSchema(schemaFile);
+	
+	    // create a Validator instance, which can be used to validate an instance document
+	    var validator = schema.newValidator();
+	
+	    // validate the DOM tree
+	    try {
+	    	validator.validate(new DOMSource(xml));
+	    	return true;
+	    } catch (SAXException e) {
+	        // instance document is invalid!
+	        println(e.message);
+	        return false;
+	    }	
 	}
 }
 
