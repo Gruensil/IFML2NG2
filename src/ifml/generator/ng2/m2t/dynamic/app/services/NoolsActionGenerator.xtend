@@ -21,7 +21,7 @@ public class NoolsActionGenerator{
 					case "editFactOperation": {
 						if(attr.getNamedItem("set").nodeValue != null){
 							output += '''
-								«attr.getNamedItem("set").nodeValue»;
+								facts.«attr.getNamedItem("set").nodeValue»;
 							'''
 						}
 					}
@@ -30,8 +30,29 @@ public class NoolsActionGenerator{
 							_«serviceMap.get(attr.getNamedItem("service").nodeValue)».«(functionMap.get(attr.getNamedItem("service").nodeValue) as HashMap).get(attr.getNamedItem("function").nodeValue)»("«attr.getNamedItem("value").nodeValue»");
 						'''
 					}
+					case "deleteNavLinkOperation": {
+						output += '''
+							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.deleteNavigation('\«attr.getNamedItem("viewContainer").nodeValue»');
+						'''
+					}
+					case "addNavLinkOperation": {
+						output += '''
+							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.pushNavigation({path:'\«attr.getNamedItem("viewContainer").nodeValue»',key:'«attr.getNamedItem("langKey").nodeValue»'});
+						'''
+					}
+					case "redirectOperation": {
+						output += '''
+							_Router.navigate(['/«attr.getNamedItem("viewContainer").nodeValue»']);
+						'''
+					}
+					case "clearNavOperation": {
+						output += '''
+							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.clearNavigation();
+						'''
+					}
 					default: {
-						output += "generic";	
+						output += "//unknown action: " + action.nodeName;	
+						println("[WARNING] Unimplemented Action '" + action.nodeName + "' in Nools Service Generation");
 					}
 				}
 			}

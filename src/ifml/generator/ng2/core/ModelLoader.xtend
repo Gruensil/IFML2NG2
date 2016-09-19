@@ -29,7 +29,7 @@ class ModelLoader {
 		EPackage.Registry::INSTANCE.put(IFML_CORE_EPACKAGE_URI, CorePackage::eINSTANCE)
 		EPackage.Registry::INSTANCE.put(IFML_EXTENSIONS_EPACKAGE_URI, ExtensionsPackage::eINSTANCE)
 		EPackage.Registry::INSTANCE.put(IFML_DATATYPE_EPACKAGE_URI, DataTypesPackage::eINSTANCE)
-
+ 
 		// Register the model factories 
 		Resource.Factory.Registry::INSTANCE.extensionToFactoryMap.put(IFML_MODEL_FILE_EXTENSION,
 			new XMIResourceFactoryImpl)
@@ -47,7 +47,10 @@ class ModelLoader {
 	
 	def Document loadAdaptModel(String pathToAdaptFile) {
 	    // parse an XML document into a DOM tree
-	    var parser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	    var factory = DocumentBuilderFactory.newInstance();
+	    factory.ignoringComments = true;
+	    factory.ignoringElementContentWhitespace = true;
+	    var parser = factory.newDocumentBuilder();
 	    var document = parser.parse(new File(pathToAdaptFile));
 	    
 	    return document;

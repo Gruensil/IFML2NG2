@@ -30,14 +30,16 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 			})
 			
 			export class «it.name.toFirstUpper»Component {
+				//Generate variables for parameters and bindings
 				«FOR vElem : it.viewElements»
 					«FOR vParam : vElem.parameters»
-						var Selected«vParam.name.toFirstUpper»;
+						Selected«vParam.name.toFirstUpper»;
 					«ENDFOR»
 					«IF (vElem instanceof ListImpl)»
 						«FOR varCompPart : (vElem as ListImpl).viewComponentParts»
 							«FOR vVisualization : (varCompPart as DataBindingImpl).subViewComponentParts»
-								var «vVisualization.name»: «(vVisualization as VisualizationAttributeImpl).featureConcept»;
+								«/*vVisualization.name»: «(vVisualization as VisualizationAttributeImpl).featureConcept.name*/»;
+								«vVisualization.name»: any;
 							«ENDFOR»
 						«ENDFOR»
 					«ENDIF»
@@ -51,8 +53,9 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 					private _router: Router,
 					private _resource: ResourceService){}
 					
-				//implement class here
+				// stubs generated for view element events
 				«new ViewElementEventGenerator().generateCode(it.viewElements.toList)»
+				// stubs for data service calls for data bindingsd
 			}
 		'''
 	}

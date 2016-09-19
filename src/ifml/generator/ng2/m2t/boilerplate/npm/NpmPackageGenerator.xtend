@@ -8,7 +8,6 @@ class NpmPackageGenerator extends AbstractFileGenerator<String> {
 		'''
 		{
 		  "name": "«it»",
-		"name": "angular2-quickstart",
 		  "version": "1.0.0",
 		  "scripts": {
 		    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",

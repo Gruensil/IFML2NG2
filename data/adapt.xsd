@@ -10,7 +10,7 @@
 						<xs:element name="service">
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="function">
+									<xs:element name="function" maxOccurs="unbounded">
 										<xs:complexType>
 											<xs:attribute name="id" type="xs:string" use="required"/>
 											<xs:attribute name="name" type="xs:string" use="required"/>
@@ -80,6 +80,38 @@
 															<xs:attribute name="service" use="required"/>
 															<xs:attribute name="function" use="required"/>
 															<xs:attribute name="value" use="required"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="addNavLinkOperation">
+														<xs:complexType>
+															<xs:attribute name="viewContainer" use="required"/>
+															<xs:attribute name="langKey" use="required"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="deleteNavLinkOperation">
+														<xs:complexType>
+															<xs:attribute name="viewContainer" use="required"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="redirectOperation">
+														<xs:complexType>
+															<xs:attribute name="viewContainer" use="required"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="clearNavOperation">
+													</xs:element>
+													<xs:element name="editCssClassOperation">
+														<xs:complexType>
+															<xs:attribute name="cssClass" use="required"/>
+															<xs:attribute name="cssAttribute" use="required"/>
+															<xs:attribute name="value" use="required"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="setDisplayProperty">
+														<xs:complexType>
+															<xs:attribute name="property" use="required"/>
+															<xs:attribute name="value" use="required"/>
+															<xs:attribute name="type" use="required"/>
 														</xs:complexType>
 													</xs:element>
 												</xs:choice>	

@@ -49,13 +49,13 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 				constructor(
 					private dcl: DynamicComponentLoader,
 					private injector: Injector,
-					private router: Router,
+					private _Router: Router,
 					private _logger: LoggerService,
 					private _ResourceService: ResourceService){
-						this.flow = nools.flow("«flow.attributes.getNamedItem("name").nodeValue»", function(flow){
-							«new NoolsRuleGenerator().generateCode(flow.childNodes, serviceMap, functionMap)»
-						}
-					}
+					this.flow = nools.flow("«flow.attributes.getNamedItem("name").nodeValue»", function(flow){
+						«new NoolsRuleGenerator().generateCode(flow.childNodes, serviceMap, functionMap)»
+					});
+				}
 					
 				public getSession(){
 					return this.flow.getSession();

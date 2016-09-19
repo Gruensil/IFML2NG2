@@ -21,10 +21,10 @@ public class NoolsConditionGenerator extends AbstractViewElementGenerator<Node>{
 				var condGroup = node.childNodes;
 				output += "(";
 				for(var i = 0;i < condGroup.length; i++){
-					output += condGroup.item(i).attributes.getNamedItem("fact").nodeValue + " " + condGroup.item(i).attributes.getNamedItem("operator").nodeValue + " ";
+					output += condGroup.item(i).attributes.getNamedItem("fact").nodeValue + " " + resolveOperator(condGroup.item(i).attributes.getNamedItem("operator").nodeValue) + " ";
 					if(condGroup.item(i).attributes.getNamedItem("type").nodeValue == "string"){
 						output += "'" + condGroup.item(i).attributes.getNamedItem("value").nodeValue + "'";
-					}else if(condGroup.item(i).attributes.getNamedItem("type").nodeValue == "boolean"){
+					}else if(condGroup.item(i).attributes.getNamedItem("type").nodeValue == "boolean" || condGroup.item(i).attributes.getNamedItem("type").nodeValue == "number"){
 						output += condGroup.item(i).attributes.getNamedItem("value").nodeValue;
 					}
 					if(i < condGroup.length-1){
@@ -34,16 +34,36 @@ public class NoolsConditionGenerator extends AbstractViewElementGenerator<Node>{
 				output += ""
 				output += ")";
 			}else{
-				output += node.attributes.getNamedItem("fact").nodeValue + " " + node.attributes.getNamedItem("operator").nodeValue + " ";
+				output += node.attributes.getNamedItem("fact").nodeValue + " " + resolveOperator(node.attributes.getNamedItem("operator").nodeValue) + " ";
 				if(node.attributes.getNamedItem("type").nodeValue == "string"){
 					output += "'" + node.attributes.getNamedItem("value").nodeValue + "'";
-				}else if(node.attributes.getNamedItem("type").nodeValue == "boolean"){
+				}else if(node.attributes.getNamedItem("type").nodeValue == "boolean" || node.attributes.getNamedItem("type").nodeValue == "number"){
 					output += node.attributes.getNamedItem("value").nodeValue;
 				}
 			}
 		}
 		
 		return output
+	}
+	
+	def protected resolveOperator(String op){
+		switch (op) {
+			case "lt": {
+				return "<";
+			}
+			case "lte": {
+				return "<=";
+			}
+			case "gt": {
+				return ">";
+			}
+			case "gte": {
+				return ">=";
+			}
+			default: {
+				return op;
+			}
+		}
 	}
 	
 	override protected prepareGeneration(Node conditions) {
