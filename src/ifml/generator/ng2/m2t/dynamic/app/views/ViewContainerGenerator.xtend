@@ -4,7 +4,6 @@ import ifml.generator.ng2.m2t.general.AbstractClassGenerator
 import IFML.Core.impl.ViewContainerImpl
 import IFML.Extensions.impl.ListImpl
 import IFML.Core.impl.DataBindingImpl
-import IFML.Core.impl.VisualizationAttributeImpl
 
 class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	
@@ -17,16 +16,19 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 			// Angular Imports
 			import { Component, OnInit } from '@angular/core';
 			import { Router } from '@angular/router';
+			import { NgClass } from '@angular/common';
 
 			// Service Imports
 			import { DataService } from '../services/data.service';
 			import { AuthenticationService } from '../services/authentication.service';
 			import { ResourceService } from '../services/resource.service';
+			import { ProfileService } from '../services/profile.service';
 			
 			@Component({
 				selector: '«it.name.toFirstLower»',
 				templateUrl: '«folderName»«fileName».html',
-				providers: [DataService,AuthenticationService]
+				providers: [DataService,AuthenticationService],
+				directives: [NgClass]
 			})
 			
 			export class «it.name.toFirstUpper»Component {
@@ -51,7 +53,8 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 					private _data: DataService,
 					private _auth: AuthenticationService,
 					private _router: Router,
-					private _resource: ResourceService){}
+					private _resource: ResourceService,
+					private _profile: ProfileService){}
 					
 				// stubs generated for view element events
 				«new ViewElementEventGenerator().generateCode(it.viewElements.toList)»

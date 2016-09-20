@@ -28,7 +28,8 @@ class Main {
 			
 			// copy files
 			fileManager.copyFiles(args.get(2), args.get(3));
-			var xsd = "C:\\Users\\STAH037\\workspace\\IFML2NG2\\data\\adapt.xsd";
+			//var xsd = "C:\\Users\\STAH037\\workspace\\IFML2NG2\\data\\adapt.xsd";
+			var xsd = "C:\\Users\\Hagen\\workspaceNeon\\IFML2NG2\\data\\adapt.xsd";
 			// Whether the loaded IFML model can be transformed by the generation tool
 			if(new ModelValidator().validate(ifmlModel) && new ModelValidator().validateAdaptFile(adaptModel, xsd)){
 				

@@ -39,5 +39,6 @@ export var lang_EN_US: LangString[] = [
     {key: 'welcomeLibsoft', text:'Welcome to Libsoft'},
 	
     {key: 'bookInfoVisualization', text:'Book Info'},
-    {key: 'bookStatusVisualization', text:'Status'}
+    {key: 'bookStatusVisualization', text:'Status'},
+	{key: 'dueDate', text:'due on'}
 ];

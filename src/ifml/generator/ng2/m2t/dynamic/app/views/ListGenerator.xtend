@@ -13,7 +13,7 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		 
 		output += '''
-			<table id="«listElement.id»" name="«listElement.name»" class="table table-striped table-hover table-condensed">
+			<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_profile.getProfile().displayProperties.tableClass">
 				<thead>
 		'''
 		

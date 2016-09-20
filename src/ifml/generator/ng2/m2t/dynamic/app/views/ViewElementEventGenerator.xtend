@@ -16,7 +16,7 @@ public class ViewElementEventGenerator {
 				// for each event
 				
 				// OnSelect
-				//ListImpl: output += new OnSelectEventGenerator().generateTemplate(viewElement)
+				ListImpl: output += new OnSelectEventGenerator().generateCode(viewElement)
 				
 				// OnSubmitEvent
 				FormImpl: output += new OnSubmitEventGenerator().generateCode(viewElement)

@@ -200,11 +200,12 @@ class ModelValidator {
 		
 		val outInteractionFlows = viewElementEvents.filter(typeof(OnSelectEvent)).map[e | e.outInteractionFlows].flatten;
 		
-		if(!outInteractionFlows.forall[ e | e.parameterBindingGroup.parameterBindings.length == 1]) {
+		//TODO
+		/*if(!outInteractionFlows.forall[ e | e.parameterBindingGroup.parameterBindings.length == 1]) {
 			
 			println("[ERROR] The current version of the M2T tool expects the outInteractionFlows associated with OnSelectEvents to have exactly ONE parameter binding")
 			return false;
-		}
+		}*/
 		
 		return true;
 	}

@@ -1,6 +1,8 @@
-		import {Injectable} from '@angular/core';
-		import {Router} from '@angular/router';
+		import { Injectable } from '@angular/core';
+		import { Router } from '@angular/router';
 		
+		import { ProfileService } from '../services/profile.service';
+
 		export class User {
 		  constructor(
 		    public email: string,
@@ -23,7 +25,8 @@
 		  public isLoggedIn: boolean;
 		
 		  constructor(
-		    private _router: Router){
+		    private _router: Router,
+			private profile: ProfileService){
 		      this.isLoggedIn = false;
 		    }
 		
@@ -33,16 +36,16 @@
 		    this._router.navigate(['login']);
 		  }
 		
-		  login(user){
-		    var authenticatedUser = users.find(u => u.email === user.email);
-		    if (authenticatedUser && authenticatedUser.password === user.password){
+		  login(username, pw){
+		    var authenticatedUser = users.find(u => u.email === username);
+		    if (authenticatedUser && authenticatedUser.password === pw){
 		      localStorage.setItem('user', JSON.stringify(authenticatedUser));
 		      this._router.navigate(['default']);
 		      this.isLoggedIn = true;
+			  this.profile.setUserRole(authenticatedUser.role);
 		      return true;
 		    }
 		    return false;
-		
 		  }
 		
 		  getName(){

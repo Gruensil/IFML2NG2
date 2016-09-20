@@ -1,6 +1,5 @@
 package ifml.generator.ng2.m2t.dynamic.app.services;
 
-import ifml.generator.ng2.m2t.general.AbstractViewElementGenerator
 import org.w3c.dom.NodeList
 import java.util.HashMap
 
@@ -32,7 +31,7 @@ public class NoolsActionGenerator{
 					}
 					case "deleteNavLinkOperation": {
 						output += '''
-							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.deleteNavigation('\«attr.getNamedItem("viewContainer").nodeValue»');
+							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.removeNavigationPath('\«attr.getNamedItem("viewContainer").nodeValue»');
 						'''
 					}
 					case "addNavLinkOperation": {
@@ -49,6 +48,22 @@ public class NoolsActionGenerator{
 						output += '''
 							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.clearNavigation();
 						'''
+					}
+					case "editCssClassOperation": {
+						output += '''
+							$('.«attr.getNamedItem("cssClass").nodeValue»').css('«attr.getNamedItem("cssAttribute").nodeValue»','«attr.getNamedItem("value").nodeValue»');
+						'''
+					}
+					case "setDisplayProperty": {
+						if (attr.getNamedItem("type") == null || attr.getNamedItem("type").nodeValue == "string") {
+							output += '''
+								facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.«attr.getNamedItem("property").nodeValue» = '«attr.getNamedItem("value").nodeValue»';
+							'''
+						}else{
+							output += '''
+								facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.«attr.getNamedItem("property").nodeValue» = «attr.getNamedItem("value").nodeValue»;
+							'''
+						}
 					}
 					default: {
 						output += "//unknown action: " + action.nodeName;	

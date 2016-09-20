@@ -111,7 +111,7 @@
 														<xs:complexType>
 															<xs:attribute name="property" use="required"/>
 															<xs:attribute name="value" use="required"/>
-															<xs:attribute name="type" use="required"/>
+															<xs:attribute name="type"/>
 														</xs:complexType>
 													</xs:element>
 												</xs:choice>	
