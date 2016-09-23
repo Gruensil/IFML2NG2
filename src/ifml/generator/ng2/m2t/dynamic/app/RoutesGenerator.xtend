@@ -1,7 +1,5 @@
 package ifml.generator.ng2.m2t.dynamic.app
 
-import IFML.Extensions.IFMLWindow
-
 import ifml.generator.ng2.m2t.general.AbstractFileGenerator
 import IFML.Core.impl.ViewContainerImpl
 

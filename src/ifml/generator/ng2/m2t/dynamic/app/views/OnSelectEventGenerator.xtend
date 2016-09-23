@@ -1,7 +1,6 @@
 package ifml.generator.ng2.m2t.dynamic.app.views
 
 import IFML.Core.ViewElement
-import IFML.Extensions.impl.OnSubmitEventImpl
 import IFML.Core.impl.IFMLActionImpl
 import IFML.Extensions.impl.OnSelectEventImpl
 import IFML.Core.impl.ViewContainerImpl
@@ -31,7 +30,7 @@ public class OnSelectEventGenerator {
 			}else if(outInteractionFlow.targetInteractionFlowElement instanceof ViewContainerImpl){
 				output += '''
 					«event.name»(){
-						_router.navigate['/«outInteractionFlow.targetInteractionFlowElement.name.toFirstLower»']
+						this._router.navigate['/«outInteractionFlow.targetInteractionFlowElement.name.toFirstLower»']
 					}
 				''';
 			}

@@ -53,9 +53,10 @@ export class ResourceService {
                 return s.key == key;
             });
             console.log(key);
-            return langString.text;
-        }else{
-            return undefined;
+			if(langString != undefined){
+				return langString.text;
+			}
         }
+		return key;
     }
 }

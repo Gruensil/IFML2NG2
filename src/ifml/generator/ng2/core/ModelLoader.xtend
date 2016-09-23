@@ -12,16 +12,22 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import javax.xml.parsers.DocumentBuilderFactory
 import java.io.File
 import org.w3c.dom.Document
+import org.eclipse.uml2.uml.Model
+import org.eclipse.uml2.uml.UMLPackage
+import org.eclipse.emf.ecore.EcorePackage
 
 class ModelLoader {
 
 	// File Extensions
 	public static final String IFML_MODEL_FILE_EXTENSION = "core"
+	public static final String UML_MODEL_FILE_EXTENSION = "uml" 
 	
 	// Meta-models' URI
 	public static final String IFML_CORE_EPACKAGE_URI = "'http://www.omg.org/spec/20130218/core'" 
 	public static final String IFML_EXTENSIONS_EPACKAGE_URI = "'http://www.omg.org/spec/20130218/ext'" 
 	public static final String IFML_DATATYPE_EPACKAGE_URI = "'http://www.omg.org/spec/20130218/data'"
+	public static final String UML_EPACKAGE_URI = "'http://www.eclipse.org/uml2/5.0.0/UML'"
+	
 	
 	def IFMLModel loadIFMLModel(String pathToIFMLFile) {
 
@@ -42,6 +48,26 @@ class ModelLoader {
 		val ifmlModel = ifmlResource.contents.filter[e|e instanceof IFMLModel]?.get(0) as IFMLModel
 
 		return ifmlModel;
+
+	}
+	
+	def Model loadUMLModel(String pathToUMLFile) {
+
+		// Register the UML Package 
+		EPackage.Registry::INSTANCE.put(UML_EPACKAGE_URI, UMLPackage::eINSTANCE)
+
+		// Register the model factories 
+		Resource::Factory.Registry::INSTANCE.extensionToFactoryMap.put(UML_MODEL_FILE_EXTENSION,
+			new XMIResourceFactoryImpl)
+
+		// Instantiate the resource set				
+		val resourceSet = new ResourceSetImpl
+
+		// Extract & parse the UML model
+		val umlResource = resourceSet.getResource(URI::createURI(pathToUMLFile), true)
+		val umlModel = umlResource.contents.filter[e|e instanceof Model]?.get(0) as Model;
+
+		return umlModel
 
 	}
 	

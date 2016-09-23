@@ -19,6 +19,8 @@
 		  new User('rich','rich','student', '1231233', 'Richard', 'Roe')
 		];
 		
+		declare var $: any;
+		
 		@Injectable()
 		export class AuthenticationService {
 		
@@ -74,10 +76,24 @@
 		    }else{
 		      if(user.role !== "staff")
 		      {
-		        this._router.navigate(['default']);
+		        this._router.navigate(['/']);
 		      }
 		    }
 		  }
+		  
+		  checkPrivilegesIncludeOne(roleArray){
+			var user: User;
+		    user = JSON.parse(localStorage.getItem('user'));
+		    if (user === null){
+		        this._router.navigate(['/']);
+		    }else{
+				var result = $.grep(roleArray, function(e){ return e.role == user.role; });
+				if (result.length == 0) {
+					this._router.navigate(['/home']);
+				}
+			}
+		  }	
+		  
 		
 		  isStaff(){
 		    if (localStorage.getItem('user') !== null && JSON.parse(localStorage.getItem("user")).role === 'staff'){

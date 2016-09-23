@@ -1,6 +1,5 @@
 package ifml.generator.ng2.m2t.dynamic.app.services;
 
-import ifml.generator.ng2.m2t.general.AbstractViewElementGenerator
 import org.w3c.dom.NodeList
 import java.util.HashMap
 

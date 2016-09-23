@@ -11,7 +11,6 @@ import IFML.Core.ViewElementEvent
 import IFML.Core.IFMLParameter
 import java.util.ArrayList
 import IFML.Core.NamedElement
-import IFML.Extensions.IFMLWindow
 import IFML.Extensions.List
 import IFML.Extensions.Form
 import IFML.Extensions.Details
@@ -19,13 +18,9 @@ import IFML.Core.DataBinding
 import IFML.Core.VisualizationAttribute
 import IFML.Extensions.Field
 import IFML.Extensions.OnSelectEvent
-import java.io.InputStream
 import javax.xml.validation.SchemaFactory
 import javax.xml.XMLConstants
-import javax.xml.validation.Schema
 import javax.xml.transform.stream.StreamSource
-import javax.xml.parsers.DocumentBuilder
-import javax.xml.parsers.DocumentBuilderFactory
 import java.io.File
 import javax.xml.transform.dom.DOMSource
 import org.xml.sax.SAXException

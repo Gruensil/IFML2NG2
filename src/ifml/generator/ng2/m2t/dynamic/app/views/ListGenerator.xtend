@@ -3,6 +3,12 @@ package ifml.generator.ng2.m2t.dynamic.app.views;
 import IFML.Extensions.impl.ListImpl;
 import ifml.generator.ng2.m2t.general.AbstractViewElementGenerator
 import IFML.Extensions.impl.OnSelectEventImpl
+import IFML.Core.impl.UMLStructuralFeatureImpl
+import IFML.Core.impl.VisualizationAttributeImpl
+import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
+import org.eclipse.uml2.uml.internal.impl.PropertyImpl
+import org.eclipse.uml2.uml.StructuralFeature
+import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
 
 public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 	
@@ -19,9 +25,17 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 		
 		for(attribute : visualizationAttributes){
 			output += '''
+				«IF (((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl»
 				<th>
-					{{_resource.getLangString('«attribute.name»')}}
+					{{_resource.getLangString('«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»')}}
 				</th>
+				«ELSE»
+					«FOR ref : UMLReferenceResolver::sharedInstance.getOwnedAttributesShort(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature)»
+						<th>
+							{{_resource.getLangString('«ref»')}}
+						</th>
+					«ENDFOR»
+				«ENDIF»
 			'''
 		}
 		
@@ -33,19 +47,27 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 		if(!listElement.viewElementEvents.isEmpty()) {
 			var onSelectEvent = listElement.viewElementEvents.filter(OnSelectEventImpl).get(0)
 			output += '''
-				<tr *ngFor="let el of «dataBinding.name»" (click)="«onSelectEvent.name»()">
+				<tr *ngFor="let el of «dataBinding.name.toFirstLower»" (click)="«onSelectEvent.name»()">
 			'''
 		}else{
 			output += '''
-				<tr *ngFor="let el of «dataBinding.name»">
+				<tr *ngFor="let el of «dataBinding.name.toFirstLower»">
 			'''
 		}
 		
 		for(attribute : visualizationAttributes){
-			output += '''			
+			output += '''	
+				«IF (((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl»
 				<td>
-					{{el.«attribute.name»}}
+					{{el.«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»}}
 				</td>
+				«ELSE»
+					«FOR ref : UMLReferenceResolver::sharedInstance.getOwnedAttributesLong(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature)»
+						<td>
+							{{el.«ref»}}
+						</td>
+					«ENDFOR»
+				«ENDIF»
 			'''
 		}			
 		

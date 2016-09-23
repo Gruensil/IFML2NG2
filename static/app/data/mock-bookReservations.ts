@@ -3,7 +3,7 @@ import {STUDENTS} from './mock-students';
 import {BOOKS} from './mock-books';
 
 export var BOOKRESERVATIONS: BookReservation[] = [
-    {student: STUDENTS[1],book: BOOKS[0]},
-    {student: STUDENTS[0],book: BOOKS[1]},
-    {student: STUDENTS[2],book: BOOKS[3]},
+    {reservedBy: STUDENTS[1],reservedBook: BOOKS[0]},
+    {reservedBy: STUDENTS[0],reservedBook: BOOKS[1]},
+    {reservedBy: STUDENTS[2],reservedBook: BOOKS[3]},
 ];

@@ -7,7 +7,7 @@ class ParametersValidator {
 	def Boolean validate(String[] args) {
 
 		// Whether the correct number of parameters was passed
-		if (args != null && args.length() == 4) {
+		if (args != null && args.length() == 5) {
 
 			val validPaths = validatePaths(args.get(0), args.get(1));
 			val validFiles = validateFiles(args.map[f|new File(f)]);

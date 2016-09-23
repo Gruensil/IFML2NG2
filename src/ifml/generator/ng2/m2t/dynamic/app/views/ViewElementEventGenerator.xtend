@@ -4,7 +4,6 @@ import java.util.List
 import IFML.Extensions.impl.ListImpl
 import IFML.Core.ViewElement
 import IFML.Extensions.impl.FormImpl
-import IFML.Extensions.impl.DetailsImpl
 
 public class ViewElementEventGenerator {
 	

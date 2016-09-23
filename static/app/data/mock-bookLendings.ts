@@ -3,5 +3,5 @@ import {STUDENTS} from './mock-students';
 import {BOOKS} from './mock-books';
 
 export var BOOKLENDINGS: BookLending[] = [
-    {student: STUDENTS[1],book: BOOKS[5],until:new Date(2016,10,31)}
+    {lentBy: STUDENTS[1],lentBook: BOOKS[5],until:new Date(2016,10,31)}
 ];

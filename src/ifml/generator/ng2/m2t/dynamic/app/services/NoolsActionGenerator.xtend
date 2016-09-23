@@ -31,12 +31,12 @@ public class NoolsActionGenerator{
 					}
 					case "deleteNavLinkOperation": {
 						output += '''
-							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.removeNavigationPath('\«attr.getNamedItem("viewContainer").nodeValue»');
+							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.removeNavigationPath('/«attr.getNamedItem("viewContainer").nodeValue»');
 						'''
 					}
 					case "addNavLinkOperation": {
 						output += '''
-							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.pushNavigation({path:'\«attr.getNamedItem("viewContainer").nodeValue»',key:'«attr.getNamedItem("langKey").nodeValue»'});
+							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.pushNavigation({path:'/«attr.getNamedItem("viewContainer").nodeValue»',key:'«attr.getNamedItem("langKey").nodeValue»'});
 						'''
 					}
 					case "redirectOperation": {
