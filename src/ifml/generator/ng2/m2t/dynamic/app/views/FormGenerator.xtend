@@ -19,7 +19,7 @@ public class FormGenerator extends AbstractViewElementGenerator<FormImpl>{
 		for(field : fields){
 			output += '''
 				<div class="form-group">
-					<label for="«field.id»" class="col-sm-2 control-label">«field.name.toFirstUpper»</label>
+					<label for="«field.id»" class="col-sm-2 control-label">{{_resource.getLangString('«field.name»')}}</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="«field.id»" [(ngModel)]="«field.name»">
 					</div>
@@ -30,7 +30,7 @@ public class FormGenerator extends AbstractViewElementGenerator<FormImpl>{
 		output += '''
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button id="«onSubmitEvent.id»" name="«onSubmitEvent.name»" (click)="«onSubmitEvent.name»()" type="submit" class="btn btn-default">«onSubmitEvent.name»</button>
+						<button id="«onSubmitEvent.id»" name="«onSubmitEvent.name»" (click)="«onSubmitEvent.name»()" type="submit" class="btn btn-default">{{_resource.getLangString('«onSubmitEvent.name»')}}</button>
 					</div>
 				</div>
 		'''

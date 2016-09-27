@@ -26,7 +26,7 @@ export var lang_DE_DE: LangString[] = [
     {key: 'search', text:'Suche nach...'},
 
     {key: 'back', text:'Zurück'},
-    {key: 'email', text:'Email'},
+    {key: 'username', text:'Benutzer'},
     {key: 'welcome', text:'Willkommen'},
     {key: 'password', text:'Passwort'},
     {key: 'login', text:'Einloggen'},

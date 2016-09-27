@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_EGEcMIDjEea11dlfBOUHWQ">
+  <interactionFlowModel id="_h3pkgIC1Eea2S59Os6LSKA">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_h3vrIIC1Eea2S59Os6LSKA" name="searchBooks">
+      <annotations text="&lt;&lt;authenticationRequirement>> role==staff || role==student"/>
+      <viewElements xsi:type="ext:List" id="_nhxOsIC1Eea2S59Os6LSKA" name="inventoryList">
+        <parameters id="_INUe4IC2Eea2S59Os6LSKA" name="bookBinding">
+          <type xsi:type="uml:Class" href="models/test5555.uml#_8kpXIYCrEeakIrkbdVKNbg"/>
+        </parameters>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_7rjRUIC-Eea2S59Os6LSKA" name="issueBook">
+          <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_-ICh4IC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.4"/>
+        </viewElementEvents>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="__KCKYIC-Eea2S59Os6LSKA" name="reserveBook">
+          <annotations text="&lt;&lt;authenticationRequirement>> role==student"/>
+          <outInteractionFlows xsi:type="core:DataFlow" id="_DRRFgIC_Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.5"/>
+        </viewElementEvents>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_GoHFgIC_Eea2S59Os6LSKA" name="returnBook">
+          <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+          <outInteractionFlows xsi:type="core:DataFlow" id="_LbiYQIC_Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.6"/>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="core:DataBinding" id="_sU8p0IC1Eea2S59Os6LSKA" name="bookBinding" domainConcept="//@domainModel/@domainElements.0">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_vs3A0IC1Eea2S59Os6LSKA" name="vBookInfo" featureConcept="//@domainModel/@domainElements.3"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_C9F7YIC2Eea2S59Os6LSKA" name="vBookStatus" featureConcept="//@domainModel/@domainElements.2"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_QD7OwIC2Eea2S59Os6LSKA" name="login" isDefault="true">
+      <viewElements xsi:type="ext:Form" id="_Y2-YwIC2Eea2S59Os6LSKA" name="loginForm">
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_bTzt8IC-Eea2S59Os6LSKA" name="login">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_gi-hgIC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.3"/>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_b4DkIIC2Eea2S59Os6LSKA" name="username">
+          <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </viewComponentParts>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_jZkNwIC2Eea2S59Os6LSKA" name="password">
+          <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_U0HnUIC2Eea2S59Os6LSKA" name="home" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.3/@outInteractionFlows.0">
+      <annotations text="&lt;&lt;authenticationRequirement>> role==staff || role==student"/>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_emQWIIC-Eea2S59Os6LSKA" name="loginAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
+      <outInteractionFlows xsi:type="core:NavigationFlow" id="_hPQ_wIC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_mnIcUIC-Eea2S59Os6LSKA" name="lendingForm" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
+      <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+      <viewElements xsi:type="ext:Form" id="_qHY3AIC-Eea2S59Os6LSKA" name="lendingForm">
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_sMO8cIDmEea8AL0yBf-zEA" name="issueBook">
+          <outInteractionFlows xsi:type="core:DataFlow" id="_yHA40IDmEea8AL0yBf-zEA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.9"/>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_r3EE4IC-Eea2S59Os6LSKA" name="bookISBN">
+          <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </viewComponentParts>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_xFSdQIC-Eea2S59Os6LSKA" name="studentID">
+          <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </viewComponentParts>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_2MuRIIC-Eea2S59Os6LSKA" name="dueDate">
+          <type xsi:type="uml:PrimitiveType" href="pathmap://UML_METAMODELS/Ecore.metamodel.uml#EDate"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_A2qEQIC_Eea2S59Os6LSKA" name="reserveBookAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.1/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_IaebAIC_Eea2S59Os6LSKA" name="returnBookAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.2/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_NQWk0IC_Eea2S59Os6LSKA" name="lentBooks">
+      <annotations text="&lt;&lt;authenticationRequirement>> role==student"/>
+      <viewElements xsi:type="ext:List" id="_P27lgIC_Eea2S59Os6LSKA" name="lentBooks">
+        <parameters id="_5M-goIC_Eea2S59Os6LSKA" name="lentBooksBinding">
+          <type xsi:type="uml:Class" href="models/test5555.uml#_8kpXMICrEeakIrkbdVKNbg"/>
+        </parameters>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_IN_owIDAEea2S59Os6LSKA" name="extendBook">
+          <outInteractionFlows xsi:type="core:DataFlow" id="_L9GXwIDAEea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.8"/>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="core:DataBinding" id="_UloJQIC_Eea2S59Os6LSKA" name="lentBooksBinding" domainConcept="//@domainModel/@domainElements.9">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_YqUtwIC_Eea2S59Os6LSKA" name="vLentBook" featureConcept="//@domainModel/@domainElements.11"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_rvp_4IC_Eea2S59Os6LSKA" name="vLentBy" featureConcept="//@domainModel/@domainElements.12"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_xOtCgIC_Eea2S59Os6LSKA" name="vDueDate" featureConcept="//@domainModel/@domainElements.10"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_JjYHUIDAEea2S59Os6LSKA" name="extendBookAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.7/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_vV7RQIDmEea8AL0yBf-zEA" name="issueBookAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.4/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+  </interactionFlowModel>
+  <domainModel id="_EGEcMYDjEea11dlfBOUHWQ">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_EGONMIDjEea11dlfBOUHWQ" name="Book" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0">
+      <classifier xsi:type="uml:Class" href="test5555.uml#_8kpXIYCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0QIDjEea11dlfBOUHWQ" name="bookId">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXIoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0QYDjEea11dlfBOUHWQ" name="bookStatus">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXJICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0QoDjEea11dlfBOUHWQ" name="bookInfo">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXJoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0Q4DjEea11dlfBOUHWQ" name="BookInfo">
+      <classifier xsi:type="uml:Class" href="test5555.uml#_8kpXJ4CrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0RIDjEea11dlfBOUHWQ" name="isbn">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXKICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0RYDjEea11dlfBOUHWQ" name="title">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXKoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0RoDjEea11dlfBOUHWQ" name="author">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXLICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0R4DjEea11dlfBOUHWQ">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXL4CrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0SIDjEea11dlfBOUHWQ" name="BookLending" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.7/@viewElements.0/@viewComponentParts.0">
+      <classifier xsi:type="uml:Class" href="test5555.uml#_8kpXMICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0SYDjEea11dlfBOUHWQ" name="until">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXMYCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0SoDjEea11dlfBOUHWQ" name="lentBook">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXM4CrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0S4DjEea11dlfBOUHWQ" name="lentBy">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXNICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0TIDjEea11dlfBOUHWQ">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXNoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0TYDjEea11dlfBOUHWQ" name="Student">
+      <classifier xsi:type="uml:Class" href="test5555.uml#_8kpXN4CrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0ToDjEea11dlfBOUHWQ" name="studentId">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXOICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0T4DjEea11dlfBOUHWQ" name="firstname">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXOoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0UIDjEea11dlfBOUHWQ" name="lastname">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXPICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0UYDjEea11dlfBOUHWQ" name="studentStatus">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXPoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0UoDjEea11dlfBOUHWQ">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXQYCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0U4DjEea11dlfBOUHWQ" name="BookReservation">
+      <classifier xsi:type="uml:Class" href="test5555.uml#_8kpXQoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0VIDjEea11dlfBOUHWQ" name="reservedBy">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXQ4CrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0VYDjEea11dlfBOUHWQ" name="reservedBook">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXRICrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0VoDjEea11dlfBOUHWQ">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXRoCrEeakIrkbdVKNbg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0V4DjEea11dlfBOUHWQ">
+      <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXSICrEeakIrkbdVKNbg"/>
+    </domainElements>
+  </domainModel>
+</core:IFMLModel>

@@ -168,7 +168,7 @@
 				<setDisplayProperty property="tableClass" value="table table-striped table-hover table-condensed textSecondary"/>
 			</actions>
 		</adaptationRule>
-				<adaptationRule name="Ülatform Desktop" priority="6" factType="Profile" factName="m">
+				<adaptationRule name="Platform Desktop" priority="6" factType="Profile" factName="m">
 			<conditions>
 				<condition fact="m.getPlatform().getPlatformType()" operator="==" value="desktop" type="string"/>
 			</conditions>
@@ -176,29 +176,29 @@
 				<setDisplayProperty property="headerBarClass" value="row backgroundSecondary divLine borderSecondary"/>
 				<setDisplayProperty property="routerOutletClass" value="col-md-10"/>
 				<setDisplayProperty property="hideOnMobile" value=""/>
-				<setDisplayProperty property="navbarContainerClass" value="sidebar-navbar col-md-2"/>
-				<setDisplayProperty property="navbarWrapperClass" value="sidebar-wrapper backgroundSecondary"/>
-				<setDisplayProperty property="navbarHeaderClass" value="hideElement"/>
-				<setDisplayProperty property="navbarCollapseClass" value=""/>
-				<setDisplayProperty property="navbarItemListClass" value="sidebar-nav textPrimary"/>
-				<setDisplayProperty property="searchInputGroupClass" value="input-group col-md-6 col-md-offset-4"/>
+				<setDisplayProperty property="navbarContainerClass" value="sidebar-navbar col-md-2 backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarWrapperClass" value="sidebar-wrapper backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarHeaderClass" value="hideElement backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarCollapseClass" value="backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarItemListClass" value="sidebar-nav textPrimary backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="searchInputGroupClass" value="input-group col-md-6 col-md-offset-4 backgroundSecondary borderSecondary"/>
 				<setDisplayProperty property="isMobile" type="boolean" value="false"/>
 			</actions>
 		</adaptationRule>
-		<adaptationRule name="Environment Brightness Under 40" priority="6" factType="Profile" factName="m">
+		<adaptationRule name="Platform Mobile" priority="6" factType="Profile" factName="m">
 			<conditions>
 				<condition fact="m.getPlatform().getPlatformType()" operator="==" value="mobile" type="string"/>
 			</conditions>
 			<actions>
-				<setDisplayProperty property="headerBarClass" value="hideElement"/>
+				<setDisplayProperty property="headerBarClass" value="hideElement backgroundSecondary borderSecondary"/>
 				<setDisplayProperty property="routerOutletClass" value="col-md-12"/>
-				<setDisplayProperty property="hideOnMobile" value="hideElement"/>
-				<setDisplayProperty property="navbarContainerClass" value="navbar navbar-default navbar-custom"/>
-				<setDisplayProperty property="navbarWrapperClass" value="container-fluid"/>
-				<setDisplayProperty property="navbarHeaderClass" value="navbar-header"/>
-				<setDisplayProperty property="navbarCollapseClass" value="navbar-collapse collapse"/>
-				<setDisplayProperty property="navbarItemListClass" value="nav navbar-nav textPrimary"/>
-				<setDisplayProperty property="searchInputGroupClass" value="input-group"/>
+				<setDisplayProperty property="hideOnMobile" value="hideElement backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarContainerClass" value="navbar navbar-default navbar-custom backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarWrapperClass" value="container-fluid backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarHeaderClass" value="navbar-header backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarCollapseClass" value="navbar-collapse collapse backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarItemListClass" value="nav navbar-nav backgroundSecondary textPrimary"/>
+				<setDisplayProperty property="searchInputGroupClass" value="input-group backgroundSecondary borderSecondary"/>
 				<setDisplayProperty property="isMobile" type="boolean" value="true"/>
 			</actions>
 		</adaptationRule>

@@ -26,7 +26,7 @@ export var lang_EN_US: LangString[] = [
     {key: 'search', text:'Search for...'},
 
     {key: 'back', text:'Back'},
-    {key: 'email', text:'Email'},
+    {key: 'username', text:'Username'},
     {key: 'welcome', text:'Welcome'},
     {key: 'password', text:'Password'},
     {key: 'login', text:'Login'},

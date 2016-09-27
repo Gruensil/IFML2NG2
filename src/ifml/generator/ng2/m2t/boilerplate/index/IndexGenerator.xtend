@@ -17,8 +17,8 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 		    <script src="styles/bootstrap.min.js"></script>
 		
-		    <link rel="stylesheet" href="styles/styles.css">
 		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		    <link rel="stylesheet" href="styles/styles.css">
 		    <link rel="stylesheet" href="styles/sidebar.css">
 		    <link rel="stylesheet" href="styles/navigation.css">
 		
@@ -41,7 +41,7 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		  </head>
 		
 		  <!-- 3. Display the application -->
-		  <body>
+		  <body  class="textPrimary backgroundPrimary">
 		  	<h3>«it»</h3>
 		    <my-app></my-app>
 		  </body>
