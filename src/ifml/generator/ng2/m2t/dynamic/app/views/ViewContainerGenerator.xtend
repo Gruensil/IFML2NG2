@@ -139,7 +139,7 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 				</div>
 				<div class="col-md-10">
 					<div name="content">
-			 			«new ViewElementGenerator().generateCode(it.viewElements.toList)»
+		 	«new ViewElementGenerator().generateCode(it.viewElements.toList)»
 					</div>
 				</div>
 			</div>

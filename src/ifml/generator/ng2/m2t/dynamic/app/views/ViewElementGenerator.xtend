@@ -9,7 +9,7 @@ import IFML.Extensions.impl.DetailsImpl
 public class ViewElementGenerator {
 	
 	protected def String generateCode(List<ViewElement> viewElementList){
-		var output = ""
+		var output = "" 
 		
 		for (viewElement : viewElementList){
 			switch viewElement {

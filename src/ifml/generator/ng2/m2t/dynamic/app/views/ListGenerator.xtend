@@ -13,35 +13,36 @@ import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
 public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 	
 	override protected generateTemplate(ListImpl listElement) {
-		var output = ""
+		var output = "" 
 
 		var dataBinding = listElement.viewComponentParts.get(0)
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		 
 		output += '''
-			<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_profile.getProfile().displayProperties.tableClass">
-				<thead>
+			<div name="list" *ngIf="!_profile.getProfile().displayProperties.isMobile || (_profile.getProfile().displayProperties.isMobile && !selected«listElement.parameters.get(0).name.toFirstUpper»)">
+				<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_profile.getProfile().displayProperties.tableClass">
+					<thead>
 		'''
 		
 		for(attribute : visualizationAttributes){
 			output += '''
 				«IF (((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl»
-				<th>
-					{{_resource.getLangString('«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»')}}
-				</th>
+						<th>
+							{{_resource.getLangString('«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»')}}
+						</th>
 				«ELSE»
 					«FOR ref : UMLReferenceResolver::sharedInstance.getOwnedAttributesShort(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature)»
-						<th>
-							{{_resource.getLangString('«ref»')}}
-						</th>
+							<th>
+								{{_resource.getLangString('«ref»')}}
+							</th>
 					«ENDFOR»
 				«ENDIF»
 			'''
 		}
 		
 		output += '''
-				</thead>
-				<tbody>
+					</thead>
+					<tbody>
 		'''
 		
 		/*if(!listElement.viewElementEvents.isEmpty()) {
@@ -51,31 +52,34 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 			'''
 		}else{*/
 			output += '''
-				<tr *ngFor="#el of «dataBinding.name.toFirstLower»" (click)="onSelect(el)" [class.info]="el === selected«listElement.parameters.get(0).name.toFirstUpper»">
+					<tr *ngFor="#el of «dataBinding.name.toFirstLower»" (click)="onSelect(el)" [class.info]="el === selected«listElement.parameters.get(0).name.toFirstUpper»">
 			'''
 		//}
 		
 		for(attribute : visualizationAttributes){
 			output += '''	
 				«IF (((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl»
-				<td>
-					{{el.«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»}}
-				</td>
+					<td>
+						{{el.«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»}}
+					</td>
 				«ELSE»
 					«FOR ref : UMLReferenceResolver::sharedInstance.getOwnedAttributesLong(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature)»
-						<td>
-							{{el.«ref»}}
-						</td>
+							<td>
+								{{el.«ref»}}
+							</td>
 					«ENDFOR»
 				«ENDIF»
 			'''
 		}			
 		
 		output += '''
-					</tr>
-				</tbody>
-			</table>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		'''
+		//TODO only if no viewelement event with navigation flow!
+		output += new MobileDetailsGenerator().generateTemplate(listElement)
 		
 		if(!listElement.viewElementEvents.isEmpty()) {
 			var onSelectEvent = listElement.viewElementEvents.filter(OnSelectEventImpl).get(0)
