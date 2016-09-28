@@ -6,13 +6,15 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.uml2.uml.internal.impl.PropertyImpl
 import org.eclipse.uml2.uml.StructuralFeature
 import java.util.ArrayList
-import org.eclipse.uml2.uml.internal.impl.ClassImpl
+import org.w3c.dom.Document
 import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
+import org.eclipse.uml2.uml.internal.impl.ClassImpl
 
 class UMLReferenceResolver{
 	
 	private static UMLReferenceResolver INSTANCE
 	private Model MODEL
+	private Document DOCUMENT
 	
 	ArrayList<String> output
 	
@@ -28,6 +30,10 @@ class UMLReferenceResolver{
 	
 	def setUMLModel(Model m){
 		MODEL = m;
+	}
+	
+	def setUMLDocument(Document d){
+		DOCUMENT = d;
 	}
 	
 	// Returns name of domain concept
@@ -62,5 +68,19 @@ class UMLReferenceResolver{
 		}
 		
 		return output;
+	}
+	
+	// resolve ID
+	def String resolveProxyURI(URI proxyUri){
+		var modelRoot = DOCUMENT.childNodes
+		
+		for(el : MODEL.packagedElements){
+			if(el instanceof ClassImpl){
+				var attr = (el as ClassImpl)
+				println(attr);
+			}
+		}
+		println(proxyUri);
+		return "";
 	}
 }

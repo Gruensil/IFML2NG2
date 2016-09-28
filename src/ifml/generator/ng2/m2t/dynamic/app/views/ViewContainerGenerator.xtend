@@ -8,6 +8,8 @@ import java.util.ArrayList
 import IFML.Core.DomainConcept
 import IFML.Core.IFMLModel
 import IFML.Core.impl.InteractionFlowModelImpl
+import org.eclipse.uml2.uml.internal.impl.ClassImpl
+import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
 
 class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	
@@ -45,7 +47,9 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 				«FOR vElem : it.viewElements»
 					«FOR vParam : vElem.parameters»
 						//TODO resolve reference to uml model
-						Selected«vParam.name.toFirstUpper»:  any;
+						selected«vParam.name.toFirstUpper»:  any;
+						isSelected«vParam.name.toFirstUpper»:  boolean;
+						«UMLReferenceResolver.sharedInstance.resolveProxyURI((vParam.type as ClassImpl).eProxyURI)»
 					«ENDFOR»
 					«IF (vElem instanceof ListImpl)»
 						«FOR varCompPart : (vElem as ListImpl).viewComponentParts»
@@ -78,6 +82,18 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 							get«(varCompPart as DataBindingImpl).name.toFirstUpper»(){
 								// PROTECTED REGION ID «varCompPart.id».get«varCompPart.name.toFirstUpper» ENABLED START
 								// PROTECTED REGION END
+							}
+							
+							onSelect(el: «(varCompPart as DataBindingImpl).domainConcept.name»){
+								«FOR vParam : vElem.parameters»
+									if(this.selected«vParam.name.toFirstUpper» === el){
+										this.selected«vParam.name.toFirstUpper» = undefined;
+										this.isSelected«vParam.name.toFirstUpper» = false;
+									}else{
+										this.selected«vParam.name.toFirstUpper» = el;
+										this.isSelected«vParam.name.toFirstUpper» = true;
+									}
+								«ENDFOR»
 							}
 						«ENDFOR»
 					«ENDIF»

@@ -79,6 +79,11 @@ class ModelLoader {
 	    var parser = factory.newDocumentBuilder();
 	    var document = parser.parse(new File(pathToAdaptFile));
 	    
+	    document.documentElement.normalize
+	    
+	    println("root " + document.documentElement.nodeName)
+	    println("root child " + document.documentElement.firstChild.nodeName)
+	    
 	    return document;
 	}
 }

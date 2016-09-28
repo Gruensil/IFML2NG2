@@ -44,16 +44,16 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 				<tbody>
 		'''
 		
-		if(!listElement.viewElementEvents.isEmpty()) {
+		/*if(!listElement.viewElementEvents.isEmpty()) {
 			var onSelectEvent = listElement.viewElementEvents.filter(OnSelectEventImpl).get(0)
 			output += '''
 				<tr *ngFor="let el of «dataBinding.name.toFirstLower»" (click)="«onSelectEvent.name»()">
 			'''
-		}else{
+		}else{*/
 			output += '''
-				<tr *ngFor="let el of «dataBinding.name.toFirstLower»">
+				<tr *ngFor="#el of «dataBinding.name.toFirstLower»" (click)="onSelect(el)" [class.info]="el === selected«listElement.parameters.get(0).name.toFirstUpper»">
 			'''
-		}
+		//}
 		
 		for(attribute : visualizationAttributes){
 			output += '''	
@@ -76,6 +76,30 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 				</tbody>
 			</table>
 		'''
+		
+		if(!listElement.viewElementEvents.isEmpty()) {
+			var onSelectEvent = listElement.viewElementEvents.filter(OnSelectEventImpl).get(0)
+			output += '''
+				<button type="button" class="btn btn-default" (click)="«onSelectEvent.name»()" '''
+			
+			if(!onSelectEvent.annotations.isEmpty()){
+				for(annotation : onSelectEvent.annotations){
+					if(annotation.text.contains("<<activationExpression>")){
+						var expr = annotation.text.replace("<<activationExpression>>","").trim();
+						if(expr.contains("<<Parameter>>")){
+							expr = expr.replace("<<Parameter>>","").trim();
+							var pattern = "(=|>|<|>=|<|<=|<>|!=)";
+							var operator = expr.replaceAll("[a-zA-Z]*", "").trim();
+							var test = expr.split(pattern); 
+							output += '''[ngClass]="{disabled: !isSelected«test.get(0).trim.toFirstUpper»'''
+						}
+					}
+				}
+			}
+			
+			output += '''}">{{_resource.getLangString('«onSelectEvent.name»')}}</button>
+			'''
+		}
 		
 		return output
 	}

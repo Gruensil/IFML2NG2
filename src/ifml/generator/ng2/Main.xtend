@@ -25,8 +25,10 @@ class Main {
 			val modelLoader = new ModelLoader;
 			val umlResolver = UMLReferenceResolver::sharedInstance
 			val ifmlModel = modelLoader.loadIFMLModel(pathToIFMLFile)
+			val umlDocument = modelLoader.loadAdaptModel("C:\\Users\\Hagen\\workspaceNeon\\IFML2NG2\\data\\test.xml")
 			val umlModel = modelLoader.loadUMLModel(pathToUMLFile)
 			val adaptModel = modelLoader.loadAdaptModel(args.get(2))
+			umlResolver.UMLDocument = umlDocument
 			umlResolver.UMLModel = umlModel
 			
 			

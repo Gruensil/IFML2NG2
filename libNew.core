@@ -9,14 +9,17 @@
         </parameters>
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="_7rjRUIC-Eea2S59Os6LSKA" name="issueBook">
           <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+          <annotations text="&lt;&lt;activationExpression>> &lt;&lt;Parameter>>bookBinding != null"/>
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_-ICh4IC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.4"/>
         </viewElementEvents>
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="__KCKYIC-Eea2S59Os6LSKA" name="reserveBook">
           <annotations text="&lt;&lt;authenticationRequirement>> role==student"/>
+          <annotations text="&lt;&lt;activationExpression>> &lt;&lt;Parameter>>bookBinding != null"/>
           <outInteractionFlows xsi:type="core:DataFlow" id="_DRRFgIC_Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.5"/>
         </viewElementEvents>
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="_GoHFgIC_Eea2S59Os6LSKA" name="returnBook">
           <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+          <annotations text="&lt;&lt;activationExpression>> &lt;&lt;Parameter>>bookBinding != null"/>
           <outInteractionFlows xsi:type="core:DataFlow" id="_LbiYQIC_Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.6"/>
         </viewElementEvents>
         <viewComponentParts xsi:type="core:DataBinding" id="_sU8p0IC1Eea2S59Os6LSKA" name="bookBinding" domainConcept="//@domainModel/@domainElements.0">
