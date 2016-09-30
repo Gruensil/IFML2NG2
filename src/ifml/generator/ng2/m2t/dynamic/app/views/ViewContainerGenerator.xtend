@@ -23,6 +23,7 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 		var header = '''
 			// Angular Imports
 			import { Component, OnInit } from '@angular/core';
+			import { ActivatedRoute } from '@angular/router';
 			import { Router } from '@angular/router';
 			import { NgClass } from '@angular/common';
 
@@ -70,6 +71,7 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 					private _data: DataService,
 					private _auth: AuthenticationService,
 					private _router: Router,
+			    	private _route: ActivatedRoute,
 					private _resource: ResourceService,
 					private _profile: ProfileService){}
 				// stubs generated for view element events
@@ -110,6 +112,13 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 							«ENDFOR»
 						«ENDIF»
 					«ENDFOR»
+					
+					// Incoming Navigation Flows with Parameter Binding
+					«IF it.inInteractionFlows.size == 1 && it.inInteractionFlows.get(0).parameterBindingGroup != null»
+						this._route.params.subscribe(params => {
+							this.selected«it.inInteractionFlows.get(0).parameterBindingGroup.parameterBindings.get(0).targetParameter.name.toFirstUpper» = JSON.parse(decodeURI(params['«it.inInteractionFlows.get(0).parameterBindingGroup.parameterBindings.get(0).targetParameter.name»']));
+						});
+					«ENDIF»
 				}
 			}
 		'''

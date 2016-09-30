@@ -84,6 +84,44 @@
     </interactionFlowModelElements>
     <interactionFlowModelElements xsi:type="core:IFMLAction" id="_JjYHUIDAEea2S59Os6LSKA" name="extendBookAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.7/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
     <interactionFlowModelElements xsi:type="core:IFMLAction" id="_vV7RQIDmEea8AL0yBf-zEA" name="issueBookAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.4/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_4sXwUIXVEeace_i7152fMw" name="students">
+      <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+      <viewElements xsi:type="ext:List" id="_gNqwUIXWEeaLl5C1A6b47w" name="studentList">
+        <parameters id="_MOUloIXZEea1aaFpQThiAQ" name="studentBinding">
+          <type xsi:type="uml:Class" href="test5555.uml#_8kpXN4CrEeakIrkbdVKNbg"/>
+        </parameters>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_tuQgIIXZEea82rBnn6BioA" name="viewStudentDetails">
+          <annotations text="&lt;&lt;activationExpression>> &lt;&lt;Parameter>> studentBinding"/>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_1buiIIXZEea82rBnn6BioA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.11">
+            <parameterBindingGroup id="_4UKmQIaGEeaTJocisBH8lA">
+              <parameterBindings id="_8Cmm4IaGEeaTJocisBH8lA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.10/@viewElements.0/@parameters.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.11/@viewElements.0/@parameters.0"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="core:DataBinding" id="_lqgMcIXWEeaLl5C1A6b47w" name="studentBinding" domainConcept="//@domainModel/@domainElements.14">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_5VOOIIXXEeaJEJHswluAHA" name="vStudentId" featureConcept="//@domainModel/@domainElements.15"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_JqRJ8IXYEeaM0YwooZ6QlA" name="vStudentFirstname" featureConcept="//@domainModel/@domainElements.16">
+            <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_JqRJ8IXYEeaM0YwooZ6QlA" name="vStudentFirstname" featureConcept="//@domainModel/@domainElements.16"/>
+          </subViewComponentParts>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_ryjd4IXYEea1aaFpQThiAQ" name="vStudentLastname" featureConcept="//@domainModel/@domainElements.17"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_7Vu34IXYEea1aaFpQThiAQ" name="vStudentStatus" featureConcept="//@domainModel/@domainElements.18"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_oMKJgIXZEea82rBnn6BioA" name="studentDetails" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.10/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
+      <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+      <viewElements xsi:type="ext:Details" id="_LCX6cIXaEea82rBnn6BioA" name="studentDetails">
+        <parameters id="_ZnIj8IZUEeaEza32TP9ETw" name="studentBinding">
+          <type xsi:type="uml:Class" href="test5555.uml#_8kpXN4CrEeakIrkbdVKNbg"/>
+        </parameters>
+        <viewComponentParts xsi:type="core:DataBinding" id="_PkOVAIXaEea82rBnn6BioA" name="studentBinding">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_R3KA8IXaEea82rBnn6BioA" name="vStudentId" featureConcept="//@domainModel/@domainElements.15"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_wyr6AIZTEeaEza32TP9ETw" name="vStudentFirstname" featureConcept="//@domainModel/@domainElements.16"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_61CvwIZTEeaEza32TP9ETw" name="vStudentLastname" featureConcept="//@domainModel/@domainElements.17"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_-ZK90IZTEeaEza32TP9ETw" name="vStudentStatus" featureConcept="//@domainModel/@domainElements.18"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
   </interactionFlowModel>
   <domainModel id="_EGEcMYDjEea11dlfBOUHWQ">
     <domainElements xsi:type="core:UMLDomainConcept" id="_EGONMIDjEea11dlfBOUHWQ" name="Book" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0">
@@ -128,7 +166,7 @@
     <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0TIDjEea11dlfBOUHWQ">
       <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXNoCrEeakIrkbdVKNbg"/>
     </domainElements>
-    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0TYDjEea11dlfBOUHWQ" name="Student">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0TYDjEea11dlfBOUHWQ" name="Student" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.10/@viewElements.0/@viewComponentParts.0">
       <classifier xsi:type="uml:Class" href="test5555.uml#_8kpXN4CrEeakIrkbdVKNbg"/>
     </domainElements>
     <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0ToDjEea11dlfBOUHWQ" name="studentId">

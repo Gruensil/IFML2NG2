@@ -95,13 +95,13 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 							var pattern = "(=|>|<|>=|<|<=|<>|!=)";
 							var operator = expr.replaceAll("[a-zA-Z]*", "").trim();
 							var test = expr.split(pattern); 
-							output += '''[ngClass]="{disabled: !isSelected«test.get(0).trim.toFirstUpper»'''
+							output += '''[ngClass]="{disabled: !isSelected«test.get(0).trim.toFirstUpper»}"'''
 						}
 					}
 				}
 			}
 			
-			output += '''}">{{_resource.getLangString('«onSelectEvent.name»')}}</button>
+			output += '''>{{_resource.getLangString('«onSelectEvent.name»')}}</button>
 			'''
 		}
 		

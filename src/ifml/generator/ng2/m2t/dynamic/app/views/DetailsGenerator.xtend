@@ -2,6 +2,11 @@ package ifml.generator.ng2.m2t.dynamic.app.views;
 
 import ifml.generator.ng2.m2t.general.AbstractViewElementGenerator
 import IFML.Extensions.impl.DetailsImpl
+import IFML.Core.impl.VisualizationAttributeImpl
+import IFML.Core.impl.UMLStructuralFeatureImpl
+import org.eclipse.uml2.uml.StructuralFeature
+import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
+import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
 
 public class DetailsGenerator extends AbstractViewElementGenerator<DetailsImpl>{
 	
@@ -12,18 +17,32 @@ public class DetailsGenerator extends AbstractViewElementGenerator<DetailsImpl>{
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		
 		output += '''
-			<table id="«listElement.id»" name="«listElement.name»" class="table table-bordered table-condensed">
+			<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_profile.getProfile().displayProperties.tableClass">
 		'''
 		
 		for(attribute : visualizationAttributes){
 			output += '''
 				<tr>
 					<th>
-						«attribute.name.toFirstUpper»
+						{{_resource.getLangString('«attribute.name»')}}
 					</th>
+			'''
+			
+			output += '''	
+				«IF (((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl»
 					<td>
-						{{«attribute.name»}}
+						{{selected«listElement.parameters.get(0).name.toFirstUpper».«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»}}
 					</td>
+				«ELSE»
+					«FOR ref : UMLReferenceResolver::sharedInstance.getOwnedAttributesLong(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature)»
+							<td>
+								{{selected«listElement.parameters.get(0).name.toFirstUpper».«ref»}}
+							</td>
+					«ENDFOR»
+				«ENDIF»
+			'''
+			
+			output += '''			
 				</tr>
 			'''
 		}

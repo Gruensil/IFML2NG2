@@ -4,6 +4,7 @@ import IFML.Core.ViewElement
 import IFML.Core.impl.IFMLActionImpl
 import IFML.Extensions.impl.OnSelectEventImpl
 import IFML.Core.impl.ViewContainerImpl
+import IFML.Extensions.impl.ListImpl
 
 public class OnSelectEventGenerator {
 	
@@ -28,11 +29,19 @@ public class OnSelectEventGenerator {
 					}
 				''';
 			}else if(outInteractionFlow.targetInteractionFlowElement instanceof ViewContainerImpl){
-				output += '''
-					«event.name»(){
-						this._router.navigate['/«outInteractionFlow.targetInteractionFlowElement.name.toFirstLower»']
-					}
-				''';
+				if(outInteractionFlow.parameterBindingGroup != null){
+					output += '''
+						«event.name»(){
+							this._router.navigate(['/«outInteractionFlow.targetInteractionFlowElement.name.toFirstLower»', {«outInteractionFlow.parameterBindingGroup.parameterBindings.get(0).targetParameter.name»: JSON.stringify(this.selected«outInteractionFlow.parameterBindingGroup.parameterBindings.get(0).sourceParameter.name.toFirstUpper»)}]);
+						}
+					''';
+				}else{
+					output += '''
+						«event.name»(){
+							this._router.navigate(['/«outInteractionFlow.targetInteractionFlowElement.name.toFirstLower»']);
+						}
+					''';
+				}
 			}
 			else{
 				output += '''
