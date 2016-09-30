@@ -47,9 +47,15 @@
     <interactionFlowModelElements xsi:type="core:IFMLAction" id="_emQWIIC-Eea2S59Os6LSKA" name="loginAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
       <outInteractionFlows xsi:type="core:NavigationFlow" id="_hPQ_wIC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_mnIcUIC-Eea2S59Os6LSKA" name="lendingForm" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_mnIcUIC-Eea2S59Os6LSKA" name="lendingForm" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.12/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
       <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
       <viewElements xsi:type="ext:Form" id="_qHY3AIC-Eea2S59Os6LSKA" name="lendingForm">
+        <parameters id="_znOLoIaqEeaTJocisBH8lA" name="reservationBinding">
+          <type xsi:type="uml:Class" href="models/test5555.uml#_8kpXQoCrEeakIrkbdVKNbg"/>
+        </parameters>
+        <parameters id="_7pnUwIaqEeaTJocisBH8lA" name="bookBinding">
+          <type xsi:type="uml:Class" href="models/test5555.uml#_8kpXIYCrEeakIrkbdVKNbg"/>
+        </parameters>
         <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_sMO8cIDmEea8AL0yBf-zEA" name="issueBook">
           <outInteractionFlows xsi:type="core:DataFlow" id="_yHA40IDmEea8AL0yBf-zEA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.9"/>
         </viewElementEvents>
@@ -122,6 +128,25 @@
         </viewComponentParts>
       </viewElements>
     </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_tPI6IIaoEeaTJocisBH8lA" name="bookReservations">
+      <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
+      <viewElements xsi:type="ext:List" id="_wYEZ8IaoEeaTJocisBH8lA" name="reservationsList">
+        <parameters id="_4C-QIIaoEeaTJocisBH8lA" name="reservationBinding">
+          <type xsi:type="uml:Class" href="test5555.uml#_8kpXQoCrEeakIrkbdVKNbg"/>
+        </parameters>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_Qy4NgIarEeaTJocisBH8lA" name="issueBook">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_WarjgIarEeaTJocisBH8lA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.4">
+            <parameterBindingGroup id="_injJAIarEeaTJocisBH8lA">
+              <parameterBindings id="_mNFFQIarEeaTJocisBH8lA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.4/@viewElements.0/@parameters.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.12/@viewElements.0/@parameters.0"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="core:DataBinding" id="_zM55EIaoEeaTJocisBH8lA" name="reservationBinding" domainConcept="//@domainModel/@domainElements.20">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_GhM0QIapEeaTJocisBH8lA" name="vReservedBy" featureConcept="//@domainModel/@domainElements.21"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_MwqAIIapEeaTJocisBH8lA" name="vReservedBook" featureConcept="//@domainModel/@domainElements.22"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
   </interactionFlowModel>
   <domainModel id="_EGEcMYDjEea11dlfBOUHWQ">
     <domainElements xsi:type="core:UMLDomainConcept" id="_EGONMIDjEea11dlfBOUHWQ" name="Book" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0">
@@ -184,7 +209,7 @@
     <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0UoDjEea11dlfBOUHWQ">
       <structuralFeature xsi:type="uml:Property" href="test5555.uml#_8kpXQYCrEeakIrkbdVKNbg"/>
     </domainElements>
-    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0U4DjEea11dlfBOUHWQ" name="BookReservation">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_EGO0U4DjEea11dlfBOUHWQ" name="BookReservation" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.12/@viewElements.0/@viewComponentParts.0">
       <classifier xsi:type="uml:Class" href="test5555.uml#_8kpXQoCrEeakIrkbdVKNbg"/>
     </domainElements>
     <domainElements xsi:type="core:UMLStructuralFeature" id="_EGO0VIDjEea11dlfBOUHWQ" name="reservedBy">

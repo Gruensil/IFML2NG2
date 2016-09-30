@@ -85,7 +85,7 @@
 				<clearNavOperation/>
 				<addNavLinkOperation viewContainer="searchBooks" langKey="books"/>
 				<addNavLinkOperation viewContainer="students" langKey="students"/>
-				<addNavLinkOperation viewContainer="reservations" langKey="reservations"/>
+				<addNavLinkOperation viewContainer="bookReservations" langKey="bookReservations"/>
 				<addNavLinkOperation viewContainer="lendingForm" langKey="lendingForm"/>
 			</actions>
 		</adaptationRule>
