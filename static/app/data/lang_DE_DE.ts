@@ -32,14 +32,23 @@ export var lang_DE_DE: LangString[] = [
     {key: 'login', text:'Einloggen'},
     {key: 'studentID', text:'Matrikelnummer'},
     {key: 'reserveBook', text:'Buch reservieren'},
-
-    {key: 'bookIsbn', text:'ISBN'},
+	
     {key: 'bookTitle', text:'Titel'},
     {key: 'isbn', text:'ISBN'},
     {key: 'welcomeLibsoft', text:'Willkommen bei Libsoft'},
 	
     {key: 'vBookInfo', text:'Buchinfo'},
     {key: 'vBookStatus', text:'Status'},
-	{key: 'dueDate', text:'fällig am'}
+	{key: 'dueDate', text:'fällig am'},
+	
+    {key: 'vStudentId', text:'Matrikelnummer'},
+    {key: 'vStudentFirstname', text:'Vorname'},
+    {key: 'vStudentLastname', text:'Nachname'},
+    {key: 'vStudentStatus', text:'Status'},
+    {key: 'studentId', text:'Matrikelnummer'},
+    {key: 'studentStatus', text:'Status'},
+    {key: 'bookISBN', text:'ISBN'},
+    {key: 'bookStatus', text:'Verfügbarkeit'},
+    {key: 'viewStudentDetails', text:'Details anzeigen'}
 	
 ];

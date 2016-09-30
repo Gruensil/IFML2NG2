@@ -40,5 +40,15 @@ export var lang_EN_US: LangString[] = [
 	
     {key: 'vBookInfo', text:'Book Info'},
     {key: 'vBookStatus', text:'Status'},
-	{key: 'dueDate', text:'due on'}
+	{key: 'dueDate', text:'due on'},
+	
+    {key: 'vStudentId', text:'Student ID'},
+    {key: 'vStudentFirstname', text:'Firstname'},
+    {key: 'vStudentLastname', text:'Lastname'},
+    {key: 'vStudentStatus', text:'Status'},
+    {key: 'studentId', text:'Student ID'},
+    {key: 'studentStatus', text:'Status'},
+    {key: 'bookISBN', text:'ISBN'},
+    {key: 'bookStatus', text:'Availability'},
+    {key: 'viewStudentDetails', text:'Show Details'}
 ];
