@@ -10,6 +10,7 @@ import IFML.Core.IFMLModel
 import IFML.Core.impl.InteractionFlowModelImpl
 import org.eclipse.uml2.uml.internal.impl.ClassImpl
 import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
+import ifml.generator.ng2.m2t.dynamic.app.dynamic.NavbarGenerator
 
 class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	

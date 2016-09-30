@@ -1,4 +1,4 @@
-package ifml.generator.ng2.m2t.dynamic.app.views;
+package ifml.generator.ng2.m2t.dynamic.app.dynamic;
 
 import IFML.Core.impl.ViewContainerImpl
 import ifml.generator.ng2.m2t.general.AbstractClassGenerator
