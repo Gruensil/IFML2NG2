@@ -28,6 +28,8 @@ class SearchComponentGenerator extends AbstractClassGenerator<ViewContainerImpl>
 			    public advancedFilter: Object = {};
 			    @Input() title: string = "";
 			
+			    @Output() onFilterUpdate = new EventEmitter<Object>();
+			    
 			    constructor(
 			    	private _profile: ProfileService, 
 			    	private _resources: ResourceService) {

@@ -15,6 +15,8 @@ import ifml.generator.ng2.m2t.dynamic.app.data.ExportClassGenerator
 import org.eclipse.uml2.uml.internal.impl.ClassImpl
 import ifml.generator.ng2.m2t.dynamic.app.dynamic.NavbarGenerator
 import ifml.generator.ng2.m2t.dynamic.app.dynamic.SearchComponentGenerator
+import IFML.Extensions.impl.ListImpl
+import ifml.generator.ng2.m2t.dynamic.app.helper.PipeGenerator
 
 class CodeGenerator {
 
@@ -31,7 +33,7 @@ class CodeGenerator {
 		val classes = umlModel.allOwnedElements.filter(typeof(ClassImpl));
 		
 		// Dynamic Generation
-		// Export Classes
+		// Export Classes from uml model
 		classes.forEach[ c |
 			new ExportClassGenerator().generateFile(c);
 		]
@@ -42,6 +44,10 @@ class CodeGenerator {
 			// Dynamic Components
 			new NavbarGenerator().generateCode(w);
 			new SearchComponentGenerator().generateCode(w);
+			// 
+			w.viewElements.filter(typeof(ListImpl)).forEach[ l |
+				new PipeGenerator().generateFile(l);
+			]
 		]
 		// routes
 		new RoutesGenerator().generateFile(windows);

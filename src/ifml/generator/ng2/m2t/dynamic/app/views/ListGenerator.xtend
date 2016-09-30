@@ -20,6 +20,7 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 		 
 		output += '''
 			<div name="list" *ngIf="!_profile.getProfile().displayProperties.isMobile || (_profile.getProfile().displayProperties.isMobile && !selected«listElement.parameters.get(0).name.toFirstUpper»)">
+        		<search-component [searchSpace]="advancedSearchSpace" [title]="'Search'" (onFilterUpdate)="filterUpdated($event)"></search-component>
 				<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_profile.getProfile().displayProperties.tableClass">
 					<thead>
 		'''
@@ -52,7 +53,7 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 			'''
 		}else{*/
 			output += '''
-					<tr *ngFor="#el of «dataBinding.name.toFirstLower»" (click)="onSelect(el)" [class.info]="el === selected«listElement.parameters.get(0).name.toFirstUpper»">
+					<tr *ngFor="#el of «dataBinding.name.toFirstLower»| «listElement.name.toFirstLower»Filter: filterBy" (click)="onSelect(el)" [class.info]="el === selected«listElement.parameters.get(0).name.toFirstUpper»">
 			'''
 		//}
 		
