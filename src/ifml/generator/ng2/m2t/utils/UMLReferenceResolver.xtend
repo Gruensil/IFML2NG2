@@ -77,10 +77,9 @@ class UMLReferenceResolver{
 		for(el : MODEL.packagedElements){
 			if(el instanceof ClassImpl){
 				var attr = (el as ClassImpl)
-				println(attr);
 			}
 		}
-		println(proxyUri);
+
 		return "";
 	}
 }
