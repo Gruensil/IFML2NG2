@@ -13,6 +13,8 @@ import ifml.generator.ng2.m2t.dynamic.app.services.NoolsServiceGenerator
 import org.eclipse.uml2.uml.Model
 import ifml.generator.ng2.m2t.dynamic.app.data.ExportClassGenerator
 import org.eclipse.uml2.uml.internal.impl.ClassImpl
+import ifml.generator.ng2.m2t.dynamic.app.dynamic.NavbarGenerator
+import ifml.generator.ng2.m2t.dynamic.app.dynamic.SearchComponentGenerator
 
 class CodeGenerator {
 
@@ -37,6 +39,9 @@ class CodeGenerator {
 		windows.forEach [ w |
 			// ViewController
 			new ViewContainerGenerator().generateCode(w);
+			// Dynamic Components
+			new NavbarGenerator().generateCode(w);
+			new SearchComponentGenerator().generateCode(w);
 		]
 		// routes
 		new RoutesGenerator().generateFile(windows);

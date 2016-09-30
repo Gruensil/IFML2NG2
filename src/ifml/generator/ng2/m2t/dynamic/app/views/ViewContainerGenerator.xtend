@@ -10,7 +10,6 @@ import IFML.Core.IFMLModel
 import IFML.Core.impl.InteractionFlowModelImpl
 import org.eclipse.uml2.uml.internal.impl.ClassImpl
 import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
-import ifml.generator.ng2.m2t.dynamic.app.dynamic.NavbarGenerator
 
 class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	
@@ -141,16 +140,9 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 
 	override protected generateTemplate(ViewContainerImpl it) {
 		'''
-			<div class="row">
-				<div class="col-md-2">
-					<div class="sidebar-navbar">
-						«new NavbarGenerator().generateCode(it)»
-					</div>
-				</div>
-				<div class="col-md-10">
-					<div name="content">
-		 	«new ViewElementGenerator().generateCode(it.viewElements.toList)»
-					</div>
+			<div class="col-md-12">
+				<div name="content">
+	 	«new ViewElementGenerator().generateCode(it.viewElements.toList)»
 				</div>
 			</div>
 		'''
