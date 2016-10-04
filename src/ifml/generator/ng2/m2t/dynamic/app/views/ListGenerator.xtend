@@ -83,27 +83,35 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 		output += new MobileDetailsGenerator().generateTemplate(listElement)
 		
 		if(!listElement.viewElementEvents.isEmpty()) {
-			var onSelectEvent = listElement.viewElementEvents.filter(OnSelectEventImpl).get(0)
-			output += '''
-				<button type="button" class="btn btn-default" (click)="«onSelectEvent.name»()" '''
 			
-			if(!onSelectEvent.annotations.isEmpty()){
-				for(annotation : onSelectEvent.annotations){
-					if(annotation.text.contains("<<activationExpression>")){
-						var expr = annotation.text.replace("<<activationExpression>>","").trim();
-						if(expr.contains("<<Parameter>>")){
-							expr = expr.replace("<<Parameter>>","").trim();
-							var pattern = "(=|>|<|>=|<|<=|<>|!=)";
-							var operator = expr.replaceAll("[a-zA-Z]*", "").trim();
-							var test = expr.split(pattern); 
-							output += '''[ngClass]="{disabled: !isSelected«test.get(0).trim.toFirstUpper»}"'''
+			for(onSelectEvent : listElement.viewElementEvents.filter(OnSelectEventImpl)){
+				output += '''
+					<button type="button" class="btn btn-default" (click)="«onSelectEvent.name»()" '''
+				
+				if(!onSelectEvent.annotations.isEmpty()){
+					for(annotation : onSelectEvent.annotations){
+						if(annotation.text.contains("<<activationExpression>")){
+							var expr = annotation.text.replace("<<activationExpression>>","").trim();
+							if(expr.contains("<<Parameter>>")){
+								expr = expr.replace("<<Parameter>>","").trim();
+								var pattern = "(=|>|<|>=|<|<=|<>|!=)";
+								var operator = expr.replaceAll("[a-zA-Z]*", "").trim();
+								var test = expr.split(pattern); 
+								output += '''[ngClass]="{disabled: !isSelected«test.get(0).trim.toFirstUpper»}"'''
+							}
+						}
+						if(annotation.text.contains("<<authenticationRequirement>")){
+							for(substr: annotation.text.replace("<<authenticationRequirement>>","").split("&&")){
+								output += '''*ngIf="_auth.boolCheckPrivilegesIncludeOne([«FOR req : substr.split("\\|\\|") SEPARATOR ','»{role:'«req.replace("role==","").trim()»'}«ENDFOR»])" '''
+							}
 						}
 					}
 				}
+				
+				output += '''>{{_resource.getLangString('«onSelectEvent.name»')}}</button>
+				'''
 			}
 			
-			output += '''>{{_resource.getLangString('«onSelectEvent.name»')}}</button>
-			'''
 		}
 		
 		return output

@@ -72,14 +72,12 @@ class UMLReferenceResolver{
 	
 	// resolve ID
 	def String resolveProxyURI(URI proxyUri){
-		var modelRoot = DOCUMENT.childNodes
-		
-		for(el : MODEL.packagedElements){
-			if(el instanceof ClassImpl){
-				var attr = (el as ClassImpl)
-			}
+		if(proxyUri.fragment == "EDate"){
+			return "Date";
+		}else if(proxyUri.fragment == "String"){
+			return "string";	
+		}else{
+			return proxyUri.fragment;	
 		}
-
-		return "";
 	}
 }

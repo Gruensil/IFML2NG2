@@ -98,14 +98,14 @@ export class DataService {
 
     console.log(this.localGet('bookreservations'));
     console.log(this.localGet('booklendings'));
-    bl = this.localGet('booklendings').find(bl => bl.book.bookId == id);
+    bl = this.localGet('booklendings').find(bl => bl.lentBook.bookId == id);
     if(bl != null){
       var index2 = this.indexOfLending(this.localGet('booklendings'),bl);
 
       this.localSplice('booklendings', index2);
     }
 
-    br = this.localGet('bookreservations').find(bl => bl.book.bookId == id);
+    br = this.localGet('bookreservations').find(bl => bl.reservedBook.bookId == id);
     if(br != null){
       var index2 = this.indexOfReservation(this.localGet('bookreservations'),br);
       console.log('index2 ' + index2);

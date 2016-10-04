@@ -35,6 +35,7 @@
 		  logout() {
 		    localStorage.removeItem('user');
 		    this.isLoggedIn = false;
+			this.profile.setUserRole(undefined);
 		    this._router.navigate(['login']);
 		  }
 		
@@ -42,7 +43,7 @@
 		    var authenticatedUser = users.find(u => u.email === username);
 		    if (authenticatedUser && authenticatedUser.password === pw){
 		      localStorage.setItem('user', JSON.stringify(authenticatedUser));
-		      this._router.navigate(['default']);
+		      this._router.navigate(['login']);
 		      this.isLoggedIn = true;
 			  this.profile.setUserRole(authenticatedUser.role);
 		      return true;
@@ -85,12 +86,27 @@
 			var user: User;
 		    user = JSON.parse(localStorage.getItem('user'));
 		    if (user === null){
-		        this._router.navigate(['/']);
+		        this._router.navigate(['/login']);
 		    }else{
 				var result = $.grep(roleArray, function(e){ return e.role == user.role; });
 				if (result.length == 0) {
-					this._router.navigate(['/home']);
+					this._router.navigate(['/login']);
 				}
+			}
+		  }	
+		  
+		  boolCheckPrivilegesIncludeOne(roleArray){
+			var user: User;
+		    user = JSON.parse(localStorage.getItem('user'));
+		    if (user === null){
+		        return false;
+		    }else{
+				var result = $.grep(roleArray, function(e){ return e.role == user.role; });
+				if (result.length == 0) {
+					return false;
+				}else[
+					return true;
+				]
 			}
 		  }	
 		  

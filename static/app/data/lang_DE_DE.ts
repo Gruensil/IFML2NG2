@@ -51,4 +51,13 @@ export var lang_DE_DE: LangString[] = [
     {key: 'bookStatus', text:'Verfügbarkeit'},
     {key: 'viewStudentDetails', text:'Details anzeigen'}
 	
+    {key: 'lentBook.bookInfo.isbn', text:'ISBN'},
+    {key: 'lentBook.bookInfo.author', text:'Autor'},
+    {key: 'lentBy.firstname', text:'Vorname'},
+    {key: 'lentBy.studentStatus', text:'Status Student'},
+    {key: 'lentBook.bookStatus', text:'Status Buch'},
+    {key: 'lentBook.bookInfo.title', text:'Titel'},
+    {key: 'lentBy.studentId', text:'Matrikelnummer'},
+    {key: 'lentBy.lastname', text:'Nachname'},
+    {key: 'vDueDate', text:'Verliehen bis'},
 ];

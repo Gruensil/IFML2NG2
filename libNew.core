@@ -10,7 +10,11 @@
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="_7rjRUIC-Eea2S59Os6LSKA" name="issueBook">
           <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
           <annotations text="&lt;&lt;activationExpression>> &lt;&lt;Parameter>>bookBinding != null"/>
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_-ICh4IC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.4"/>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_-ICh4IC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.4">
+            <parameterBindingGroup id="_zgBF8IijEeaYRNIu_aH0fQ">
+              <parameterBindings id="_3YrZkIijEeaYRNIu_aH0fQ" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@parameters.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.4/@viewElements.0/@parameters.1"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
         </viewElementEvents>
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="__KCKYIC-Eea2S59Os6LSKA" name="reserveBook">
           <annotations text="&lt;&lt;authenticationRequirement>> role==student"/>
@@ -28,7 +32,7 @@
         </viewComponentParts>
       </viewElements>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_QD7OwIC2Eea2S59Os6LSKA" name="login" isDefault="true">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_QD7OwIC2Eea2S59Os6LSKA" name="login">
       <viewElements xsi:type="ext:Form" id="_Y2-YwIC2Eea2S59Os6LSKA" name="loginForm">
         <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_bTzt8IC-Eea2S59Os6LSKA" name="login">
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_gi-hgIC-Eea2S59Os6LSKA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.3"/>
@@ -41,7 +45,7 @@
         </viewComponentParts>
       </viewElements>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_U0HnUIC2Eea2S59Os6LSKA" name="home" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.3/@outInteractionFlows.0">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_U0HnUIC2Eea2S59Os6LSKA" name="home" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.3/@outInteractionFlows.0" isDefault="true">
       <annotations text="&lt;&lt;authenticationRequirement>> role==staff || role==student"/>
     </interactionFlowModelElements>
     <interactionFlowModelElements xsi:type="core:IFMLAction" id="_emQWIIC-Eea2S59Os6LSKA" name="loginAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.1/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
@@ -53,7 +57,7 @@
         <parameters id="_znOLoIaqEeaTJocisBH8lA" name="reservationBinding">
           <type xsi:type="uml:Class" href="models/test5555.uml#_8kpXQoCrEeakIrkbdVKNbg"/>
         </parameters>
-        <parameters id="_7pnUwIaqEeaTJocisBH8lA" name="bookBinding">
+        <parameters id="_7pnUwIaqEeaTJocisBH8lA" name="bookToIssueBinding">
           <type xsi:type="uml:Class" href="models/test5555.uml#_8kpXIYCrEeakIrkbdVKNbg"/>
         </parameters>
         <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_sMO8cIDmEea8AL0yBf-zEA" name="issueBook">

@@ -14,6 +14,10 @@ import IFML.Core.impl.VisualizationAttributeImpl
 import IFML.Core.impl.UMLStructuralFeatureImpl
 import org.eclipse.uml2.uml.StructuralFeature
 import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
+import javax.swing.text.StyledEditorKit.ItalicAction
+import IFML.Extensions.impl.DetailsImpl
+import IFML.Extensions.impl.FormImpl
+import IFML.Extensions.impl.SimpleFieldImpl
 
 class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	
@@ -63,7 +67,6 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 						//TODO resolve reference to uml model
 						selected«vParam.name.toFirstUpper»:  any;
 						isSelected«vParam.name.toFirstUpper»:  boolean;
-						«UMLReferenceResolver.sharedInstance.resolveProxyURI((vParam.type as ClassImpl).eProxyURI)»
 					«ENDFOR»
 					«IF (vElem instanceof ListImpl)»
 						// variable for advanced search space
@@ -80,6 +83,16 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 						«ENDFOR»
 					«ENDIF»
 				«ENDFOR»
+				«IF it.viewElements.exists[el|el instanceof FormImpl]»
+				// bindings for fields in form
+					«FOR vElem : it.viewElements»
+						«IF (vElem instanceof FormImpl)»
+							«FOR varCompPart : (vElem as FormImpl).viewComponentParts»		
+								«varCompPart.name»: «UMLReferenceResolver.sharedInstance.resolveProxyURI(((varCompPart as SimpleFieldImpl).type as PrimitiveTypeImpl).eProxyURI)»;
+							«ENDFOR»						
+						«ENDIF»
+					«ENDFOR»
+				«ENDIF»
 				// PROTECTED REGION ID «it.id».«it.name» ENABLED START
 				// PROTECTED REGION END
 
@@ -154,12 +167,21 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 						«ENDIF»
 					«ENDFOR»
 					
-					«IF it.inInteractionFlows.size == 1 && it.inInteractionFlows.get(0).parameterBindingGroup != null»
+					«IF it.inInteractionFlows.size >= 1 && it.inInteractionFlows.get(0).parameterBindingGroup != null»
 						// Incoming Navigation Flows with Parameter Binding
 						this._route.params.subscribe(params => {
-							this.selected«it.inInteractionFlows.get(0).parameterBindingGroup.parameterBindings.get(0).targetParameter.name.toFirstUpper» = JSON.parse(decodeURI(params['«it.inInteractionFlows.get(0).parameterBindingGroup.parameterBindings.get(0).targetParameter.name»']));
+							«FOR flow : it.inInteractionFlows»
+								«FOR binding : flow.parameterBindingGroup.parameterBindings»
+									if(params['«binding.targetParameter.name»'] != undefined){
+										this.selected«binding.targetParameter.name.toFirstUpper» = JSON.parse(decodeURI(params['«binding.targetParameter.name»']));
+									}
+								«ENDFOR»							
+							«ENDFOR»
 						});
 					«ENDIF»
+					
+					// PROTECTED REGION ID «it.id».ngOnInit ENABLED START
+					// PROTECTED REGION END
 				}
 			}
 		'''
