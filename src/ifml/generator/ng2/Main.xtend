@@ -16,7 +16,7 @@ class Main {
 			
 			// Prepare the File Manager & register input PATHS
 			val fileManager = FileManager::sharedInstance
-			fileManager.registerPathToOutputDirectory(args.get(4))
+			fileManager.registerPathToOutputDirectory(args.get(5))
 			val pathToAdaptFile = fileManager.registerPathToInputFile(args.get(2))
 			val pathToUMLFile = fileManager.registerPathToInputFile(args.get(1))
 			val pathToIFMLFile = fileManager.registerPathToInputFile(args.get(0))
@@ -25,18 +25,16 @@ class Main {
 			val modelLoader = new ModelLoader;
 			val umlResolver = UMLReferenceResolver::sharedInstance
 			val ifmlModel = modelLoader.loadIFMLModel(pathToIFMLFile)
-			val umlDocument = modelLoader.loadAdaptModel("C:\\Users\\Hagen\\workspaceNeon\\IFML2NG2\\data\\test.xml")
 			val umlModel = modelLoader.loadUMLModel(pathToUMLFile)
 			val adaptModel = modelLoader.loadAdaptModel(args.get(2))
-			umlResolver.UMLDocument = umlDocument
 			umlResolver.UMLModel = umlModel
 			
 			
 			
 			// copy files
-			fileManager.copyFiles(args.get(3), args.get(4))
+			fileManager.copyFiles(args.get(4), args.get(5))
 			//var xsd = "C:\\Users\\STAH037\\workspace\\IFML2NG2\\data\\adapt.xsd";
-			var xsd = "C:\\Users\\Hagen\\workspaceNeon\\IFML2NG2\\data\\adapt.xsd"
+			var xsd = args.get(3)
 			// Whether the loaded IFML model can be transformed by the generation tool
 			if(new ModelValidator().validate(ifmlModel) && new ModelValidator().validateAdaptFile(adaptModel, xsd)){
 				
