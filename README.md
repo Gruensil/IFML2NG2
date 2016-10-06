@@ -24,6 +24,7 @@ The project folder **data** contains the models and other necessary files to sta
 
 ## Run Generator
 The following runtime arguments need to be provided:
+
 1. Path to IFML model in ecore format
 2. Path to domain model in uml format
 3. Path to AdaptDSL file in xml format
