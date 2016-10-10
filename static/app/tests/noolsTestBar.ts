@@ -51,6 +51,7 @@ import { Profile } from '../helper/profile'
                     <select class="form-control" id="langSelect" [(ngModel)]="language" (ngModelChange)="isLanguageChanged()">
                         <option value="enus">English</option>
                         <option value="dede">Deutsch</option>
+                        <option value="itit">Italian</option>
                     </select>
                 </div>
             </div>

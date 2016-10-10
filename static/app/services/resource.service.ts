@@ -4,6 +4,7 @@ import { LowResImages } from '../data/lowResImages';
 import { HighResImages } from '../data/highResImages';
 import { lang_EN_US } from '../data/lang_EN_US';
 import { lang_DE_DE } from '../data/lang_DE_DE';
+import { lang_IT_IT } from '../data/lang_IT_IT';
 
 import { Image } from '../data/image';
 import { LangString } from '../data/string';
@@ -31,7 +32,9 @@ export class ResourceService {
             this.langStrings = lang_EN_US;
         }else if(key === "dede"){
             this.langStrings = lang_DE_DE;
-        }
+        }else if(key === "itit"){
+			this.langStrings = lang_IT_IT;
+		}
     }
 
     public getImagePath(key:string){

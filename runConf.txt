@@ -5,5 +5,8 @@ HOME
 Lib - Run Configuration
 C:\Users\Hagen\workspaceNeon\IFML2NG2\data\libNew.core C:\Users\Hagen\workspaceNeon\IFML2NG2\data\test5555.uml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt2.xml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt.xsd C:\Users\Hagen\workspaceNeon\IFML2NG2\static C:\gen
 
+Lib - It - Run Configuration
+C:\Users\Hagen\workspaceNeon\IFML2NG2\data\libNew.core C:\Users\Hagen\workspaceNeon\IFML2NG2\data\test5555.uml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt2it.xml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt.xsd C:\Users\Hagen\workspaceNeon\IFML2NG2\static C:\gen
+
 Movies -  Run Configuration
 C:\Users\Hagen\workspaceNeon\IFML2NG2\data\movies.core C:\Users\Hagen\workspaceNeon\IFML2NG2\data\movies.uml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adaptMovies2.xml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt.xsd C:\Users\Hagen\workspaceNeon\IFML2NG2\moviesStatic C:\genMovies
