@@ -1,0 +1,42 @@
+.navbar.navbar-custom .signin {
+  float: right;
+  position: absolute;
+  right: 15px;
+}
+.navbar.navbar-custom .navbar-nav > li > a {
+  color: #ccc;
+}
+.navbar.navbar-custom a.btn.navbar-btn.btn-sign {
+  background: none;
+  border-radius: 0;
+  font-size: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #ccc;
+  display: inline-block;
+  padding: 6px 10px;
+}
+@media (max-width: 767px) {
+  .navbar.navbar-custom .navbar-nav {
+    text-align: center;
+  }
+  .navbar.navbar-custom .navbar-nav > li {
+    font-size: 16px;
+  }
+  .navbar.navbar-custom .navbar-nav > li:not(:first-child) {
+    right: 0px;
+  }
+  .navbar.navbar-custom .navbar-nav > li {
+    border-bottom: 1px solid #eee;
+  }
+  .navbar.navbar-custom a.btn.navbar-btn.btn-sign {
+    padding: 7.5px 15px;
+    font-size: 20px;
+  }
+  .navbar.navbar-custom .signin {
+    float: none;
+    clear: both;
+    position: relative;
+    right: 0;
+  }
+}

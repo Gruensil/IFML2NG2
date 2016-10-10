@@ -15,7 +15,7 @@
 		  template: `
 			<noolstestbar></noolstestbar>
 		    <div id="desktopViewContainter" class="container">
-		      <div id="headerBar" [ngClass]="profile.getProfile().displayProperties.headerBarClass" style="margin-right:0px;padding-left:0px;padding-right:0px;">
+		      <div id="headerBar" [ngClass]="profile.getProfile().displayProperties.headerBarClass" class="row" style="margin-right:0px;padding-left:0px;padding-right:0px;">
 		        <div class="col-md-12" style="width:100%; padding-left:0;padding-right:0px;">
 		          <a href="\" class="btn btn-link"><img src="./resources/images/logo_transparent.png" alt="LibSoft" height="115" width="175"></a>
 		        </div>
@@ -24,9 +24,9 @@
 		      </div>
 		      <div class="row">
 				<navigation-component [navItems]="profile.getProfile().displayProperties.navigation"></navigation-component>
-		        <div [ngClass]="profile.getProfile().displayProperties.routerOutletClass" style="margin-left:0;width:83.33332%">
-		          <router-outlet></router-outlet>
-		        </div>
+				<div [ngClass]="profile.getProfile().displayProperties.routerOutletClass" style="margin-left:0;width:83.33332%">
+					<router-outlet></router-outlet>
+				</div>
 		      </div>
 		    </div>
 		  `,

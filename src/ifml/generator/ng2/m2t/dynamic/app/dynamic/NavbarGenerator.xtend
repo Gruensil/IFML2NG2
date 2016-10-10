@@ -2,6 +2,7 @@ package ifml.generator.ng2.m2t.dynamic.app.dynamic;
 
 import IFML.Core.impl.ViewContainerImpl
 import ifml.generator.ng2.m2t.general.AbstractClassGenerator
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	
@@ -16,8 +17,9 @@ class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 			import { RouterLink } from '@angular/router';
 
 			// Service Imports
-			import { ProfileService } from '../services/profile.service';
-			import { ResourceService } from '../services/resource.service';
+			«FOR service : ServiceCollection.sharedInstance.services»
+			import { «service.name» } from '..«service.location»';
+			«ENDFOR»
 			
 			@Component({
 				selector: 'navigation-component',
@@ -29,8 +31,9 @@ class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 			    @Input() navItems: Object[] = [];
 			
 			    constructor(
-			    	private profile: ProfileService, 
-			    	private resources: ResourceService) {
+				«FOR service : ServiceCollection.sharedInstance.services SEPARATOR ','»
+				private _«service.name.toFirstLower»: «service.name»
+				«ENDFOR») {
 			    }
 			
 			    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
@@ -44,19 +47,19 @@ class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 
 	override protected generateTemplate(ViewContainerImpl it) {
 		'''
-	        <nav [ngClass]="profile.getProfile().displayProperties.navbarContainerClass"> 
-	          <div [ngClass]="profile.getProfile().displayProperties.navbarWrapperClass"> 
-	            <div [ngClass]="profile.getProfile().displayProperties.navbarHeaderClass"> 
+	        <nav [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarContainerClass"> 
+	          <div [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarWrapperClass"> 
+	            <div [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarHeaderClass"> 
 	              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-nav"> <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	              </button>
 	              <a href="\" class="navbar-brand">LibSoft</a>
 	            </div>
-	            <div [ngClass]="profile.getProfile().displayProperties.navbarCollapseClass" id="bs-nav">
-	              <ul [ngClass]="profile.getProfile().displayProperties.navbarItemListClass">
+	            <div [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarCollapseClass" id="bs-nav">
+	              <ul [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarItemListClass">
 	                <li class="divLine borderSecondary" *ngFor="#entry of navItems">
-	                  <a href="{{entry.path}}" class="textPrimary">{{resources.getLangString(entry.key)}}</a>
+	                  <a href="{{entry.path}}" class="textPrimary">{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString(entry.key)}}</a>
 	                </li>
 	              </ul>              
 	            </div>

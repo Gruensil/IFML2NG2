@@ -9,6 +9,7 @@ import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
 import org.eclipse.uml2.uml.internal.impl.PropertyImpl
 import org.eclipse.uml2.uml.StructuralFeature
 import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 	
@@ -19,9 +20,9 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		 
 		output += '''
-			<div name="list" *ngIf="!_profile.getProfile().displayProperties.isMobile || (_profile.getProfile().displayProperties.isMobile && !selected«listElement.parameters.get(0).name.toFirstUpper»)">
+			<div name="list" *ngIf="!_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isMobile || (_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isMobile && !selected«listElement.parameters.get(0).name.toFirstUpper»)">
         		<search-component [searchSpace]="advancedSearchSpace" [title]="'Search'" (onFilterUpdate)="filterUpdated($event)"></search-component>
-				<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_profile.getProfile().displayProperties.tableClass">
+				<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.tableClass">
 					<thead>
 		'''
 		
@@ -29,12 +30,12 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 			output += '''
 				«IF (((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl»
 						<th>
-							{{_resource.getLangString('«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»')}}
+							{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»')}}
 						</th>
 				«ELSE»
 					«FOR ref : UMLReferenceResolver::sharedInstance.getOwnedAttributesShort(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature)»
 							<th>
-								{{_resource.getLangString('«ref»')}}
+								{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('«ref»')}}
 							</th>
 					«ENDFOR»
 				«ENDIF»
@@ -102,13 +103,13 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 						}
 						if(annotation.text.contains("<<authenticationRequirement>")){
 							for(substr: annotation.text.replace("<<authenticationRequirement>>","").split("&&")){
-								output += '''*ngIf="_auth.boolCheckPrivilegesIncludeOne([«FOR req : substr.split("\\|\\|") SEPARATOR ','»{role:'«req.replace("role==","").trim()»'}«ENDFOR»])" '''
+								output += '''*ngIf="_«ServiceCollection.sharedInstance.authentication.name.toFirstLower».boolCheckPrivilegesIncludeOne([«FOR req : substr.split("\\|\\|") SEPARATOR ','»{role:'«req.replace("role==","").trim()»'}«ENDFOR»])" '''
 							}
 						}
 					}
 				}
 				
-				output += '''>{{_resource.getLangString('«onSelectEvent.name»')}}</button>
+				output += '''>{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('«onSelectEvent.name»')}}</button>
 				'''
 			}
 			

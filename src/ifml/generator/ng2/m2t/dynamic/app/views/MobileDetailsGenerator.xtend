@@ -9,6 +9,7 @@ import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
 import org.eclipse.uml2.uml.internal.impl.PropertyImpl
 import org.eclipse.uml2.uml.StructuralFeature
 import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 public class MobileDetailsGenerator extends AbstractViewElementGenerator<ListImpl>{
 	
@@ -19,14 +20,14 @@ public class MobileDetailsGenerator extends AbstractViewElementGenerator<ListImp
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		 
 		output += '''
-			<div name="mobileDetails" *ngIf="_profile.getProfile().displayProperties.isMobile && selected«listElement.parameters.get(0).name.toFirstUpper»" [ngClass]="_profile.getProfile().displayProperties.hideOnDesktop">
+			<div name="mobileDetails" *ngIf="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isMobile && selected«listElement.parameters.get(0).name.toFirstUpper»" [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.hideOnDesktop">
 				<div style="margin-bottom:5px">	
 					<button type="button" class="btn btn-default" (click)="onSelect(selected«listElement.parameters.get(0).name.toFirstUpper»)"> 
-						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> {{_resource.getLangString('back')}}
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> {{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('back')}}
 					</button>    		
 				</div>
 				<div name="detailsTable">
-					<table [ngClass]="_profile.getProfile().displayProperties.tableClass">
+					<table [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.tableClass">
 		'''
 		for(attribute : visualizationAttributes){
 			if((((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl){
@@ -34,7 +35,7 @@ public class MobileDetailsGenerator extends AbstractViewElementGenerator<ListImp
 				
 					<tr>
 						<th>
-							{{_resource.getLangString('«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»')}}
+							{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»')}}
 						</th>
 						<td>
 							{{selected«listElement.parameters.get(0).name.toFirstUpper».«(((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).name»}}
@@ -48,7 +49,7 @@ public class MobileDetailsGenerator extends AbstractViewElementGenerator<ListImp
 					output += '''
 						<tr>
 							<th>
-								{{_resource.getLangString('«refShort.get(i)»')}}
+								{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('«refShort.get(i)»')}}
 							</th>
 							<td>
 								{{selected«listElement.parameters.get(0).name.toFirstUpper».«refLong.get(i)»}}

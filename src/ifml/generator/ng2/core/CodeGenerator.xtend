@@ -17,6 +17,7 @@ import ifml.generator.ng2.m2t.dynamic.app.dynamic.NavbarGenerator
 import ifml.generator.ng2.m2t.dynamic.app.dynamic.SearchComponentGenerator
 import IFML.Extensions.impl.ListImpl
 import ifml.generator.ng2.m2t.dynamic.app.helper.PipeGenerator
+import ifml.generator.ng2.m2t.dynamic.app.MainGenerator
 
 class CodeGenerator {
 
@@ -49,8 +50,9 @@ class CodeGenerator {
 				new PipeGenerator().generateFile(l);
 			]
 		]
-		// routes
+		// App
 		new RoutesGenerator().generateFile(windows);
+		new MainGenerator().generateFile(windows);
 		// Services
 		new NoolsServiceGenerator().generateFile(adaptModel);
 		

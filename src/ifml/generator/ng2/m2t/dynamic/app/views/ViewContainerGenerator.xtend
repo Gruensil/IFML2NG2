@@ -18,6 +18,7 @@ import javax.swing.text.StyledEditorKit.ItalicAction
 import IFML.Extensions.impl.DetailsImpl
 import IFML.Extensions.impl.FormImpl
 import IFML.Extensions.impl.SimpleFieldImpl
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	
@@ -44,10 +45,9 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 			«ENDFOR»
 
 			// Service Imports
-			import { DataService } from '../services/data.service';
-			import { AuthenticationService } from '../services/authentication.service';
-			import { ResourceService } from '../services/resource.service';
-			import { ProfileService } from '../services/profile.service';
+			«FOR service : ServiceCollection.sharedInstance.services»
+			import { «service.name» } from '..«service.location»';
+			«ENDFOR»
 			
 			'''
 			
@@ -55,7 +55,7 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 			@Component({
 				selector: '«it.name.toFirstLower»',
 				templateUrl: '«folderName»«fileName».html',
-				providers: [DataService,AuthenticationService],
+				providers: [«FOR service : ServiceCollection.sharedInstance.providers SEPARATOR ','»«service.name»«ENDFOR»],
 				directives: [NgClass «IF it.viewElements.exists[el|el instanceof ListImpl]»,SearchComponent«ENDIF» ],
 				«FOR vElem : it.viewElements BEFORE 'pipes: [' SEPARATOR ',' AFTER ']'»«IF (vElem instanceof ListImpl)»«vElem.name.toFirstUpper»Filter«ENDIF»«ENDFOR»
 			})
@@ -64,7 +64,6 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 				//Generate variables for parameters and bindings
 				«FOR vElem : it.viewElements»
 					«FOR vParam : vElem.parameters»
-						//TODO resolve reference to uml model
 						selected«vParam.name.toFirstUpper»:  any;
 						isSelected«vParam.name.toFirstUpper»:  boolean;
 					«ENDFOR»
@@ -97,12 +96,11 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 				// PROTECTED REGION END
 
 				constructor(
-					private _data: DataService,
-					private _auth: AuthenticationService,
 					private _router: Router,
-			    	private _route: ActivatedRoute,
-					private _resource: ResourceService,
-					private _profile: ProfileService){
+			    	private _route: ActivatedRoute
+					«FOR service : ServiceCollection.sharedInstance.services BEFORE ',' SEPARATOR ','»
+					private _«service.name.toFirstLower»: «service.name»
+					«ENDFOR»){
 					«FOR vElem : it.viewElements»
 						«IF vElem instanceof ListImpl»
 							// fill advanced search space

@@ -72,12 +72,16 @@ class UMLReferenceResolver{
 	
 	// resolve ID
 	def String resolveProxyURI(URI proxyUri){
-		if(proxyUri.fragment == "EDate"){
-			return "Date";
-		}else if(proxyUri.fragment == "String"){
-			return "string";	
+		if(proxyUri != null){
+			if(proxyUri.fragment == "EDate"){
+				return "Date";
+			}else if(proxyUri.fragment == "String"){
+				return "string";	
+			}else{
+				return proxyUri.fragment;	
+			}
 		}else{
-			return proxyUri.fragment;	
+			return "any";
 		}
 	}
 }

@@ -2,6 +2,7 @@ package ifml.generator.ng2.m2t.dynamic.app.dynamic;
 
 import IFML.Core.impl.ViewContainerImpl
 import ifml.generator.ng2.m2t.general.AbstractClassGenerator
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 class SearchComponentGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	
@@ -15,8 +16,9 @@ class SearchComponentGenerator extends AbstractClassGenerator<ViewContainerImpl>
 			import { Component, Input, Output, OnChanges, EventEmitter, SimpleChange } from '@angular/core';
 
 			// Service Imports
-			import { ProfileService } from '../services/profile.service';
-			import { ResourceService } from '../services/resource.service';
+			«FOR service : ServiceCollection.sharedInstance.services»
+			import { «service.name» } from '..«service.location»';
+			«ENDFOR»
 			
 			@Component({
 				selector: 'search-component',
@@ -31,8 +33,9 @@ class SearchComponentGenerator extends AbstractClassGenerator<ViewContainerImpl>
 			    @Output() onFilterUpdate = new EventEmitter<Object>();
 			    
 			    constructor(
-			    	private _profile: ProfileService, 
-			    	private _resources: ResourceService) {
+					«FOR service : ServiceCollection.sharedInstance.services SEPARATOR ','»
+					private _«service.name.toFirstLower»: «service.name»
+					«ENDFOR») {
 			    }
 			
 			    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
@@ -60,18 +63,18 @@ class SearchComponentGenerator extends AbstractClassGenerator<ViewContainerImpl>
 	override protected generateTemplate(ViewContainerImpl it) {
 		'''
 	        <div class="searchContainer" >
-	            <div id="advancedSearch" class="row" *ngIf="_profile.getProfile().displayProperties.isAdvancedUser">
+	            <div id="advancedSearch" class="row" *ngIf="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isAdvancedUser">
 	                <form action="" class="form-inline" style="margin-bottom:5px;">
 	                    <div class="form-group col-md-6" *ngFor="#field of searchSpace">
 	                        <div class="input-group">
-	                            <input #advancedBox type="text" name="field.key" class="form-control" placeholder="{{_resources.getLangString(field.title)}}" (keyup)="updateFilterAdvanced(field.key, advancedBox.value)">
+	                            <input #advancedBox type="text" name="field.key" class="form-control" placeholder="{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString(field.title)}}" (keyup)="updateFilterAdvanced(field.key, advancedBox.value)">
 	                            <span class="input-group-addon glyphicon glyphicon-search" style="top:0;" aria-hidden="true"></span>
 	                        </div>  
 	                    </div>
 	                </form>
 	            </div>
-	            <div id="simpleSearch" class="row" [ngClass]="_profile.getProfile().displayProperties.searchInputGroupClass" *ngIf="!_profile.getProfile().displayProperties.isAdvancedUser" style="margin-bottom:5px;">
-	                <input #simpleBox type="text" class="form-control" placeholder="{{_resources.getLangString('search')}}" (keyup)="updateFilterSimple(simpleBox.value)">
+	            <div id="simpleSearch" class="row" [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.searchInputGroupClass" *ngIf="!_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isAdvancedUser" style="margin-bottom:5px;">
+	                <input #simpleBox type="text" class="form-control" placeholder="{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('search')}}" (keyup)="updateFilterSimple(simpleBox.value)">
 	                <span class="input-group-addon glyphicon glyphicon-search" style="top:0;" aria-hidden="true"></span>
 	            </div>  
 	        </div>

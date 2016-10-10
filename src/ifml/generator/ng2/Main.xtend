@@ -6,6 +6,7 @@ import ifml.generator.ng2.core.ModelLoader
 import ifml.generator.ng2.core.ModelValidator
 import ifml.generator.ng2.core.CodeGenerator
 import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 class Main {
 
@@ -29,7 +30,13 @@ class Main {
 			val adaptModel = modelLoader.loadAdaptModel(args.get(2))
 			umlResolver.UMLModel = umlModel
 			
-			
+			// prepare Services
+			val serviceCollection = ServiceCollection::sharedInstance
+			serviceCollection.setAuthentication("AuthenticationService","/services/authentication.service")
+			serviceCollection.setData("DataService","/services/data.service")
+			serviceCollection.setResource("ResourceService", "/services/resource.service")
+			serviceCollection.setProfile("ProfileService","/services/profile.service")
+			serviceCollection.addService("LoggerService", "/services/logger.service")
 			
 			// copy files
 			fileManager.copyFiles(args.get(4), args.get(5))

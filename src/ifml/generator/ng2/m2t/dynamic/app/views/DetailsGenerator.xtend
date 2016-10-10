@@ -5,8 +5,9 @@ import IFML.Extensions.impl.DetailsImpl
 import IFML.Core.impl.VisualizationAttributeImpl
 import IFML.Core.impl.UMLStructuralFeatureImpl
 import org.eclipse.uml2.uml.StructuralFeature
-import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
 import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
+import ifml.generator.ng2.m2t.utils.ServiceCollection
+import org.eclipse.uml2.uml.internal.impl.PrimitiveTypeImpl
 
 public class DetailsGenerator extends AbstractViewElementGenerator<DetailsImpl>{
 	
@@ -17,14 +18,14 @@ public class DetailsGenerator extends AbstractViewElementGenerator<DetailsImpl>{
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		
 		output += '''
-			<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_profile.getProfile().displayProperties.tableClass">
+			<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.tableClass">
 		'''
 		
 		for(attribute : visualizationAttributes){
 			output += '''
 				<tr>
 					<th>
-						{{_resource.getLangString('«attribute.name»')}}
+						{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('«attribute.name»')}}
 					</th>
 			'''
 			

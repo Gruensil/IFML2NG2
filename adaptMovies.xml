@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="ASCII"?>
+
+<adaptModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<services>
+		<service id="resourceServiceID" type="ResourceService" location="resource.service">
+			<function id="setLangFileID" name="setLangFile"/>
+			<function id="setImageFileID" name="setImageFile"/>
+		</service>
+	</services>
+	<flow name="Movies Adaptation">
+		<adaptationRule name="Lang ENUS" priority="4" factType="Profile" factName="m">
+			<conditions>
+				<conditionGroup>
+					<condition fact="m.getUser().getLanguage()" operator="==" value="enus" type="string"/>
+					<condition fact="m.getUser().getLangChecked()" operator="===" value="false" type="boolean"/>
+				</conditionGroup>
+			</conditions>
+			<actions>
+				<editFactOperation set="m.getUser().setLangChecked(true)"/>
+				<functionCall service="resourceServiceID" function="setLangFileID" value="enus"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Lang DEDE" priority="4" factType="Profile" factName="m">
+			<conditions>
+				<conditionGroup>
+					<condition fact="m.getUser().getLanguage()" operator="==" value="dede" type="string"/>
+					<condition fact="m.getUser().getLangChecked()" operator="===" value="false" type="boolean"/>
+				</conditionGroup>
+			</conditions>
+			<actions>
+				<editFactOperation set="m.getUser().setLangChecked(true)"/>
+				<functionCall service="resourceServiceID" function="setLangFileID" value="dede"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Image Low Res" priority="6" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getEnvironment().getBrightnessLevel()" operator="lte" value="40" type="number"/>
+			</conditions>
+			<actions>
+				<functionCall service="resourceServiceID" function="setImageFileID" value="low"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Image High Res" priority="6" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getEnvironment().getBrightnessLevel()" operator="gt" value="40" type="number"/>
+			</conditions>
+			<actions>
+				<functionCall service="resourceServiceID" function="setImageFileID" value="high"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Navigation Unregistered" priority="12" factType="Profile" factName="m">
+			<conditions>
+				<conditionGroup>
+					<condition fact="m.getUser().getUserRole()" operator="!=" value="student" type="string"/>
+					<condition fact="m.getUser().getUserRole()" operator="!=" value="staff" type="string"/>
+				</conditionGroup>
+			</conditions>
+			<actions>
+				<editFactOperation set="m.getUser().setRoleChecked(true)"/>
+				<clearNavOperation/>
+				<addNavLinkOperation viewContainer="favoriteMoviesWindow" langKey="favMovie"/>
+				<addNavLinkOperation viewContainer="addMovieWindow" langKey="addMovie"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Low Vision" priority="9" factType="Profile" factName="m">
+			<conditions>
+				<conditionGroup>
+					<condition fact="m.getUser().hasWeakVision()" operator="==" value="true" type="string"/>
+				</conditionGroup>
+			</conditions>
+			<actions>
+				<editCssClassOperation cssClass="textPrimary" cssAttribute="font-size" value="24px"/>
+				<editCssClassOperation cssClass="textSecondary" cssAttribute="font-size" value="20px"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Normal Vision" priority="9" factType="Profile" factName="m">
+			<conditions>
+				<conditionGroup>
+					<condition fact="m.getUser().hasWeakVision()" operator="==" value="false" type="string"/>
+				</conditionGroup>
+			</conditions>
+			<actions>
+				<editCssClassOperation cssClass="textPrimary" cssAttribute="font-size" value="18px"/>
+				<editCssClassOperation cssClass="textSecondary" cssAttribute="font-size" value="14px"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Environment Brightness Over 40" priority="6" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getEnvironment().getBrightnessLevel()" operator="lte" value="40" type="number"/>
+			</conditions>
+			<actions>
+				<editCssClassOperation cssClass="backgroundPrimary" cssAttribute="background-color" value="#232323"/>
+				<editCssClassOperation cssClass="backgroundSecondary" cssAttribute="background-color" value="#323632"/>
+				<editCssClassOperation cssClass="backgroundSecondary li:hover" cssAttribute="color" value="white !important"/>
+				<editCssClassOperation cssClass="textPrimary" cssAttribute="color" value="#666666"/>
+				<editCssClassOperation cssClass="borderPrimary" cssAttribute="border-color" value="black"/>
+				<editCssClassOperation cssClass="borderSecondary" cssAttribute="border-color" value="black"/>
+				<editCssClassOperation cssClass="form-control" cssAttribute="background-color" value="#323232"/>
+				<editCssClassOperation cssClass="form-control" cssAttribute="border-color" value="#636363"/>
+				<setDisplayProperty property="tableClass" value="table table-striped table-striped-dark table-hover table-condensed textSecondary"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Environment Brightness Under 40" priority="6" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getEnvironment().getBrightnessLevel()" operator="gt" value="40" type="number"/>
+			</conditions>
+			<actions>
+				<editCssClassOperation cssClass="backgroundPrimary" cssAttribute="background-color" value="white"/>
+				<editCssClassOperation cssClass="backgroundSecondary" cssAttribute="background-color" value="lightgrey"/>
+				<editCssClassOperation cssClass="textPrimary" cssAttribute="color" value="black"/>
+				<editCssClassOperation cssClass="borderPrimary" cssAttribute="border-color" value="black"/>
+				<editCssClassOperation cssClass="borderSecondary" cssAttribute="border-color" value="white"/>
+				<editCssClassOperation cssClass="form-control" cssAttribute="background-color" value="#fff"/>
+				<editCssClassOperation cssClass="form-control" cssAttribute="border-color" value="#ccc"/>
+				<setDisplayProperty property="tableClass" value="table table-striped table-hover table-condensed textSecondary"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Platform Desktop" priority="6" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getPlatform().getPlatformType()" operator="==" value="desktop" type="string"/>
+			</conditions>
+			<actions>
+				<setDisplayProperty property="headerBarClass" value="row backgroundSecondary divLine borderSecondary"/>
+				<setDisplayProperty property="routerOutletClass" value="col-md-10"/>
+				<setDisplayProperty property="hideOnMobile" value=""/>
+				<setDisplayProperty property="navbarContainerClass" value="sidebar-navbar col-md-2 backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarWrapperClass" value="sidebar-wrapper backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarHeaderClass" value="hideElement backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarCollapseClass" value="backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarItemListClass" value="sidebar-nav textPrimary backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="searchInputGroupClass" value="input-group col-md-6 col-md-offset-4 backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="isMobile" type="boolean" value="false"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Platform Mobile" priority="6" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getPlatform().getPlatformType()" operator="==" value="mobile" type="string"/>
+			</conditions>
+			<actions>
+				<setDisplayProperty property="headerBarClass" value="hideElement backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="routerOutletClass" value="col-md-12"/>
+				<setDisplayProperty property="hideOnMobile" value="hideElement backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarContainerClass" value="navbar navbar-default navbar-custom backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarWrapperClass" value="container-fluid backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarHeaderClass" value="navbar-header backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarCollapseClass" value="navbar-collapse collapse backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="navbarItemListClass" value="nav navbar-nav backgroundSecondary textPrimary"/>
+				<setDisplayProperty property="searchInputGroupClass" value="input-group backgroundSecondary borderSecondary"/>
+				<setDisplayProperty property="isMobile" type="boolean" value="true"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="High Self Efficiacy" priority="8" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getUser().hasHighComputerSelfEfficiacy()" operator="==" value="true" type="string"/>
+			</conditions>
+			<actions>
+				<setDisplayProperty property="isAdvancedUser" type="boolean" value="true"/>
+			</actions>
+		</adaptationRule>
+		<adaptationRule name="Low Self Efficiacy" priority="8" factType="Profile" factName="m">
+			<conditions>
+				<condition fact="m.getUser().hasHighComputerSelfEfficiacy()" operator="==" value="false" type="string"/>
+			</conditions>
+			<actions>
+				<setDisplayProperty property="isAdvancedUser" type="boolean" value="false"/>
+			</actions>
+		</adaptationRule>
+	</flow>
+</adaptModel>

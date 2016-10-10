@@ -1,0 +1,95 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+body {
+  margin: 2em;
+}
+
+.backgroundPrimary{
+  background-color: white;
+}
+
+.backgroundSecondary{
+  background-color: lightgrey; 
+}
+
+.backgroundSecondary li:hover{
+  color: #999999;
+  background-color: rgba(255,255,255,0.2); 
+}
+
+.textPrimary{
+  color: black;
+}
+
+.borderPrimary{
+  border-color: black;
+}
+
+.borderSecondary{
+  border-color: white;
+}
+
+.table-striped-dark > tbody > tr:nth-of-type(odd) {
+  background-color: #323232;
+}
+
+.textPrimary{
+  font-size:24px;
+}
+
+.textSecondary{
+  font-size:20px;
+}
+
+ /*
+  * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css
+  * for the full set of master styles used by the documentation samples
+  */
+
+.hideElement
+{
+  display:none;
+}
+
+  .divLine
+  {
+    top: 0px;
+    margin:0px;  
+    padding: 0px 2px 2px 3px;    
+    border-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    width: 100%;
+  }
+
+  .divLineTop
+  {
+    top: 0px;
+    margin:0px;  
+    padding: 0px 2px 2px 3px;    
+    border-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    width: 100%;
+  }
+
+  .bottomBar {
+    position: fixed;
+    bottom: 0;
+    vertical-align:center;
+    width: 75%;
+}
+
+.row.no-gutter {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}

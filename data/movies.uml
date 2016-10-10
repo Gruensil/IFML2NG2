@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_7uLp0E7QEeSt-rUToYoH4A" name="moviesApp">
+  <packagedElement xmi:type="uml:Class" xmi:id="_Gt2cYE7REeSt-rUToYoH4A" name="Movie">
+    <generalization xmi:id="_3b3QgE8GEeSQ85gABOX_wQ" general="_fSsEIE7REeSt-rUToYoH4A"/>
+    <ownedAttribute xmi:id="_v4buYE7REeSt-rUToYoH4A" name="title" type="_pP0boE7REeSt-rUToYoH4A"/>
+    <ownedAttribute xmi:id="_zOo1ME7REeSt-rUToYoH4A" name="year" type="_j7jFoE7REeSt-rUToYoH4A"/>
+    <ownedOperation xmi:id="_y7tDkE78EeSQ85gABOX_wQ" name="init">
+      <ownedParameter xmi:id="_s2kmcE7-EeSQ85gABOX_wQ" name="title" type="_pP0boE7REeSt-rUToYoH4A"/>
+      <ownedParameter xmi:id="_zp24IE7-EeSQ85gABOX_wQ" name="year" type="_j7jFoE7REeSt-rUToYoH4A"/>
+      <ownedParameter xmi:id="_vCe64Gt6EeSm6aU08P-7hQ" type="_Gt2cYE7REeSt-rUToYoH4A" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_YukP0E7REeSt-rUToYoH4A" name="NSMutableArray"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_fSsEIE7REeSt-rUToYoH4A" name="NSObject"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_j7jFoE7REeSt-rUToYoH4A" name="NSNumber"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_pP0boE7REeSt-rUToYoH4A" name="NSString"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_uC0QkE7REeSt-rUToYoH4A" name="NSDate"/>
+</uml:Model>
