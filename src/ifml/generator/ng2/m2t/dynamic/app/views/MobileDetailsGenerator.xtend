@@ -20,14 +20,14 @@ public class MobileDetailsGenerator extends AbstractViewElementGenerator<ListImp
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		 
 		output += '''
-			<div name="mobileDetails" *ngIf="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isMobile && selected«listElement.parameters.get(0).name.toFirstUpper»" [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.hideOnDesktop">
+			<div name="mobileDetails" *ngIf="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.isMobile && selected«listElement.parameters.get(0).name.toFirstUpper»" [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.hideOnDesktop">
 				<div style="margin-bottom:5px">	
 					<button type="button" class="btn btn-default" (click)="onSelect(selected«listElement.parameters.get(0).name.toFirstUpper»)"> 
 						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> {{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString('back')}}
 					</button>    		
 				</div>
 				<div name="detailsTable">
-					<table [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.tableClass">
+					<table [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.tableClass">
 		'''
 		for(attribute : visualizationAttributes){
 			if((((attribute as VisualizationAttributeImpl).featureConcept as UMLStructuralFeatureImpl).structuralFeature as StructuralFeature).type instanceof PrimitiveTypeImpl){

@@ -19,48 +19,46 @@ import IFML.Extensions.impl.ListImpl
 import ifml.generator.ng2.m2t.dynamic.app.helper.PipeGenerator
 import ifml.generator.ng2.m2t.dynamic.app.MainGenerator
 
-class CodeGenerator {
+class GeneratorCore {
 
 	// Instance Methods
-	def generateCode(IFMLModel ifmlModel, Model umlModel, Document adaptModel) {
-
-		// Extract relevant model elements 
-		val appName = ifmlModel.name.toFirstUpper;
-		val actions = ifmlModel.interactionFlowModel.interactionFlowModelElements.filter(typeof(IFMLAction));
-		val viewElements = ifmlModel.interactionFlowModel.interactionFlowModelElements.filter(typeof(ViewElement));
-		val windows = viewElements.filter(typeof(ViewContainerImpl));
-		val viewComponents = windows.map[w|w.viewElements].flatten;
-		
-		val classes = umlModel.allOwnedElements.filter(typeof(ClassImpl));
-		
-		// Dynamic Generation
-		// Export Classes from uml model
-		classes.forEach[ c |
-			new ExportClassGenerator().generateFile(c);
-		]
-		// View Controller
-		windows.forEach [ w |
-			// ViewController
-			new ViewContainerGenerator().generateCode(w);
-			// Dynamic Components
-			new NavbarGenerator().generateCode(w);
-			new SearchComponentGenerator().generateCode(w);
-			// 
-			w.viewElements.filter(typeof(ListImpl)).forEach[ l |
-				new PipeGenerator().generateFile(l);
+	def generateCode(IFMLModel ifmlModel, Model umlModel, Document adaptModel, String adaptXsd) {
+		if(new ModelValidator().validate(ifmlModel) && new ModelValidator().validateAdaptFile(adaptModel, adaptXsd)){
+			// Extract model elements 
+			val appName = ifmlModel.name.toFirstUpper;
+			val viewElements = ifmlModel.interactionFlowModel.interactionFlowModelElements.filter(typeof(ViewElement));
+			val windows = viewElements.filter(typeof(ViewContainerImpl));
+			
+			val classes = umlModel.allOwnedElements.filter(typeof(ClassImpl));
+			
+			// Dynamic Generation
+			// Export Classes from uml model
+			classes.forEach[ c |
+				new ExportClassGenerator().generateFile(c);
 			]
-		]
-		// App
-		new RoutesGenerator().generateFile(windows);
-		new MainGenerator().generateFile(windows);
-		// Services
-		new NoolsServiceGenerator().generateFile(adaptModel);
-		
-		// Boilerplate Generation
-		// generate index.html
-		new IndexGenerator().generateFile(appName);
-		// generate package.json
-		new NpmPackageGenerator().generateFile(appName);
-
+			// View Controller
+			windows.forEach [ w |
+				// ViewController
+				new ViewContainerGenerator().generateCode(w);
+				// 
+				w.viewElements.filter(typeof(ListImpl)).forEach[ l |
+					new PipeGenerator().generateFile(l);
+				]
+			]
+			// Dynamic Components
+			new SearchComponentGenerator().generateCode(windows);
+			new NavbarGenerator().generateCode(windows);
+			// App
+			new RoutesGenerator().generateFile(windows);
+			new MainGenerator().generateFile(windows);
+			// Services
+			new NoolsServiceGenerator().generateFile(adaptModel);
+			
+			// Boilerplate Generation
+			// generate index.html
+			new IndexGenerator().generateFile(appName);
+			// generate package.json
+			new NpmPackageGenerator().generateFile(appName);
+		}
 	}
 }

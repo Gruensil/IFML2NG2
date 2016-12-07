@@ -18,7 +18,7 @@ public class DetailsGenerator extends AbstractViewElementGenerator<DetailsImpl>{
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		
 		output += '''
-			<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.tableClass">
+			<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.tableClass">
 		'''
 		
 		for(attribute : visualizationAttributes){

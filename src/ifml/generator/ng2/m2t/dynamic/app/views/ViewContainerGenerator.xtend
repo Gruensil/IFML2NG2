@@ -97,7 +97,7 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 
 				constructor(
 					private _router: Router,
-			    	private _route: ActivatedRoute
+					private _route: ActivatedRoute
 					«FOR service : ServiceCollection.sharedInstance.services BEFORE ',' SEPARATOR ','»
 					private _«service.name.toFirstLower»: «service.name»
 					«ENDFOR»){

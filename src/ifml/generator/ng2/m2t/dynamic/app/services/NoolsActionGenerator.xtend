@@ -2,6 +2,7 @@ package ifml.generator.ng2.m2t.dynamic.app.services;
 
 import org.w3c.dom.NodeList
 import java.util.HashMap
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 public class NoolsActionGenerator{
 	
@@ -31,12 +32,12 @@ public class NoolsActionGenerator{
 					}
 					case "deleteNavLinkOperation": {
 						output += '''
-							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.removeNavigationPath('/«attr.getNamedItem("viewContainer").nodeValue»');
+							_«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper».removeNavigationPath('/«attr.getNamedItem("viewContainer").nodeValue»');
 						'''
 					}
 					case "addNavLinkOperation": {
 						output += '''
-							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.pushNavigation({path:'/«attr.getNamedItem("viewContainer").nodeValue»',key:'«attr.getNamedItem("langKey").nodeValue»'});
+							_«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper».pushNavigation({path:'/«attr.getNamedItem("viewContainer").nodeValue»',key:'«attr.getNamedItem("langKey").nodeValue»'});
 						'''
 					}
 					case "redirectOperation": {
@@ -46,7 +47,7 @@ public class NoolsActionGenerator{
 					}
 					case "clearNavOperation": {
 						output += '''
-							facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.clearNavigation();
+							_«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper».clearNavigation();
 						'''
 					}
 					case "editCssClassOperation": {
@@ -57,11 +58,11 @@ public class NoolsActionGenerator{
 					case "setDisplayProperty": {
 						if (attr.getNamedItem("type") == null || attr.getNamedItem("type").nodeValue == "string") {
 							output += '''
-								facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.«attr.getNamedItem("property").nodeValue» = '«attr.getNamedItem("value").nodeValue»';
+								_«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper».setProperty('«attr.getNamedItem("property").nodeValue»','«attr.getNamedItem("value").nodeValue»');
 							'''
 						}else{
 							output += '''
-								facts.«action.parentNode.parentNode.attributes.getNamedItem("factName").nodeValue».displayProperties.«attr.getNamedItem("property").nodeValue» = «attr.getNamedItem("value").nodeValue»;
+								_«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper».setProperty('«attr.getNamedItem("property").nodeValue»',«attr.getNamedItem("value").nodeValue»);
 							'''
 						}
 					}

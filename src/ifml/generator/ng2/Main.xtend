@@ -4,9 +4,9 @@ import ifml.generator.ng2.core.ParametersValidator
 import ifml.generator.ng2.core.FileManager
 import ifml.generator.ng2.core.ModelLoader
 import ifml.generator.ng2.core.ModelValidator
-import ifml.generator.ng2.core.CodeGenerator
 import ifml.generator.ng2.m2t.utils.UMLReferenceResolver
 import ifml.generator.ng2.m2t.utils.ServiceCollection
+import ifml.generator.ng2.core.GeneratorCore
 
 class Main {
 
@@ -36,19 +36,17 @@ class Main {
 			serviceCollection.setData("DataService","/services/data.service")
 			serviceCollection.setResource("ResourceService", "/services/resource.service")
 			serviceCollection.setProfile("ProfileService","/services/profile.service")
+			serviceCollection.setDisplayProperties("DisplayPropertiesService","/services/displayProperties.service")
 			serviceCollection.addService("LoggerService", "/services/logger.service")
 			
 			// copy files
 			fileManager.copyFiles(args.get(4), args.get(5))
 			//var xsd = "C:\\Users\\STAH037\\workspace\\IFML2NG2\\data\\adapt.xsd";
 			var xsd = args.get(3)
-			// Whether the loaded IFML model can be transformed by the generation tool
-			if(new ModelValidator().validate(ifmlModel) && new ModelValidator().validateAdaptFile(adaptModel, xsd)){
+			// Start Code Generation
+			new GeneratorCore().generateCode(ifmlModel, umlModel, adaptModel, xsd)
+			println("M2T IFML2NG2 finished!")
 				
-				new CodeGenerator().generateCode(ifmlModel, umlModel, adaptModel)
-				println("M2T IFML2NG2 finished!")
-				
-			}
 
 		}	
 		

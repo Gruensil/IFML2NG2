@@ -20,9 +20,9 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 		var visualizationAttributes = dataBinding.subViewComponentParts.toList()
 		 
 		output += '''
-			<div name="list" *ngIf="!_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isMobile || (_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.isMobile && !selected«listElement.parameters.get(0).name.toFirstUpper»)">
+			<div name="list" *ngIf="!_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.isMobile || (_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.isMobile && !selected«listElement.parameters.get(0).name.toFirstUpper»)">
         		<search-component [searchSpace]="advancedSearchSpace" [title]="'Search'" (onFilterUpdate)="filterUpdated($event)"></search-component>
-				<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.tableClass">
+				<table id="«listElement.id»" name="«listElement.name»" [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.tableClass">
 					<thead>
 		'''
 		

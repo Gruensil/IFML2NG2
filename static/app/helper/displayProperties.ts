@@ -60,6 +60,10 @@ export class DisplayProperties {
 
     };
 
+    public setProperty(prop: string, v: any){
+        this[prop] = v;
+    }
+
     public setType(v: string){
         this.type = v;
     }

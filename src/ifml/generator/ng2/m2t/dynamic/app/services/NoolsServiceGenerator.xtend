@@ -3,6 +3,7 @@ package ifml.generator.ng2.m2t.dynamic.app.services
 import ifml.generator.ng2.m2t.general.AbstractFileGenerator
 import org.w3c.dom.Document
 import java.util.HashMap
+import ifml.generator.ng2.m2t.utils.ServiceCollection
 
 class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 	
@@ -36,6 +37,7 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 			import { DisplayProperties } from '../helper/displayProperties';
 			
 			import { ResourceService } from './resource.service';
+			import { «ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper» } from '..«ServiceCollection.sharedInstance.displayProperties.location»';
 			import { LoggerService } from './logger.service';
 			
 			declare var nools: any;
@@ -51,7 +53,8 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 					private injector: Injector,
 					private _Router: Router,
 					private _logger: LoggerService,
-					private _ResourceService: ResourceService){
+					private _ResourceService: ResourceService,
+					private _«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper»: «ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper»){
 					this.flow = nools.flow("«flow.attributes.getNamedItem("name").nodeValue»", function(flow){
 						«new NoolsRuleGenerator().generateCode(flow.childNodes, serviceMap, functionMap)»
 					});

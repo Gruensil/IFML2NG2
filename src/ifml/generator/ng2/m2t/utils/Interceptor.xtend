@@ -70,6 +70,7 @@ class Interceptor{
 		try {
 
 			Files::createParentDirs(file);
+			//Files::write(contents.getBytes(Charsets.UTF_8), file);
 			Files::write(contents.getBytes(Charsets.UTF_8), file);
 
 		} catch (IOException e) {

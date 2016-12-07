@@ -4,13 +4,13 @@ import IFML.Core.impl.ViewContainerImpl
 import ifml.generator.ng2.m2t.general.AbstractClassGenerator
 import ifml.generator.ng2.m2t.utils.ServiceCollection
 
-class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl> {
+class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl[]> {
 	
 	// Overridden Parent methods
-	override protected prepareGeneration(ViewContainerImpl it) {
+	override protected prepareGeneration(ViewContainerImpl[] it) {
 	}
 
-	override protected generateComponent(ViewContainerImpl it) {
+	override protected generateComponent(ViewContainerImpl[] it) {
 		'''
 			// Angular Imports
 			import { Component, Input, OnChanges, SimpleChange } from '@angular/core';
@@ -45,19 +45,19 @@ class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 		'''
 	}
 
-	override protected generateTemplate(ViewContainerImpl it) {
+	override protected generateTemplate(ViewContainerImpl[] it) {
 		'''
-	        <nav [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarContainerClass"> 
-	          <div [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarWrapperClass"> 
-	            <div [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarHeaderClass"> 
+	        <nav [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.navbarContainerClass"> 
+	          <div [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.navbarWrapperClass"> 
+	            <div [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.navbarHeaderClass"> 
 	              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-nav"> <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	              </button>
 	              <a href="\" class="navbar-brand">LibSoft</a>
 	            </div>
-	            <div [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarCollapseClass" id="bs-nav">
-	              <ul [ngClass]="_«ServiceCollection.sharedInstance.profile.name.toFirstLower».getProfile().displayProperties.navbarItemListClass">
+	            <div [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.navbarCollapseClass" id="bs-nav">
+	              <ul [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.navbarItemListClass">
 	                <li class="divLine borderSecondary" *ngFor="#entry of navItems">
 	                  <a href="{{entry.path}}" class="textPrimary">{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString(entry.key)}}</a>
 	                </li>
@@ -68,11 +68,11 @@ class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 		'''
 	}
 
-	override protected fileName(ViewContainerImpl it) {
+	override protected fileName(ViewContainerImpl[] it) {
 		'''navigation.component'''
 	}
 
-	override protected folderName(ViewContainerImpl it) {
+	override protected folderName(ViewContainerImpl[] it) {
 		"app/dynamic/"
 	}
 

@@ -74,17 +74,6 @@ class FileManager {
 
 	def generateFile(String fileName, String contents) {
 
-		/*val file = new File(this._pathToOutputDirectory + fileName);
-
-		try {
-
-			Files::createParentDirs(file);
-			Files::write(contents.getBytes(Charsets.UTF_8), file);
-
-		} catch (IOException e) {
-
-			println('''[ERROR] File «fileName» could not be created''');
-		}*/
 		Interceptor::sharedInstance.generateFile(this._pathToOutputDirectory + fileName, contents);
 
 	}
