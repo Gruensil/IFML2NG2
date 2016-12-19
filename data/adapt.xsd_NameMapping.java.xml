@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<MappingSchema Language="Java" CollectionMapping="Original" NamespacePrefix="">
+  <Class Name="actions" LongName="actions" MappedClassColName="ActionsCol" MappedClassName="Actions">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="actions_Choice" DefaultValue="" MappedIsValidMember="_isValidActions_Choice" MappedSetValidName="setValidActions_Choice" MappedIsValidName="isValidActions_Choice" MappedIsNilMember="_isNilActions_Choice" MappedSetNilName="setNilActions_Choice" MappedIsNilName="isNilActions_Choice" MappedMemberName="_actions_Choice" MappedDisplayName="actions_Choice" MappedSetterName="setActions_Choice" MappedGetterName="getActions_Choice">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="actions_Choice" LongName="actions_Choice" MappedClassColName="Actions_ChoiceCol" MappedClassName="Actions_Choice">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="editFactOperation" DefaultValue="" MappedIsValidMember="_isValidEditFactOperation" MappedSetValidName="setValidEditFactOperation" MappedIsValidName="isValidEditFactOperation" MappedIsNilMember="_isNilEditFactOperation" MappedSetNilName="setNilEditFactOperation" MappedIsNilName="isNilEditFactOperation" MappedMemberName="_editFactOperation" MappedDisplayName="editFactOperation" MappedSetterName="setEditFactOperation" MappedGetterName="getEditFactOperation">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="functionCall" DefaultValue="" MappedIsValidMember="_isValidFunctionCall" MappedSetValidName="setValidFunctionCall" MappedIsValidName="isValidFunctionCall" MappedIsNilMember="_isNilFunctionCall" MappedSetNilName="setNilFunctionCall" MappedIsNilName="isNilFunctionCall" MappedMemberName="_functionCall" MappedDisplayName="functionCall" MappedSetterName="setFunctionCall" MappedGetterName="getFunctionCall">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="addNavLinkOperation" DefaultValue="" MappedIsValidMember="_isValidAddNavLinkOperation" MappedSetValidName="setValidAddNavLinkOperation" MappedIsValidName="isValidAddNavLinkOperation" MappedIsNilMember="_isNilAddNavLinkOperation" MappedSetNilName="setNilAddNavLinkOperation" MappedIsNilName="isNilAddNavLinkOperation" MappedMemberName="_addNavLinkOperation" MappedDisplayName="addNavLinkOperation" MappedSetterName="setAddNavLinkOperation" MappedGetterName="getAddNavLinkOperation">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="deleteNavLinkOperation" DefaultValue="" MappedIsValidMember="_isValidDeleteNavLinkOperation" MappedSetValidName="setValidDeleteNavLinkOperation" MappedIsValidName="isValidDeleteNavLinkOperation" MappedIsNilMember="_isNilDeleteNavLinkOperation" MappedSetNilName="setNilDeleteNavLinkOperation" MappedIsNilName="isNilDeleteNavLinkOperation" MappedMemberName="_deleteNavLinkOperation" MappedDisplayName="deleteNavLinkOperation" MappedSetterName="setDeleteNavLinkOperation" MappedGetterName="getDeleteNavLinkOperation">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="redirectOperation" DefaultValue="" MappedIsValidMember="_isValidRedirectOperation" MappedSetValidName="setValidRedirectOperation" MappedIsValidName="isValidRedirectOperation" MappedIsNilMember="_isNilRedirectOperation" MappedSetNilName="setNilRedirectOperation" MappedIsNilName="isNilRedirectOperation" MappedMemberName="_redirectOperation" MappedDisplayName="redirectOperation" MappedSetterName="setRedirectOperation" MappedGetterName="getRedirectOperation">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="clearNavOperation" DefaultValue="" MappedIsValidMember="_isValidClearNavOperation" MappedSetValidName="setValidClearNavOperation" MappedIsValidName="isValidClearNavOperation" MappedIsNilMember="_isNilClearNavOperation" MappedSetNilName="setNilClearNavOperation" MappedIsNilName="isNilClearNavOperation" MappedMemberName="_clearNavOperation" MappedDisplayName="clearNavOperation" MappedSetterName="setClearNavOperation" MappedGetterName="getClearNavOperation">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="editCssClassOperation" DefaultValue="" MappedIsValidMember="_isValidEditCssClassOperation" MappedSetValidName="setValidEditCssClassOperation" MappedIsValidName="isValidEditCssClassOperation" MappedIsNilMember="_isNilEditCssClassOperation" MappedSetNilName="setNilEditCssClassOperation" MappedIsNilName="isNilEditCssClassOperation" MappedMemberName="_editCssClassOperation" MappedDisplayName="editCssClassOperation" MappedSetterName="setEditCssClassOperation" MappedGetterName="getEditCssClassOperation">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="setDisplayProperty" DefaultValue="" MappedIsValidMember="_isValidSetDisplayProperty" MappedSetValidName="setValidSetDisplayProperty" MappedIsValidName="isValidSetDisplayProperty" MappedIsNilMember="_isNilSetDisplayProperty" MappedSetNilName="setNilSetDisplayProperty" MappedIsNilName="isNilSetDisplayProperty" MappedMemberName="_setDisplayProperty" MappedDisplayName="setDisplayProperty" MappedSetterName="setSetDisplayProperty" MappedGetterName="getSetDisplayProperty">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="adaptationRule" LongName="adaptationRule" MappedClassColName="AdaptationRuleCol" MappedClassName="AdaptationRule">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="name" DefaultValue="" MappedIsValidMember="_isValidName" MappedSetValidName="setValidName" MappedIsValidName="isValidName" MappedIsNilMember="_isNilName" MappedSetNilName="setNilName" MappedIsNilName="isNilName" MappedMemberName="_name" MappedDisplayName="name" MappedSetterName="setName" MappedGetterName="getName" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="priority" DefaultValue="" MappedIsValidMember="_isValidPriority" MappedSetValidName="setValidPriority" MappedIsValidName="isValidPriority" MappedIsNilMember="_isNilPriority" MappedSetNilName="setNilPriority" MappedIsNilName="isNilPriority" MappedMemberName="_priority" MappedDisplayName="priority" MappedSetterName="setPriority" MappedGetterName="getPriority" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="factType" DefaultValue="" MappedIsValidMember="_isValidFactType" MappedSetValidName="setValidFactType" MappedIsValidName="isValidFactType" MappedIsNilMember="_isNilFactType" MappedSetNilName="setNilFactType" MappedIsNilName="isNilFactType" MappedMemberName="_factType" MappedDisplayName="factType" MappedSetterName="setFactType" MappedGetterName="getFactType" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="factName" DefaultValue="" MappedIsValidMember="_isValidFactName" MappedSetValidName="setValidFactName" MappedIsValidName="isValidFactName" MappedIsNilMember="_isNilFactName" MappedSetNilName="setNilFactName" MappedIsNilName="isNilFactName" MappedMemberName="_factName" MappedDisplayName="factName" MappedSetterName="setFactName" MappedGetterName="getFactName" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="conditions" DefaultValue="" MappedIsValidMember="_isValidConditions" MappedSetValidName="setValidConditions" MappedIsValidName="isValidConditions" MappedIsNilMember="_isNilConditions" MappedSetNilName="setNilConditions" MappedIsNilName="isNilConditions" MappedMemberName="_conditions" MappedDisplayName="conditions" MappedSetterName="setConditions" MappedGetterName="getConditions">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="actions" DefaultValue="" MappedIsValidMember="_isValidActions" MappedSetValidName="setValidActions" MappedIsValidName="isValidActions" MappedIsNilMember="_isNilActions" MappedSetNilName="setNilActions" MappedIsNilName="isNilActions" MappedMemberName="_actions" MappedDisplayName="actions" MappedSetterName="setActions" MappedGetterName="getActions">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="adaptModel" LongName="adaptModel" MappedClassColName="AdaptModelCol" MappedClassName="AdaptModel">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="services" DefaultValue="" MappedIsValidMember="_isValidServices" MappedSetValidName="setValidServices" MappedIsValidName="isValidServices" MappedIsNilMember="_isNilServices" MappedSetNilName="setNilServices" MappedIsNilName="isNilServices" MappedMemberName="_services" MappedDisplayName="services" MappedSetterName="setServices" MappedGetterName="getServices">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="flow" DefaultValue="" MappedIsValidMember="_isValidFlow" MappedSetValidName="setValidFlow" MappedIsValidName="isValidFlow" MappedIsNilMember="_isNilFlow" MappedSetNilName="setNilFlow" MappedIsNilName="isNilFlow" MappedMemberName="_flow" MappedDisplayName="flow" MappedSetterName="setFlow" MappedGetterName="getFlow">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="addNavLinkOperation" LongName="addNavLinkOperation" MappedClassColName="AddNavLinkOperationCol" MappedClassName="AddNavLinkOperation">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="viewContainer" DefaultValue="" MappedIsValidMember="_isValidViewContainer" MappedSetValidName="setValidViewContainer" MappedIsValidName="isValidViewContainer" MappedIsNilMember="_isNilViewContainer" MappedSetNilName="setNilViewContainer" MappedIsNilName="isNilViewContainer" MappedMemberName="_viewContainer" MappedDisplayName="viewContainer" MappedSetterName="setViewContainer" MappedGetterName="getViewContainer" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="langKey" DefaultValue="" MappedIsValidMember="_isValidLangKey" MappedSetValidName="setValidLangKey" MappedIsValidName="isValidLangKey" MappedIsNilMember="_isNilLangKey" MappedSetNilName="setNilLangKey" MappedIsNilName="isNilLangKey" MappedMemberName="_langKey" MappedDisplayName="langKey" MappedSetterName="setLangKey" MappedGetterName="getLangKey" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="condition" LongName="condition" MappedClassColName="ConditionCol" MappedClassName="Condition">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="fact" DefaultValue="" MappedIsValidMember="_isValidFact" MappedSetValidName="setValidFact" MappedIsValidName="isValidFact" MappedIsNilMember="_isNilFact" MappedSetNilName="setNilFact" MappedIsNilName="isNilFact" MappedMemberName="_fact" MappedDisplayName="fact" MappedSetterName="setFact" MappedGetterName="getFact" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="operator" DefaultValue="" MappedIsValidMember="_isValidOperator" MappedSetValidName="setValidOperator" MappedIsValidName="isValidOperator" MappedIsNilMember="_isNilOperator" MappedSetNilName="setNilOperator" MappedIsNilName="isNilOperator" MappedMemberName="_operator" MappedDisplayName="operator_" MappedSetterName="setOperator" MappedGetterName="getOperator" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="value" DefaultValue="" MappedIsValidMember="_isValidValue" MappedSetValidName="setValidValue" MappedIsValidName="isValidValue" MappedIsNilMember="_isNilValue" MappedSetNilName="setNilValue" MappedIsNilName="isNilValue" MappedMemberName="_value" MappedDisplayName="value" MappedSetterName="setValue" MappedGetterName="getValue" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="type" DefaultValue="" MappedIsValidMember="_isValidType" MappedSetValidName="setValidType" MappedIsValidName="isValidType" MappedIsNilMember="_isNilType" MappedSetNilName="setNilType" MappedIsNilName="isNilType" MappedMemberName="_type" MappedDisplayName="type" MappedSetterName="setType" MappedGetterName="getType" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="conditionA" LongName="conditionA" MappedClassColName="ConditionACol" MappedClassName="ConditionA">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="fact" DefaultValue="" MappedIsValidMember="_isValidFact" MappedSetValidName="setValidFact" MappedIsValidName="isValidFact" MappedIsNilMember="_isNilFact" MappedSetNilName="setNilFact" MappedIsNilName="isNilFact" MappedMemberName="_fact" MappedDisplayName="fact" MappedSetterName="setFact" MappedGetterName="getFact" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="operator" DefaultValue="" MappedIsValidMember="_isValidOperator" MappedSetValidName="setValidOperator" MappedIsValidName="isValidOperator" MappedIsNilMember="_isNilOperator" MappedSetNilName="setNilOperator" MappedIsNilName="isNilOperator" MappedMemberName="_operator" MappedDisplayName="operator_" MappedSetterName="setOperator" MappedGetterName="getOperator" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="value" DefaultValue="" MappedIsValidMember="_isValidValue" MappedSetValidName="setValidValue" MappedIsValidName="isValidValue" MappedIsNilMember="_isNilValue" MappedSetNilName="setNilValue" MappedIsNilName="isNilValue" MappedMemberName="_value" MappedDisplayName="value" MappedSetterName="setValue" MappedGetterName="getValue" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="type" DefaultValue="" MappedIsValidMember="_isValidType" MappedSetValidName="setValidType" MappedIsValidName="isValidType" MappedIsNilMember="_isNilType" MappedSetNilName="setNilType" MappedIsNilName="isNilType" MappedMemberName="_type" MappedDisplayName="type" MappedSetterName="setType" MappedGetterName="getType" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="conditionGroup" LongName="conditionGroup" MappedClassColName="ConditionGroupCol" MappedClassName="ConditionGroup">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="condition" DefaultValue="" MappedIsValidMember="_isValidCondition" MappedSetValidName="setValidCondition" MappedIsValidName="isValidCondition" MappedIsNilMember="_isNilCondition" MappedSetNilName="setNilCondition" MappedIsNilName="isNilCondition" MappedMemberName="_condition" MappedDisplayName="condition" MappedSetterName="setCondition" MappedGetterName="getCondition">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="conditions" LongName="conditions" MappedClassColName="ConditionsCol" MappedClassName="Conditions">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="conditions_Choice" DefaultValue="" MappedIsValidMember="_isValidConditions_Choice" MappedSetValidName="setValidConditions_Choice" MappedIsValidName="isValidConditions_Choice" MappedIsNilMember="_isNilConditions_Choice" MappedSetNilName="setNilConditions_Choice" MappedIsNilName="isNilConditions_Choice" MappedMemberName="_conditions_Choice" MappedDisplayName="conditions_Choice" MappedSetterName="setConditions_Choice" MappedGetterName="getConditions_Choice">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="conditions_Choice" LongName="conditions_Choice" MappedClassColName="Conditions_ChoiceCol" MappedClassName="Conditions_Choice">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="conditionGroup" DefaultValue="" MappedIsValidMember="_isValidConditionGroup" MappedSetValidName="setValidConditionGroup" MappedIsValidName="isValidConditionGroup" MappedIsNilMember="_isNilConditionGroup" MappedSetNilName="setNilConditionGroup" MappedIsNilName="isNilConditionGroup" MappedMemberName="_conditionGroup" MappedDisplayName="conditionGroup" MappedSetterName="setConditionGroup" MappedGetterName="getConditionGroup">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="condition" DefaultValue="" MappedIsValidMember="_isValidCondition" MappedSetValidName="setValidCondition" MappedIsValidName="isValidCondition" MappedIsNilMember="_isNilCondition" MappedSetNilName="setNilCondition" MappedIsNilName="isNilCondition" MappedMemberName="_condition" MappedDisplayName="condition" MappedSetterName="setCondition" MappedGetterName="getCondition">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="deleteNavLinkOperation" LongName="deleteNavLinkOperation" MappedClassColName="DeleteNavLinkOperationCol" MappedClassName="DeleteNavLinkOperation">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="viewContainer" DefaultValue="" MappedIsValidMember="_isValidViewContainer" MappedSetValidName="setValidViewContainer" MappedIsValidName="isValidViewContainer" MappedIsNilMember="_isNilViewContainer" MappedSetNilName="setNilViewContainer" MappedIsNilName="isNilViewContainer" MappedMemberName="_viewContainer" MappedDisplayName="viewContainer" MappedSetterName="setViewContainer" MappedGetterName="getViewContainer" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="editCssClassOperation" LongName="editCssClassOperation" MappedClassColName="EditCssClassOperationCol" MappedClassName="EditCssClassOperation">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="cssClass" DefaultValue="" MappedIsValidMember="_isValidCssClass" MappedSetValidName="setValidCssClass" MappedIsValidName="isValidCssClass" MappedIsNilMember="_isNilCssClass" MappedSetNilName="setNilCssClass" MappedIsNilName="isNilCssClass" MappedMemberName="_cssClass" MappedDisplayName="cssClass" MappedSetterName="setCssClass" MappedGetterName="getCssClass" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="cssAttribute" DefaultValue="" MappedIsValidMember="_isValidCssAttribute" MappedSetValidName="setValidCssAttribute" MappedIsValidName="isValidCssAttribute" MappedIsNilMember="_isNilCssAttribute" MappedSetNilName="setNilCssAttribute" MappedIsNilName="isNilCssAttribute" MappedMemberName="_cssAttribute" MappedDisplayName="cssAttribute" MappedSetterName="setCssAttribute" MappedGetterName="getCssAttribute" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="value" DefaultValue="" MappedIsValidMember="_isValidValue" MappedSetValidName="setValidValue" MappedIsValidName="isValidValue" MappedIsNilMember="_isNilValue" MappedSetNilName="setNilValue" MappedIsNilName="isNilValue" MappedMemberName="_value" MappedDisplayName="value" MappedSetterName="setValue" MappedGetterName="getValue" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="editFactOperation" LongName="editFactOperation" MappedClassColName="EditFactOperationCol" MappedClassName="EditFactOperation">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="set" DefaultValue="" MappedIsValidMember="_isValidSet" MappedSetValidName="setValidSet" MappedIsValidName="isValidSet" MappedIsNilMember="_isNilSet" MappedSetNilName="setNilSet" MappedIsNilName="isNilSet" MappedMemberName="_set" MappedDisplayName="set" MappedSetterName="setSet" MappedGetterName="getSet" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="value" DefaultValue="" MappedIsValidMember="_isValidValue" MappedSetValidName="setValidValue" MappedIsValidName="isValidValue" MappedIsNilMember="_isNilValue" MappedSetNilName="setNilValue" MappedIsNilName="isNilValue" MappedMemberName="_value" MappedDisplayName="value" MappedSetterName="setValue" MappedGetterName="getValue" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="flow" LongName="flow" MappedClassColName="FlowCol" MappedClassName="Flow">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="name" DefaultValue="" MappedIsValidMember="_isValidName" MappedSetValidName="setValidName" MappedIsValidName="isValidName" MappedIsNilMember="_isNilName" MappedSetNilName="setNilName" MappedIsNilName="isNilName" MappedMemberName="_name" MappedDisplayName="name" MappedSetterName="setName" MappedGetterName="getName" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="adaptationRule" DefaultValue="" MappedIsValidMember="_isValidAdaptationRule" MappedSetValidName="setValidAdaptationRule" MappedIsValidName="isValidAdaptationRule" MappedIsNilMember="_isNilAdaptationRule" MappedSetNilName="setNilAdaptationRule" MappedIsNilName="isNilAdaptationRule" MappedMemberName="_adaptationRule" MappedDisplayName="adaptationRule" MappedSetterName="setAdaptationRule" MappedGetterName="getAdaptationRule">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="function" LongName="function" MappedClassColName="FunctionCol" MappedClassName="Function">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="id" DefaultValue="" MappedIsValidMember="_isValidId" MappedSetValidName="setValidId" MappedIsValidName="isValidId" MappedIsNilMember="_isNilId" MappedSetNilName="setNilId" MappedIsNilName="isNilId" MappedMemberName="_id" MappedDisplayName="id" MappedSetterName="setId" MappedGetterName="getId" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="name" DefaultValue="" MappedIsValidMember="_isValidName" MappedSetValidName="setValidName" MappedIsValidName="isValidName" MappedIsNilMember="_isNilName" MappedSetNilName="setNilName" MappedIsNilName="isNilName" MappedMemberName="_name" MappedDisplayName="name" MappedSetterName="setName" MappedGetterName="getName" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="functionCall" LongName="functionCall" MappedClassColName="FunctionCallCol" MappedClassName="FunctionCall">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="service" DefaultValue="" MappedIsValidMember="_isValidService" MappedSetValidName="setValidService" MappedIsValidName="isValidService" MappedIsNilMember="_isNilService" MappedSetNilName="setNilService" MappedIsNilName="isNilService" MappedMemberName="_service" MappedDisplayName="service" MappedSetterName="setService" MappedGetterName="getService" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="function" DefaultValue="" MappedIsValidMember="_isValidFunction" MappedSetValidName="setValidFunction" MappedIsValidName="isValidFunction" MappedIsNilMember="_isNilFunction" MappedSetNilName="setNilFunction" MappedIsNilName="isNilFunction" MappedMemberName="_function" MappedDisplayName="function" MappedSetterName="setFunction" MappedGetterName="getFunction" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="value" DefaultValue="" MappedIsValidMember="_isValidValue" MappedSetValidName="setValidValue" MappedIsValidName="isValidValue" MappedIsNilMember="_isNilValue" MappedSetNilName="setNilValue" MappedIsNilName="isNilValue" MappedMemberName="_value" MappedDisplayName="value" MappedSetterName="setValue" MappedGetterName="getValue" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="redirectOperation" LongName="redirectOperation" MappedClassColName="RedirectOperationCol" MappedClassName="RedirectOperation">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="viewContainer" DefaultValue="" MappedIsValidMember="_isValidViewContainer" MappedSetValidName="setValidViewContainer" MappedIsValidName="isValidViewContainer" MappedIsNilMember="_isNilViewContainer" MappedSetNilName="setNilViewContainer" MappedIsNilName="isNilViewContainer" MappedMemberName="_viewContainer" MappedDisplayName="viewContainer" MappedSetterName="setViewContainer" MappedGetterName="getViewContainer" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="service" LongName="service" MappedClassColName="ServiceCol" MappedClassName="Service">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="id" DefaultValue="" MappedIsValidMember="_isValidId" MappedSetValidName="setValidId" MappedIsValidName="isValidId" MappedIsNilMember="_isNilId" MappedSetNilName="setNilId" MappedIsNilName="isNilId" MappedMemberName="_id" MappedDisplayName="id" MappedSetterName="setId" MappedGetterName="getId" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="type" DefaultValue="" MappedIsValidMember="_isValidType" MappedSetValidName="setValidType" MappedIsValidName="isValidType" MappedIsNilMember="_isNilType" MappedSetNilName="setNilType" MappedIsNilName="isNilType" MappedMemberName="_type" MappedDisplayName="type" MappedSetterName="setType" MappedGetterName="getType" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="location" DefaultValue="" MappedIsValidMember="_isValidLocation" MappedSetValidName="setValidLocation" MappedIsValidName="isValidLocation" MappedIsNilMember="_isNilLocation" MappedSetNilName="setNilLocation" MappedIsNilName="isNilLocation" MappedMemberName="_location" MappedDisplayName="location" MappedSetterName="setLocation" MappedGetterName="getLocation" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="function" DefaultValue="" MappedIsValidMember="_isValidFunction" MappedSetValidName="setValidFunction" MappedIsValidName="isValidFunction" MappedIsNilMember="_isNilFunction" MappedSetNilName="setNilFunction" MappedIsNilName="isNilFunction" MappedMemberName="_function" MappedDisplayName="function" MappedSetterName="setFunction" MappedGetterName="getFunction">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="services" LongName="services" MappedClassColName="ServicesCol" MappedClassName="Services">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="service" DefaultValue="" MappedIsValidMember="_isValidService" MappedSetValidName="setValidService" MappedIsValidName="isValidService" MappedIsNilMember="_isNilService" MappedSetNilName="setNilService" MappedIsNilName="isNilService" MappedMemberName="_service" MappedDisplayName="service" MappedSetterName="setService" MappedGetterName="getService">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Class Name="setDisplayProperty" LongName="setDisplayProperty" MappedClassColName="SetDisplayPropertyCol" MappedClassName="SetDisplayProperty">
+    <Description>
+    </Description>
+    <Remarks>
+    </Remarks>
+    <Attribute Name="property" DefaultValue="" MappedIsValidMember="_isValidProperty" MappedSetValidName="setValidProperty" MappedIsValidName="isValidProperty" MappedIsNilMember="_isNilProperty" MappedSetNilName="setNilProperty" MappedIsNilName="isNilProperty" MappedMemberName="_property" MappedDisplayName="property" MappedSetterName="setProperty" MappedGetterName="getProperty" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="value" DefaultValue="" MappedIsValidMember="_isValidValue" MappedSetValidName="setValidValue" MappedIsValidName="isValidValue" MappedIsNilMember="_isNilValue" MappedSetNilName="setNilValue" MappedIsNilName="isNilValue" MappedMemberName="_value" MappedDisplayName="value" MappedSetterName="setValue" MappedGetterName="getValue" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+    <Attribute Name="type" DefaultValue="" MappedIsValidMember="_isValidType" MappedSetValidName="setValidType" MappedIsValidName="isValidType" MappedIsNilMember="_isNilType" MappedSetNilName="setNilType" MappedIsNilName="isNilType" MappedMemberName="_type" MappedDisplayName="type" MappedSetterName="setType" MappedGetterName="getType" FormatOverride="">
+      <Description>
+      </Description>
+      <Remarks>
+      </Remarks>
+    </Attribute>
+  </Class>
+  <Namespace SchemaNamespace="" SchemaAlias="" ClassNamespace="adaptLib" />
+</MappingSchema>

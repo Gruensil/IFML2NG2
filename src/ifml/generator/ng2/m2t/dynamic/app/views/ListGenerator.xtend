@@ -79,6 +79,7 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 					</tbody>
 				</table>
 			</div>
+			<div id="actionArea" name="actionArea">
 		'''
 		//TODO only if no viewelement event with navigation flow!
 		output += new MobileDetailsGenerator().generateTemplate(listElement)
@@ -114,6 +115,10 @@ public class ListGenerator extends AbstractViewElementGenerator<ListImpl>{
 			}
 			
 		}
+		
+		output += '''
+			</div>
+		'''
 		
 		return output
 	}

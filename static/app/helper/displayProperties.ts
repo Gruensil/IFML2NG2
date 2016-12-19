@@ -93,7 +93,12 @@ export class DisplayProperties {
 
     // push new Navigation item to navigation
     public pushNavigation(newItem:Object){
-        return this.navigation.push(newItem);
+		this.temp = this.navigation.filter(function(element){
+			return element.path == newItem.path && element.key == newItem.key
+		});
+		if(this.temp.length == 0){
+			return this.navigation.push(newItem);
+		};
     }
 
     // remove Navigation path from navigation

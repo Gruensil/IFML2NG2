@@ -88,6 +88,18 @@
 															<xs:attribute name="langKey" use="required"/>
 														</xs:complexType>
 													</xs:element>
+													<xs:element name="addViewComponentButtonOperation">
+														<xs:complexType>
+															<xs:attribute name="id" use="required"/>
+															<xs:attribute name="langKey" use="required"/>
+															<xs:attribute name="action" use="required"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="deleteViewComponentButtonOperation">
+														<xs:complexType>
+															<xs:attribute name="id" use="required"/>
+														</xs:complexType>
+													</xs:element>
 													<xs:element name="deleteNavLinkOperation">
 														<xs:complexType>
 															<xs:attribute name="viewContainer" use="required"/>
