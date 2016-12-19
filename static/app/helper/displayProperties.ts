@@ -1,6 +1,7 @@
 export class DisplayProperties {
     private type: string;
     private role: string;
+	private temp: any;
 
     // [{path:<path>,text:<link text>}]
     private navigation: any;
@@ -92,7 +93,7 @@ export class DisplayProperties {
     }
 
     // push new Navigation item to navigation
-    public pushNavigation(newItem:Object){
+    public pushNavigation(newItem:any){
 		this.temp = this.navigation.filter(function(element){
 			return element.path == newItem.path && element.key == newItem.key
 		});

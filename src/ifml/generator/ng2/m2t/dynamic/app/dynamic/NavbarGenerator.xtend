@@ -64,9 +64,6 @@ class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl[]> {
 	              </ul>              
 	            </div>
 	          </div>
-	          <div name="administrationControls" id="administrationControls">
-	          	<button>Administration</button>
-	          </div>
 	        </nav>
 		'''
 	}

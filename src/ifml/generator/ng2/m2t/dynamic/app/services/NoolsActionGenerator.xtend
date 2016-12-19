@@ -45,14 +45,14 @@ public class NoolsActionGenerator{
 							_Router.navigate(['/«attr.getNamedItem("viewContainer").nodeValue»']);
 						'''
 					}
-					case "addViewComponentButton": {
+					case "addViewComponentButtonOperation": {
 						output += '''
-							$("#actionArea").append("<button id="'«attr.getNamedItem('id').nodeValue»'" name="'«attr.getNamedItem('id').nodeValue»'" class='btn btn-default' (click)="'«attr.getNamedItem('action').nodeValue»'" type='button'>«attr.getNamedItem('langKey').nodeValue»</button>");
+							$("#actionArea").append("<button id='«attr.getNamedItem('id').nodeValue»' name='«attr.getNamedItem('id').nodeValue»' class='btn btn-default' onclick='«attr.getNamedItem('action').nodeValue»' type='button'>«attr.getNamedItem('langKey').nodeValue»</button>");
 						'''
 					}
-					case "deleteViewComponentButton": {
+					case "deleteViewComponentButtonOperation": {
 						output += '''
-							$("#actionArea > #«attr.getNamedItem('id').nodeValue»").delete();
+							$("#actionArea > #«attr.getNamedItem('id').nodeValue»").remove();
 						'''
 					}
 					case "clearNavOperation": {
