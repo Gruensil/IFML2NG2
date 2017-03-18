@@ -58,7 +58,7 @@ class NavbarGenerator extends AbstractClassGenerator<ViewContainerImpl[]> {
 	            </div>
 	            <div [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.navbarCollapseClass" id="bs-nav">
 	              <ul [ngClass]="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.navbarItemListClass">
-	                <li class="divLine borderSecondary" *ngFor="#entry of navItems">
+	                <li class="divLine borderSecondary" *ngFor="let entry of navItems">
 	                  <a href="{{entry.path}}" class="textPrimary">{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString(entry.key)}}</a>
 	                </li>
 	              </ul>              

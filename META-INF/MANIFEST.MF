@@ -13,5 +13,5 @@ Require-Bundle: org.junit;bundle-version="4.5.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.10.1",
  org.eclipse.xtext.xbase.lib,
  IFMLEditor;bundle-version="1.0.0",
- org.eclipse.xtend2.lib;bundle-version="2.7.2"
+ org.eclipse.xtend2.lib;bundle-version="2.7.2";resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

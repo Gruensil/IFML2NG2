@@ -55,7 +55,7 @@ export class ResourceService {
             langString = this.langStrings.find(function(s){
                 return s.key == key;
             });
-            console.log(key);
+            //console.log(key);
 			if(langString != undefined){
 				return langString.text;
 			}

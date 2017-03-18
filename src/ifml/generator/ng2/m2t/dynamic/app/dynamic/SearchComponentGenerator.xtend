@@ -65,7 +65,7 @@ class SearchComponentGenerator extends AbstractClassGenerator<ViewContainerImpl[
 	        <div class="searchContainer" >
 	            <div id="advancedSearch" class="row" *ngIf="_«ServiceCollection.sharedInstance.displayProperties.name.toFirstLower».displayProperties.isAdvancedUser">
 	                <form action="" class="form-inline" style="margin-bottom:5px;">
-	                    <div class="form-group col-md-6" *ngFor="#field of searchSpace">
+	                    <div class="form-group col-md-6" *ngFor="let field of searchSpace">
 	                        <div class="input-group">
 	                            <input #advancedBox type="text" name="field.key" class="form-control" placeholder="{{_«ServiceCollection.sharedInstance.resource.name.toFirstLower».getLangString(field.title)}}" (keyup)="updateFilterAdvanced(field.key, advancedBox.value)">
 	                            <span class="input-group-addon glyphicon glyphicon-search" style="top:0;" aria-hidden="true"></span>

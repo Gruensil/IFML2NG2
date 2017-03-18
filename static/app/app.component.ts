@@ -10,9 +10,14 @@
 		import { DisplayPropertiesService } from './services/displayProperties.service';
 		import { ProfileService } from './services/profile.service';
 		
+		import { ContextCollectorService } from './services/contextCollector.service';
+		
 		@Component({
 		  selector: 'my-app',
-		  providers: [AuthenticationService],
+		  providers: [
+				AuthenticationService,
+				ContextCollectorService
+				],
 		  template: `
 			<noolstestbar></noolstestbar>
 		    <div id="desktopViewContainter" class="container">
@@ -38,6 +43,9 @@
 		
 		    constructor( 
 				private _service: AuthenticationService,
+	
+				private contextCollectorSercice: ContextCollectorService,
+				
 				private profile: ProfileService,
 				private _displayPropertiesService: DisplayPropertiesService){
 			}
