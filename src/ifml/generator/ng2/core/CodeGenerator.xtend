@@ -18,6 +18,8 @@ import ifml.generator.ng2.m2t.dynamic.app.dynamic.SearchComponentGenerator
 import IFML.Extensions.impl.ListImpl
 import ifml.generator.ng2.m2t.dynamic.app.helper.PipeGenerator
 import ifml.generator.ng2.m2t.dynamic.app.MainGenerator
+import ifml.generator.ng2.m2t.dynamic.app.context.ContextManagerServiceGenerator
+import ifml.generator.ng2.m2t.dynamic.app.services.TestGenerator
 
 class GeneratorCore {
 
@@ -53,6 +55,11 @@ class GeneratorCore {
 			new MainGenerator().generateFile(windows);
 			// Services
 			new NoolsServiceGenerator().generateFile(adaptModel);
+			
+			// ContextManager
+			new ContextManagerServiceGenerator().generateFile(adaptModel);
+			
+			new TestGenerator().generateFile("Hello World.");
 			
 			// Boilerplate Generation
 			// generate index.html
