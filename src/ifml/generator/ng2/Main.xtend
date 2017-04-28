@@ -46,8 +46,8 @@ class Main {
 			 
 			// copy files
 			fileManager.copyFiles(args.get(4), args.get(5))
-			//var xsd = "C:\\Users\\STAH037\\workspace\\IFML2NG2\\data\\adapt.xsd";
 			var xsd = args.get(3)
+			
 			// Start Code Generation
 			new GeneratorCore().generateCode(ifmlModel, umlModel, adaptModel, xsd)
 			println("M2T IFML2NG2 finished!")

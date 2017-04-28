@@ -9,12 +9,13 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 	
 	// Overridden Parent methods
 	override protected fileContents(Document doc) {
-		var services = doc.firstChild.firstChild;
+		var adaptationModel = doc.firstChild.firstChild.nextSibling;
+		var services = adaptationModel.firstChild;
 		var servicesChildList = services.childNodes;
 		var serviceMap = new HashMap();
 		var functionMap = new HashMap();
 		
-		if(servicesChildList != null && servicesChildList.length > 0){	
+		if(servicesChildList !== null && servicesChildList.length > 0){	
 			for(var i = 0; i < servicesChildList.length; i++){
 				serviceMap.put(servicesChildList.item(i).attributes.getNamedItem("id").nodeValue,servicesChildList.item(i).attributes.getNamedItem("type").nodeValue);
 				var functionNodeList = servicesChildList.item(i).childNodes;
@@ -28,7 +29,6 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 		
 		
 		var flow = services.nextSibling;
-		var rules = services.childNodes;
 		'''
 			import {Injectable, DynamicComponentLoader, Injector} from '@angular/core';
 			import { Router } from '@angular/router';
