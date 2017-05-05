@@ -38,11 +38,8 @@ class Main {
 			serviceCollection.setProfile("ProfileService","/services/profile.service")
 			serviceCollection.setDisplayProperties("DisplayPropertiesService","/services/displayProperties.service")
 			serviceCollection.addService("LoggerService", "/services/logger.service")
-			/*
-			 * serviceCollection.addService("AffecticvaProvider", "/provider/affectiva.service")
-			 * serviceCollection.addService("GeolocationProvider", "/provider/geolocation.service")
-			 */
-			serviceCollection.addService("ContextCollectorService", "/services/contextCollector.service")
+			
+			serviceCollection.addService("ContextControllerService", "/context/contextController.service")
 			 
 			// copy files
 			fileManager.copyFiles(args.get(4), args.get(5))

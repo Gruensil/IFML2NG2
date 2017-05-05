@@ -18,7 +18,7 @@ import ifml.generator.ng2.m2t.dynamic.app.dynamic.SearchComponentGenerator
 import IFML.Extensions.impl.ListImpl
 import ifml.generator.ng2.m2t.dynamic.app.helper.PipeGenerator
 import ifml.generator.ng2.m2t.dynamic.app.MainGenerator
-import ifml.generator.ng2.m2t.dynamic.app.context.ContextManagerGenerator
+import ifml.generator.ng2.m2t.dynamic.app.context.ContextServiceGenerator
 
 class GeneratorCore {
 
@@ -51,14 +51,12 @@ class GeneratorCore {
 			new NavbarGenerator().generateCode(windows);
 			// App
 			new RoutesGenerator().generateFile(windows);
-			new MainGenerator().generateFile(windows);
+			new MainGenerator().generateFile(adaptModel);
 			// Services
 			new NoolsServiceGenerator().generateFile(adaptModel);
 			
 			// ContextManager
-			new ContextManagerGenerator().generateFile(adaptModel);
-			
-			//new TestGenerator().generateFile("Hello World.");
+			new ContextServiceGenerator().generateFile(adaptModel);
 			
 			// Boilerplate Generation
 			// generate index.html

@@ -1,7 +1,6 @@
 package ifml.generator.ng2.m2t.dynamic.app.context;
 
 import ifml.generator.ng2.m2t.general.AbstractFileGenerator
-import org.w3c.dom.Document
 import java.util.LinkedList
 import org.w3c.dom.NamedNodeMap
 
@@ -51,7 +50,6 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 				«FOR prop: propertyList»
 					«var propName = prop.getNamedItem("name").nodeValue.toFirstLower»
 					«var propType = prop.getNamedItem("type").nodeValue.toFirstUpper»
-«««					«IF propType == "Int"»«propType = "number"»«ELSEIF propType== "String"»«propType="string"»«ELSEIF propType=="Bool"»«propType="boolean"»«ENDIF»
 					«if(propType=="Int"){
 						propType = "number"
 					}else if(propType== "String"){
