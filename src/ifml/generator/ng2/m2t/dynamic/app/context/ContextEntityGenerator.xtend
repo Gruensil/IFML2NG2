@@ -23,7 +23,7 @@ class ContextEntityGenerator extends AbstractFileGenerator<Node> {
 		var typeList = new LinkedList;		
 		for(prop: propertyList){
 			var propType = prop.getNamedItem("type").nodeValue.toFirstUpper;
-			if(propType != "String" && propType != "Int" && propType != "Bool" && !typeList.contains(propType)){
+			if(propType != "String" && propType != "Number" && propType != "Boolean" && !typeList.contains(propType)){
 				typeList.add(propType);
 			}
 		}
@@ -41,13 +41,6 @@ class ContextEntityGenerator extends AbstractFileGenerator<Node> {
 			«FOR prop: propertyList»
 				«var propName = prop.getNamedItem("name").nodeValue.toFirstLower»
 				«var propType = prop.getNamedItem("type").nodeValue.toFirstUpper»
-				«if(propType=="Int"){
-					propType = "number"
-				}else if(propType== "String"){
-					propType="string"
-				}else if(propType=="Bool"){
-					propType="boolean"
-				}»
 					private «propName»: «propType»;
 			«ENDFOR»
 			    
@@ -56,13 +49,6 @@ class ContextEntityGenerator extends AbstractFileGenerator<Node> {
 			«FOR prop: propertyList»
 				«var propName = prop.getNamedItem("name").nodeValue.toFirstLower»
 				«var propType = prop.getNamedItem("type").nodeValue.toFirstUpper»
-				«if(propType == "Int"){
-					propType = "number";
-				}else if(propType == "String"){
-					propType = "string";
-				}else if(propType =="Bool"){
-					propType = "boolean";
-				}»
 					public set«propName.toFirstUpper»(v: «propType»){
 					    this.«propName» = v;
 					};
