@@ -35,7 +35,7 @@ class Main {
 			serviceCollection.setAuthentication("AuthenticationService","/services/authentication.service")
 			serviceCollection.setData("DataService","/services/data.service")
 			serviceCollection.setResource("ResourceService", "/services/resource.service")
-			serviceCollection.setProfile("ProfileService","/services/profile.service")
+			//serviceCollection.setProfile("ProfileService","/services/profile.service")
 			serviceCollection.setDisplayProperties("DisplayPropertiesService","/services/displayProperties.service")
 			serviceCollection.addService("LoggerService", "/services/logger.service")
 			
@@ -47,8 +47,7 @@ class Main {
 			
 			// Start Code Generation
 			new GeneratorCore().generateCode(ifmlModel, umlModel, adaptModel, xsd)
-			println("M2T IFML2NG2 finished!")
-				
+			println("M2T IFML2NG2 finished!")				
 
 		}	
 		

@@ -8,10 +8,10 @@ import ifml.generator.ng2.m2t.dynamic.app.context.ContextTypesGenerator
 
 class ContextServiceGenerator{
 	
-	def generateFile(Document adaptModel){
+	def generateFiles(Document adaptModel){
 		new ContextControllerGenerator().generateFile(adaptModel);
-		new ContextProvidersGenerator().generateFile(adaptModel);
-		new ContextTypesGenerator().generateFile(adaptModel);
+		new ContextProvidersGenerator().generateFiles(adaptModel);
+		new ContextTypesGenerator().generateFiles(adaptModel);
 		new ContextProfileGenerator().generateFile(adaptModel);
 	}	
 	

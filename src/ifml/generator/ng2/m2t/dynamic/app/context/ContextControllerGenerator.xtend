@@ -56,10 +56,14 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 		
 				
 		'''
-			import { Injectable} from '@angular/core';
+			import { Injectable, Input } from '@angular/core';
 			import { Subscription } from 'rxjs/Subscription';
 			import { Observable } from 'rxjs/Rx';
-			import { Profile } from '../context/profile/profile';
+			import { Profile } from './profile/profile';
+			
+			import { DisplayProperties } from '../helper/displayProperties'
+			
+			import { NoolsService } from '../services/nools.service';
 			
 			«FOR prov: providersList»
 				import { «prov.toFirstUpper»Service } from './providers/«prov.toFirstLower».service';
@@ -69,6 +73,10 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			export class ContextControllerService{
 				
 			    private profile: Profile;
+			    
+			    private session: any;
+			    
+			    private active: boolean = true;
 			    
 			    «FOR prop: propertyList»
 			    private «prop.propName»: Subscription;
@@ -82,13 +90,25 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 				
 				
 				constructor(
+					private flow: NoolsService,
 					«FOR prov: providersList SEPARATOR ","»
 					private «prov.toFirstLower»Service: «prov.toFirstUpper»Service
 					«ENDFOR»
 				){
+					
+					this.profile = new Profile();
+					
+«««					this.flow.setProfile(this.profile);
+					
+					this.session = this.flow.getSession();
+					
 					«FOR prop: propertyList»
 					this.«prop.propName» = this.«prop.propProv»Service.«prop.propName»Subject.subscribe(«prop.propName» => {
-						this.profile.get«prop.propEntity.toFirstUpper»().set«prop.propName.toFirstUpper»(«prop.propName»);
+						if(this.active){
+							this.profile.get«prop.propEntity.toFirstUpper»().set«prop.propName.toFirstUpper»(«prop.propName»);
+							this.onModified();
+						}
+						console.log(this.active);
 					});
 					«ENDFOR»
 				
@@ -105,6 +125,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 					    console.log(t);
 					    this.slow();
 					});
+					
 				}
 				
 				fast(){
@@ -124,8 +145,24 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			    }
 			    
 			    //returns Profile instance
-				getProfile(){
+				public getProfile(){
 				    return this.profile;
+				}
+				
+				public onModified(){
+				  //now fire the rules
+				  this.session.assert(this.getProfile());
+				  this.session.match(function(err){
+				      if(err){
+				        console.error(err.stack);
+				      }else{
+				          console.log("done");
+				      }
+				  });
+				}
+				
+				public setActivation( status ){
+					this.active = status;
 				}
 			}
 			

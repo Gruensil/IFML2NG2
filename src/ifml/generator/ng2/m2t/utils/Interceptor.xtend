@@ -13,7 +13,7 @@ class Interceptor{
 	
 	static def Interceptor sharedInstance(){
 		
-		if(INSTANCE == null) {
+		if(INSTANCE === null) {
 			
 			INSTANCE = new Interceptor();
 		}
@@ -41,7 +41,7 @@ class Interceptor{
 		
 		for (var i = 0; i < lines.length; i++){
 			
-			if(lines.get(i).contains("// PROTECTED REGION ID") && lines.get(i).contains("ENABLED START")){
+			if(lines.get(i).contains("PROTECTED REGION ID") && lines.get(i).contains("ENABLED START")){
 
 				// found start of protected region
 				var protectedRegionContent = "";
@@ -52,15 +52,14 @@ class Interceptor{
 					protectedRegionContent += lines.get(i).toString() +"\n";	
 					i++;
 						
-				}while(!lines.get(i).contains("// PROTECTED REGION END"));
+				}while(!lines.get(i).contains("PROTECTED REGION END"));
 				
 				// cut off last '\n'
 				protectedRegionContent = protectedRegionContent.subSequence(0,protectedRegionContent.length-1).toString();
 			
 				tempContents = tempContents.replace(regionStart, protectedRegionContent);
 				
-			}
-			
+			}			
 		}
 		
 		return tempContents;

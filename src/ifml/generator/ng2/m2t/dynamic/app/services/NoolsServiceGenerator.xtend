@@ -33,7 +33,7 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 			import {Injectable, DynamicComponentLoader, Injector} from '@angular/core';
 			import { Router } from '@angular/router';
 
-			import { Profile } from '../helper/profile';
+			import { Profile } from '../context/profile/profile';
 			import { DisplayProperties } from '../helper/displayProperties';
 			
 			import { ResourceService } from './resource.service';
@@ -49,6 +49,7 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 				private flow;
 				
 				constructor(
+«««					private m: Profile,
 					private dcl: DynamicComponentLoader,
 					private injector: Injector,
 					private _Router: Router,
@@ -63,6 +64,10 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 				public getSession(){
 					return this.flow.getSession();
 				}
+				
+«««				public setProfile(profile){
+«««					m = profile;
+«««				}
 			}
 			
 		'''

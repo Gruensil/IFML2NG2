@@ -6,7 +6,7 @@ import java.util.LinkedList
 
 class ContextProvidersGenerator{
 
-	def generateFile(Document adaptDSL){
+	def generateFiles(Document adaptDSL){
 		
 		var contextModel = adaptDSL.firstChild.firstChild;
 		

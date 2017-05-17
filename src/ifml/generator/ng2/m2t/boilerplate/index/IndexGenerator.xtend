@@ -38,9 +38,15 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		      System.import('app').catch(function(err){ console.error(err); });
 		    </script>
 		    
+		  	<!-- 3. Add Provider API scripts -->
+		  	<!-- PROTECTED REGION ID index ENABLED START -->
+		  	<!-- PROTECTED REGION END -->
+		    
 		  </head>
+		  
+
 		
-		  <!-- 3. Display the application -->
+		  <!-- 4. Display the application -->
 		  <body  class="textPrimary backgroundPrimary">
 		  	<h3>«it»</h3>
 		    <my-app></my-app>

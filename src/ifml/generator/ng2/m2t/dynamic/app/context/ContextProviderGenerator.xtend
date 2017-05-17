@@ -50,14 +50,29 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 				«FOR prop: propertyList»
 					«var propName = prop.getNamedItem("name").nodeValue.toFirstLower»
 					«var propType = prop.getNamedItem("type").nodeValue.toFirstUpper»
-«««					Fix FirstUpper/Lower!
-					private «propName»: «propType»;
-					private _«propName»Subject: BehaviorSubject<«propType»> = new BehaviorSubject(«IF propType=="String"»"init"«ELSEIF propType=="Boolean"»false«ELSE»0«ENDIF»);
-					public «propName»Subject: Observable<«propType»> = this._«propName»Subject.asObservable();
+					private «propName»: «
+						if(propType == "String" || propType == "Number" || propType == "Boolean"){
+							propType.toFirstLower
+						}else{
+							propType
+						}»;
+					private _«propName»Subject: BehaviorSubject<«
+											if(propType == "String" || propType == "Number" || propType == "Boolean"){
+												propType.toFirstLower
+											}else{
+												propType
+											}»> = new BehaviorSubject(«IF propType=="String"»"init"«ELSEIF propType=="Boolean"»false«ELSE»0«ENDIF»);
+					public «propName»Subject: Observable<«
+											if(propType == "String" || propType == "Number" || propType == "Boolean"){
+												propType.toFirstLower
+											}else{
+												propType
+											}»> = this._«propName»Subject.asObservable();
 				«ENDFOR»
 				
 				constructor(){
-					
+					// PROTECTED REGION ID «providerName.toFirstLower» ENABLED START
+					// PROTECTED REGION END
 				}
 				
 				«FOR prop: propertyList»

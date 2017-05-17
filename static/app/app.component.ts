@@ -8,15 +8,14 @@
 		
 		import { AuthenticationService } from './services/authentication.service';
 		import { DisplayPropertiesService } from './services/displayProperties.service';
-		import { ProfileService } from './services/profile.service';
 		
-		import { ContextCollectorService } from './services/contextCollector.service';
+		import { ContextControllerService } from './context/contextController.service';
 		
 		@Component({
 		  selector: 'my-app',
 		  providers: [
-				AuthenticationService,
-				ContextCollectorService
+				AuthenticationService
+				,ContextControllerService
 				],
 		  template: `
 			<noolstestbar></noolstestbar>
@@ -36,17 +35,25 @@
 		      </div>
 		    </div>
 		  `,
-		  directives: [ROUTER_DIRECTIVES, NavigationComponent,NoolsTestBarComponent, NgClass]
+		  directives: [ROUTER_DIRECTIVES, NavigationComponent, NoolsTestBarComponent, NgClass]
 		})
 		
 		export class AppComponent {
 		
 		    constructor( 
 				private _service: AuthenticationService,
-	
-				private contextCollectorSercice: ContextCollectorService,
+        
+        //--> New ContextService
+        //    NoolsTestBar will include it,
+        //    if not this must not be commented to be working
+          
+        private _context: ContextControllerService,
 				
-				private profile: ProfileService,
+        
+        //--> Old manual ContextService
+          
+				//private profile: ProfileService,
+          
 				private _displayPropertiesService: DisplayPropertiesService){
 			}
 		}

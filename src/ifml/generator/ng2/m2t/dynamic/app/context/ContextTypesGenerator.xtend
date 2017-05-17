@@ -5,7 +5,7 @@ import ifml.generator.ng2.m2t.dynamic.app.context.ContextTypeGenerator
 
 class ContextTypesGenerator{
 
-	def generateFile(Document adaptDSL){
+	def generateFiles(Document adaptDSL){
 		
 		var contextModel = adaptDSL.firstChild.firstChild;
 		
