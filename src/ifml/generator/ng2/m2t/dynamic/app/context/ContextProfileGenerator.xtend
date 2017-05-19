@@ -11,8 +11,10 @@ class ContextProfileGenerator extends AbstractFileGenerator<Document> {
 // Overridden Parent methods
 	override protected fileContents(Document adaptModel) {
 		
+//		get the contextModel from the combined model
 		var contextModel = adaptModel.firstChild.firstChild;
-	
+		
+//		extract the entities from the model
 		var entities = new LinkedList();
 		var e = contextModel.firstChild;
 		
@@ -24,13 +26,14 @@ class ContextProfileGenerator extends AbstractFileGenerator<Document> {
 		
 				
 		'''
+«««			import needed entities
 			«FOR entity: entities»
 			«var entityName = entity.attributes.getNamedItem("name").nodeValue.toFirstUpper»
 			import { «entityName»Profile } from './«entityName.toFirstLower».profile';
 			«ENDFOR»
 			
 			export class Profile {
-				
+«««				initiate entities
 				«FOR entity: entities»
 				«var entityName = entity.attributes.getNamedItem("name").nodeValue.toFirstUpper»
 				public «entityName.toFirstLower»: «entityName»Profile;

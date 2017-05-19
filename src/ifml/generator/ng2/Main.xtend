@@ -35,11 +35,15 @@ class Main {
 			serviceCollection.setAuthentication("AuthenticationService","/services/authentication.service")
 			serviceCollection.setData("DataService","/services/data.service")
 			serviceCollection.setResource("ResourceService", "/services/resource.service")
+			
+			//-->Old Profile Service
 			//serviceCollection.setProfile("ProfileService","/services/profile.service")
+			
+			//-->New Context Service is added manually in MainGenerator for bootstrapping, the static appComponent and the static NoolsTestBar
+			//-->all static files can be found in folder: /static 
+						
 			serviceCollection.setDisplayProperties("DisplayPropertiesService","/services/displayProperties.service")
 			serviceCollection.addService("LoggerService", "/services/logger.service")
-			
-			serviceCollection.addService("ContextControllerService", "/context/contextController.service")
 			 
 			// copy files
 			fileManager.copyFiles(args.get(4), args.get(5))

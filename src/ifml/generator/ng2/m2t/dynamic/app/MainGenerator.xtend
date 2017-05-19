@@ -29,6 +29,8 @@ class MainGenerator extends AbstractFileGenerator<Document> {
 		// Import generated Nools Service
 		import { NoolsService } from './services/nools.service';
 		
+		import { ContextControllerService } from './context/contextController.service';
+		
 		// Service Imports
 		«FOR service : ServiceCollection.sharedInstance.services»
 		import { «service.name» } from '.«service.location»';
@@ -42,6 +44,7 @@ class MainGenerator extends AbstractFileGenerator<Document> {
 		    APP_ROUTER_PROVIDERS,
 		    HTTP_PROVIDERS,
 		    NoolsService,
+		    ContextControllerService,
 			«FOR service : ServiceCollection.sharedInstance.services»
 			«service.name»,
 			«ENDFOR»

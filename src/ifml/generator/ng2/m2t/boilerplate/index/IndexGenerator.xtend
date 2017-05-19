@@ -39,6 +39,7 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		    </script>
 		    
 		  	<!-- 3. Add Provider API scripts -->
+«««		  	This is the Protected Region the static index code for APIs is inserted (/static/index.html)
 		  	<!-- PROTECTED REGION ID index ENABLED START -->
 		  	<!-- PROTECTED REGION END -->
 		    

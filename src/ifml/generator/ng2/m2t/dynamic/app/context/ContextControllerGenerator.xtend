@@ -4,6 +4,7 @@ import ifml.generator.ng2.m2t.general.AbstractFileGenerator
 import org.w3c.dom.Document
 import java.util.LinkedList
 
+//helper class for creating a list with properties and its linked information, we can iterate easily
 class PropertyInfo{
 	public var propName = new String;
 	public var propProv = new String;
@@ -25,6 +26,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 	override protected fileContents(Document adaptModel) {
 		var contextModel = adaptModel.firstChild.firstChild;
 	
+//		extract the entities from the model
 		var entities = new LinkedList();
 		var e = contextModel.firstChild;
 		
@@ -32,7 +34,8 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			entities.add(e);
 			e = e.nextSibling;			
 		}
-
+		
+//		create the providers list
 		var providers = e;
 		var providersList = new LinkedList();	
 				
@@ -40,6 +43,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			providersList.add(i, providers.childNodes.item(i).attributes.getNamedItem("name").nodeValue);
 		}
 		
+//		extract the information from the properties
 		var propertyList = new LinkedList()
 		for(var j = 0; j < entities.size; j++){				
 			var properties = entities.get(j).childNodes;				
@@ -65,6 +69,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			
 			import { NoolsService } from '../services/nools.service';
 			
+«««			Needed providers are imported
 			«FOR prov: providersList»
 				import { «prov.toFirstUpper»Service } from './providers/«prov.toFirstLower».service';
 			«ENDFOR»	
@@ -78,6 +83,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			    
 			    private active: boolean = true;
 			    
+«««			    declare the subscriptions that are initiated later on
 			    «FOR prop: propertyList»
 			    private «prop.propName»: Subscription;
 			    «ENDFOR»
@@ -91,24 +97,24 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 				
 				constructor(
 					private flow: NoolsService,
+«««					Add the Providers
 					«FOR prov: providersList SEPARATOR ","»
 					private «prov.toFirstLower»Service: «prov.toFirstUpper»Service
 					«ENDFOR»
 				){
 					
 					this.profile = new Profile();
-					
-«««					this.flow.setProfile(this.profile);
+					this.flow.setProfile(this.profile);
 					
 					this.session = this.flow.getSession();
 					
+«««					Add subscriptions to subjects of providers
 					«FOR prop: propertyList»
 					this.«prop.propName» = this.«prop.propProv»Service.«prop.propName»Subject.subscribe(«prop.propName» => {
 						if(this.active){
 							this.profile.get«prop.propEntity.toFirstUpper»().set«prop.propName.toFirstUpper»(«prop.propName»);
 							this.onModified();
 						}
-						console.log(this.active);
 					});
 					«ENDFOR»
 				
@@ -128,6 +134,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 					
 				}
 				
+«««				Properties that have fast update type are inserted here
 				fast(){
 					«FOR prop: propertyList»
 						«IF prop.propUpdate == "fast"»
@@ -136,6 +143,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 					«ENDFOR»
 				}
 				
+«««				Properties that have slow update type are inserted here
 			    slow(){
 					«FOR prop: propertyList»
 						«IF prop.propUpdate == "slow"»

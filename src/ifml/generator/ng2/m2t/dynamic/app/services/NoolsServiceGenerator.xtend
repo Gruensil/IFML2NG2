@@ -47,9 +47,9 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 			export class NoolsService {
 				
 				private flow;
+				private m: Profile;
 				
 				constructor(
-«««					private m: Profile,
 					private dcl: DynamicComponentLoader,
 					private injector: Injector,
 					private _Router: Router,
@@ -65,9 +65,9 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 					return this.flow.getSession();
 				}
 				
-«««				public setProfile(profile){
-«««					m = profile;
-«««				}
+				public setProfile(m: Profile){
+					this.m = m;
+				}
 			}
 			
 		'''

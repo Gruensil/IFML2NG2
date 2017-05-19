@@ -55,7 +55,7 @@ class GeneratorCore {
 			// Services
 			new NoolsServiceGenerator().generateFile(adaptModel);
 			
-			// ContextManager
+			// Context Service 
 			new ContextServiceGenerator().generateFiles(adaptModel);
 			
 			// Boilerplate Generation

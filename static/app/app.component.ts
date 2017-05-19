@@ -43,15 +43,10 @@
 		    constructor( 
 				private _service: AuthenticationService,
         
-        //--> New ContextService
-        //    NoolsTestBar will include it,
-        //    if not this must not be commented to be working
-          
-        private _context: ContextControllerService,
-				
+        //--> New ContextService          
+        private _context: ContextControllerService,				
         
-        //--> Old manual ContextService
-          
+        //--> Old manual ContextService          
 				//private profile: ProfileService,
           
 				private _displayPropertiesService: DisplayPropertiesService){

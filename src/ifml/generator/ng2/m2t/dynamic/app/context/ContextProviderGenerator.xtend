@@ -4,6 +4,7 @@ import ifml.generator.ng2.m2t.general.AbstractFileGenerator
 import java.util.LinkedList
 import org.w3c.dom.NamedNodeMap
 
+//helper class for providing the generating function 2 Parameters in 1
 class Parameters{
 	public var providerName = new String;
 	public var propertyList = new LinkedList<NamedNodeMap>;	
@@ -16,6 +17,7 @@ class Parameters{
 
 class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 	
+	//Fitting two parameters in the generating function
 	def generateFiles(String providerName, LinkedList<NamedNodeMap> propertyList){
 		var parameters = new Parameters(providerName, propertyList);
 		
@@ -29,6 +31,7 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 		var propertyList = param.propertyList;
 		var typeList = new LinkedList;
 		
+		//create a list of properties to import
 		for(prop: propertyList){
 			var propType = prop.getNamedItem("type").nodeValue.toFirstUpper;
 			if(propType != "String" && propType != "Number" && propType != "Boolean" && !typeList.contains(propType)){
@@ -40,6 +43,8 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 			import { Injectable } from '@angular/core';
 			import { Observable } from 'rxjs';
 			import { BehaviorSubject } from 'rxjs/Rx';
+			
+«««			Import the properties in the list
 			«FOR type: typeList»
 				import { «type» } from '../types/«type»';
 			«ENDFOR»
@@ -47,6 +52,7 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 			@Injectable()
 			export class «providerName.toFirstUpper»Service {
 				
+«««				Subjects for the properties are created
 				«FOR prop: propertyList»
 					«var propName = prop.getNamedItem("name").nodeValue.toFirstLower»
 					«var propType = prop.getNamedItem("type").nodeValue.toFirstUpper»
@@ -71,13 +77,20 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 				«ENDFOR»
 				
 				constructor(){
+«««					Here is the place where code for EventListeners is inserted (manual inserting is done in /static/app/context/providers/[providerfile])
 					// PROTECTED REGION ID «providerName.toFirstLower» ENABLED START
 					// PROTECTED REGION END
 				}
 				
+«««				Add callback functions for the properties
 				«FOR prop: propertyList»
 					«var propName = prop.getNamedItem("name").nodeValue.toFirstLower»
 					get«propName.toFirstUpper»(){
+						
+«««						Here can be some code for the timer be inserted (manual inserting is done in /static/app/context/providers/[providerfile])
+						// PROTECTED REGION ID «propName.toFirstLower» ENABLED START
+						// PROTECTED REGION END
+						
 						this._«propName»Subject.next(this.«propName»);
 					}
 				«ENDFOR»

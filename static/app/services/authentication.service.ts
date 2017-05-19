@@ -1,7 +1,7 @@
 		import { Injectable } from '@angular/core';
 		import { Router } from '@angular/router';
 		
-		import { ProfileService } from '../services/profile.service';
+		//import { ProfileService } from '../services/profile.service';
 
 		export class User {
 		  constructor(
@@ -27,15 +27,16 @@
 		  public isLoggedIn: boolean;
 		
 		  constructor(
-		    private _router: Router,
-			private profile: ProfileService){
+		    private _router: Router
+				//,private profile: ProfileService
+			){
 		      this.isLoggedIn = false;
 		    }
 		
 		  logout() {
 		    localStorage.removeItem('user');
 		    this.isLoggedIn = false;
-			this.profile.setUserRole(undefined);
+				//this.profile.setUserRole(undefined);
 		    this._router.navigate(['login']);
 		  }
 		
@@ -45,7 +46,7 @@
 		      localStorage.setItem('user', JSON.stringify(authenticatedUser));
 		      this._router.navigate(['login']);
 		      this.isLoggedIn = true;
-			  this.profile.setUserRole(authenticatedUser.role);
+			  	//this.profile.setUserRole(authenticatedUser.role);
 		      return true;
 		    }
 		    return false;
