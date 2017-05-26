@@ -1,0 +1,33 @@
+// PROTECTED REGION ID general ENABLED START
+declare var google: any;
+
+// PROTECTED REGION END
+// PROTECTED REGION ID geocoding ENABLED START
+
+// PROTECTED REGION END
+
+// PROTECTED REGION ID location ENABLED START
+	var geocoder = new google.maps.Geocoder;
+    var latlng = new google.maps.LatLng({lat: 51, lng:8});
+
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition((position: any) => {
+			var la = "" + position.coords.latitude;
+			var lo = "" + position.coords.longitude;
+			latlng = new google.maps.LatLng({lat: parseFloat(la), lng: parseFloat(lo)});
+		});
+	} else {
+		console.log('Geolocation not supported');
+	}
+	geocoder.geocode({ 'location': latlng }, (results: any, status:any) => {
+        if (status === google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                this.location = "" + results[1].formatted_address;
+            } else {
+                console.log('No location results found');
+            }
+        } else {
+            console.log('Geocoder failed due to: ' + status);
+        }
+    });
+// PROTECTED REGION END

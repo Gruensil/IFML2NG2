@@ -49,6 +49,9 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 				import { «type» } from '../types/«type»';
 			«ENDFOR»
 			
+			// PROTECTED REGION ID general ENABLED START
+			// PROTECTED REGION END
+			
 			@Injectable()
 			export class «providerName.toFirstUpper»Service {
 				

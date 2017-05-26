@@ -1,20 +1,26 @@
 import { Component } from '@angular/core';
-//import { ProfileService } from '../services/profile.service';
 import { AuthenticationService } from '../services/authentication.service';
-//import { Profile } from '../helper/profile'
+import { Profile } from '../context/profile/profile'
+import { Subscription } from 'rxjs/Subscription';
 import { ContextControllerService } from '../context/contextController.service';
-
 
 @Component({
     selector: 'noolstestbar',
     template: `
         <div class="row container" >
-            <div class="col-sm-3">
-                <div class="checkbox">
-                    <label><input type="checkbox" [(ngModel)]="active" (ngModelChange)="setActivation()">Context Tracking</label>
-                </div>
+            <div class="checkbox">
+                <label><input type="checkbox" [(ngModel)]="active" (ngModelChange)="setActivation()" checked="true">Context Tracking</label>
+                <label><input type="checkbox" [(ngModel)]="dashboard" checked="true">ToggleDashboard</label>
             </div>
         </div>
+        <div class="row container" [hidden]="!dashboard">
+            <h4>Movement: {{movement}}</h4>
+            <h4>Mood: {{mood}}</h4>
+            <h4>Age: {{age}}</h4>
+            <h4>Location: {{location}}</h4>
+            <div id="affdex_elements" style="width:640px;height:480px;"></div>
+        </div>
+
         
         <a (click)="logout()" href="">Click Here to logout</a>
     	`
@@ -24,9 +30,16 @@ import { ContextControllerService } from '../context/contextController.service';
 export class NoolsTestBarComponent {
   
     private active: boolean;
+    private dashboard: boolean;
 
-//    private profile: Profile;  
-//
+    private profile: Profile;
+    private change: Subscription;
+
+    private movement;
+    private mood;
+    private age;
+    private location;
+
 //    private userWeakVision: boolean;
 //    private userSelfEfficiacy: string;
 //
@@ -38,9 +51,17 @@ export class NoolsTestBarComponent {
 
     constructor(
         private _service : AuthenticationService,
-        //private _profile :ProfileService,
         private _context : ContextControllerService
     ) {
+        this.profile = this._context.getProfile();
+        this.change = this._context.changedSubject.subscribe(change => {
+		    this.movement = this.profile.getEnvironment().getMovement();
+            this.mood = this.profile.getUser().getMood();
+            this.age = this.profile.getUser().getAge();
+            this.location = this.profile.getEnvironment().getLocation();
+
+            this._context.setNotChanged();
+		});
 //            this.userWeakVision = _profile.getProfile().getUser().hasWeakVision();
 //            this.userSelfEfficiacy = _profile.getProfile().getUser().hasHighComputerSelfEfficiacy();
 //            this.isAdmin = _profile.getProfile().getUser().getIsAdmin();
@@ -51,36 +72,6 @@ export class NoolsTestBarComponent {
 //            this.environmentBrightness = _profile.getProfile().getEnvironment().getBrightnessLevel();
         }
 
-    // input for device changed
-//    deviceChanged(){
-//        this._profile.setPlatformType(this.platformType);
-//    }
-//
-//    // input for vision changed
-//    visionChanged(){
-//        this._profile.setWeakVision(this.userWeakVision);
-//    }
-//    
-//    // input for self efficiacy changed
-//    selfEfficiacyChanged(){
-//        this._profile.setComputerSelfEfficiacy(this.userSelfEfficiacy);
-//    }
-//    
-//    // input for environment brightness changed
-//    brightnessChanged(){
-//        this._profile.setBrightnessLevel(this.environmentBrightness);
-//    }
-//
-//    //input for is admin changed
-//    isAdminChanged(){
-//        this._profile.setIsAdmin(this.isAdmin);
-//    }
-//
-//    //input for is language changed
-//    isLanguageChanged(){
-//        this._profile.setLanguage(this.language);
-//    }
-//    
     logout() {
         this._service.logout();
     }

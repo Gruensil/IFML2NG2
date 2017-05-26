@@ -63,6 +63,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			import { Injectable, Input } from '@angular/core';
 			import { Subscription } from 'rxjs/Subscription';
 			import { Observable } from 'rxjs/Rx';
+			import { BehaviorSubject } from 'rxjs/Rx';
 			import { Profile } from './profile/profile';
 			
 			import { DisplayProperties } from '../helper/displayProperties'
@@ -82,6 +83,10 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			    private session: any;
 			    
 			    private active: boolean = true;
+			    
+			    private changed: boolean = false;
+			    private _changedSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+			    public changedSubject: Observable<boolean> = this._changedSubject.asObservable();
 			    
 «««			    declare the subscriptions that are initiated later on
 			    «FOR prop: propertyList»
@@ -163,14 +168,18 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 				  this.session.match(function(err){
 				      if(err){
 				        console.error(err.stack);
-				      }else{
-				          console.log("done");
 				      }
 				  });
+				  this.changed = true;
+				  this._changedSubject.next(this.changed);
 				}
 				
 				public setActivation( status ){
 					this.active = status;
+				}
+				
+				public setNotChanged(){
+					this.changed = false;
 				}
 			}
 			

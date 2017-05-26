@@ -20,6 +20,7 @@
 
         // });
 
+        // Updates Movement information for vertical movement
         window.addEventListener("devicemotion", event => {
 
             var y = event.accelerationIncludingGravity.y;
@@ -35,5 +36,9 @@
 // PROTECTED REGION END
 
 // PROTECTED REGION ID movement ENABLED START
+
+// PROTECTED REGION END
+
+// PROTECTED REGION ID deviceType ENABLED START
 
 // PROTECTED REGION END
