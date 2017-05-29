@@ -3,7 +3,7 @@ declare var affdex: any;
 declare var $: any;
 // PROTECTED REGION END
 
-// PROTECTED REGION ID faceDetection ENABLED START
+// PROTECTED REGION ID constructor ENABLED START
         setTimeout(()=> {
                 var divRoot = $("#affdex_elements")[0];
 
@@ -51,20 +51,24 @@ declare var $: any;
                 console.log("The detector reports stopped");
                 });
                 this.mood = Mood.indifferent;
+                this.age = 30;
                 detector.addEventListener("onImageResultsSuccess", (faces: any, image: any, timestamp:any) => {
-                        console.log("Timestamp: " + timestamp.toFixed(2));
-                        console.log("Number of faces found: " + faces.length);
+                        // console.log("Timestamp: " + timestamp.toFixed(2));
+                        // console.log("Number of faces found: " + faces.length);
                         if (faces.length > 0) {
+                                this.faceDetected = true;
                                 //If joy of the first face is over 50% then show in log
-                                console.log("Emotions: " + JSON.stringify(faces[0].emotions, function(key, val) {
-                                return val.toFixed ? Number(val.toFixed(0)) : val;
-                                }));
-                                if(faces[0].emotions.joy>20){
+                                // console.log("Emotions: " + JSON.stringify(faces[0].emotions, function(key, val) {
+                                // return val.toFixed ? Number(val.toFixed(0)) : val;
+                                // }));
+                                if(faces[0].emotions.joy>15){
                                         this.mood = Mood.happy;
-                                }else if(faces[0].emotions.anger>20){
+                                }else if(faces[0].emotions.anger>15){
                                         this.mood = Mood.angry;
+                                }else{
+                                        this.mood = Mood.indifferent;
                                 }
-                                console.log(faces[0].appearance.age);
+                                // console.log(faces[0].appearance.age);
                                 switch(faces[0].appearance.age){
                                         case 'Under 18': {
                                                 this.age = 10;
@@ -94,11 +98,19 @@ declare var $: any;
                                                 this.age = 70;
                                                 break;
                                         };
-                                        default:{
-                                                this.age = 40;
-                                        };
+                                        //Default is left out because an unkown age will just keep the last known age
+                                        // default:{
+                                        //         this.age = 40;
+                                        // };
                                 }
-                                console.log("GENDER:"+faces[0].appearance.gender);
+                                if(faces[0].appearance.gender == "Male"){
+                                        this.gender = "Male";
+                                }else if(faces[0].appearance.gender == "Female"){
+                                        this.gender = "Female";             
+                                }
+                                // console.log("GENDER:"+faces[0].appearance.gender);
+                        }else{
+                                this.faceDetected = false;
                         }
                 });
 

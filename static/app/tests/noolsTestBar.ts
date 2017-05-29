@@ -3,21 +3,30 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Profile } from '../context/profile/profile'
 import { Subscription } from 'rxjs/Subscription';
 import { ContextControllerService } from '../context/contextController.service';
+import { Language } from '../context/types/Language';
+import { Level } from '../context/types/Level';
+import { DeviceType } from '../context/types/DeviceType';
+import { Mood } from '../context/types/Mood';
 
 @Component({
     selector: 'noolstestbar',
     template: `
         <div class="row container" >
             <div class="checkbox">
-                <label><input type="checkbox" [(ngModel)]="active" (ngModelChange)="setActivation()" checked="true">Context Tracking</label>
-                <label><input type="checkbox" [(ngModel)]="dashboard" checked="true">ToggleDashboard</label>
+                <label><input type="checkbox" checked [(ngModel)]="active" (ngModelChange)="setActivation()">Context Tracking</label>
+                <label><input type="checkbox" [(ngModel)]="dashboard">ToggleDashboard</label>
             </div>
         </div>
         <div class="row container" [hidden]="!dashboard">
             <h4>Movement: {{movement}}</h4>
+            <h4>Face Detected: {{faceDetected}}</h4>
             <h4>Mood: {{mood}}</h4>
             <h4>Age: {{age}}</h4>
+            <h4>Gender: {{gender}}</h4>
+            <h4>Language: {{language}}</h4>
             <h4>Location: {{location}}</h4>
+            <h4>Device Type: {{deviceType}}</h4>
+            <h4>AmbientLight: {{ambientLight}}</h4>
             <div id="affdex_elements" style="width:640px;height:480px;"></div>
         </div>
 
@@ -36,18 +45,17 @@ export class NoolsTestBarComponent {
     private change: Subscription;
 
     private movement;
+    private faceDetected;
     private mood;
+    private gender;
     private age;
     private location;
+    private language;
+    private deviceType;
+    private ambientLight;
 
 //    private userWeakVision: boolean;
 //    private userSelfEfficiacy: string;
-//
-//    private language: string;
-//
-//    private platformType: string;
-//
-//    private environmentBrightness: number;
 
     constructor(
         private _service : AuthenticationService,
@@ -55,21 +63,22 @@ export class NoolsTestBarComponent {
     ) {
         this.profile = this._context.getProfile();
         this.change = this._context.changedSubject.subscribe(change => {
-		    this.movement = this.profile.getEnvironment().getMovement();
-            this.mood = this.profile.getUser().getMood();
+		    this.movement = Level[this.profile.getEnvironment().getMovement()];
+            this.faceDetected = this.profile.getUser().getFaceDetected();
+            this.mood = Mood[this.profile.getUser().getMood()];
             this.age = this.profile.getUser().getAge();
+            this.gender = this.profile.getUser().getGender();
+            this.language = Language[this.profile.getUser().getLanguage()];
             this.location = this.profile.getEnvironment().getLocation();
+            this.deviceType = this.profile.getPlatform().getDeviceType();
+            this.ambientLight = this.profile.getEnvironment().getAmbientLight();
+            
+            
 
             this._context.setNotChanged();
 		});
 //            this.userWeakVision = _profile.getProfile().getUser().hasWeakVision();
 //            this.userSelfEfficiacy = _profile.getProfile().getUser().hasHighComputerSelfEfficiacy();
-//            this.isAdmin = _profile.getProfile().getUser().getIsAdmin();
-//            this.language = _profile.getProfile().getUser().getLanguage();
-//
-//            this.platformType = _profile.getProfile().getPlatform().getPlatformType();
-//
-//            this.environmentBrightness = _profile.getProfile().getEnvironment().getBrightnessLevel();
         }
 
     logout() {
