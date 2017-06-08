@@ -101,7 +101,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			    private «prop.propName»: Subscription;
 			    «ENDFOR»
 			    
-				private timeInit: number = 0;       //initialization for the Timer
+				private timeInit: number = 0;      //initialization for the Timer
 				private timeFast: number = 750;    //update Time for the Fast Update in ms
 				private timeSlow: number = 6000;   //update Time for the Slow Update in ms
 				

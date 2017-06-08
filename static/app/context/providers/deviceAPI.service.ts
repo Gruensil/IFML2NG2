@@ -22,12 +22,21 @@
 
         // Updates Movement information for vertical movement
         window.addEventListener("devicemotion", event => {
-            
-            var y = event.accelerationIncludingGravity.y;
 
-            if (y > 10 || y < 7) {
+            // x,y,z are the accelerations on different axis
+            // all combined have a value in still position of ~13
+            // this is due acceleration of gravtiy
+            // if the device is shaken or moved the value rises
+
+            var x = event.accelerationIncludingGravity.x;
+            var y = event.accelerationIncludingGravity.y;
+			var z = event.accelerationIncludingGravity.z;
+
+			var w = y+z+x;
+
+            if (w > 17 || w < 8) {
                 this.movement = 2;
-            }else if(y > 9.4 || y < 8.4){
+            }else if(w > 15 || w < 11){
                     this.movement = 1;
             }else{
                 this.movement = 0;

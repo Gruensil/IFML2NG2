@@ -72,7 +72,7 @@
 					<xs:element name="services" maxOccurs="1">
 						<xs:complexType>
 							<xs:sequence>
-								<xs:element name="service">
+								<xs:element name="service" maxOccurs="unbounded">
 									<xs:complexType>
 										<xs:sequence>
 											<xs:element name="function" maxOccurs="unbounded">
@@ -90,7 +90,7 @@
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="flow" maxOccurs="1" minOccurs="1">
+					<xs:element name="flow" maxOccurs="unbounded" minOccurs="1">
 						<xs:complexType>
 							<xs:sequence>
 								<xs:element name="adaptationRule" maxOccurs="unbounded" minOccurs="1"> 

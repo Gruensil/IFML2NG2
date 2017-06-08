@@ -10,4 +10,9 @@ export class LoggerService {
       console.log(entry);
   }
 
+  public alert(message:string){
+      console.log(message);
+      window.alert(message);
+  }
+
 }

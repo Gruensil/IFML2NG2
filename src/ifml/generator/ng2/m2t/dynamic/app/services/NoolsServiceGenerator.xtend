@@ -53,7 +53,7 @@ class NoolsServiceGenerator extends AbstractFileGenerator<Document> {
 					private dcl: DynamicComponentLoader,
 					private injector: Injector,
 					private _Router: Router,
-					private _logger: LoggerService,
+					private _LoggerService: LoggerService,
 					private _ResourceService: ResourceService,
 					private _«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper»: «ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper»){
 					this.flow = nools.flow("«flow.attributes.getNamedItem("name").nodeValue»", function(flow){

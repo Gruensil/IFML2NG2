@@ -9,7 +9,7 @@ import ifml.generator.ng2.m2t.utils.ServiceCollection
 import ifml.generator.ng2.core.GeneratorCore
 
 class Main {
-
+	// generated the code
 	def static void main(String[] args){
 
 		// whether the received parameters point to valid resources
@@ -34,16 +34,15 @@ class Main {
 			val serviceCollection = ServiceCollection::sharedInstance
 			serviceCollection.setAuthentication("AuthenticationService","/services/authentication.service")
 			serviceCollection.setData("DataService","/services/data.service")
-			serviceCollection.setResource("ResourceService", "/services/resource.service")
+			serviceCollection.setResource("ResourceService", "/services/resource.service")						
+			serviceCollection.setDisplayProperties("DisplayPropertiesService","/services/displayProperties.service")
+			serviceCollection.addService("LoggerService", "/services/logger.service")
 			
 			//-->Old Profile Service
 			//serviceCollection.setProfile("ProfileService","/services/profile.service")
 			
 			//-->New Context Service is added manually in MainGenerator for bootstrapping, the static appComponent and the static NoolsTestBar
-			//-->all static files can be found in folder: /static 
-						
-			serviceCollection.setDisplayProperties("DisplayPropertiesService","/services/displayProperties.service")
-			serviceCollection.addService("LoggerService", "/services/logger.service")
+			//-->all static (manually inserted) files can be found in folder: /static 
 			 
 			// copy files
 			fileManager.copyFiles(args.get(4), args.get(5))

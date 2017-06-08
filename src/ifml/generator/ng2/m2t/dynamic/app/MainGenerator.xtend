@@ -39,6 +39,9 @@ class MainGenerator extends AbstractFileGenerator<Document> {
 		«FOR provider: providersList»
 		import { «provider»Service } from './context/providers/«provider.toFirstLower».service';
 		«ENDFOR»
+		
+		// PROTECTED REGION ID imports ENABLED START
+		// PROTECTED REGION END
 
 		bootstrap(AppComponent,[
 		    APP_ROUTER_PROVIDERS,
@@ -52,6 +55,9 @@ class MainGenerator extends AbstractFileGenerator<Document> {
 			«FOR provider: providersList»
 			«provider.toFirstUpper»Service,
 			«ENDFOR»
+			
+			// PROTECTED REGION ID dependencies ENABLED START
+			// PROTECTED REGION END
 		]);
 		'''
 	}

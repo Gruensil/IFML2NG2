@@ -9,7 +9,9 @@ import ifml.generator.ng2.m2t.dynamic.app.context.ContextTypesGenerator
 class ContextServiceGenerator{
 	
 	def generateFiles(Document adaptModel){
-		//Invoke the four parts of the Context Service Generator
+		
+		// Invoke the four parts of the Context Service Generator
+		
 		new ContextControllerGenerator().generateFile(adaptModel);
 		new ContextProvidersGenerator().generateFiles(adaptModel);
 		new ContextTypesGenerator().generateFiles(adaptModel);

@@ -107,6 +107,9 @@ class ContextProviderGenerator extends AbstractFileGenerator<Parameters> {
 						this._«propName»Subject.next(this.«propName»);
 					}
 				«ENDFOR»
+				
+				// PROTECTED REGION ID addMethods ENABLED START
+				// PROTECTED REGION END
 			}
 		'''
 	}
