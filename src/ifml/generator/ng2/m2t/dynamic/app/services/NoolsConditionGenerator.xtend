@@ -7,15 +7,15 @@ public class NoolsConditionGenerator extends AbstractViewElementGenerator<Node>{
 	
 	override protected generateTemplate(Node conditions) {
 		var output = ""
-		var isFirst = true;
+//		var isFirst = true;
 		
 		if(conditions.hasChildNodes){
 			var node = conditions.firstChild;
 			
-			if(!isFirst)
-			{
-				output += " || ";
-			}
+//			if(!isFirst)
+//			{
+//				output += " || ";
+//			}
 			
 			if(node.nodeName == "conditionGroup"){
 				var condGroup = node.childNodes;

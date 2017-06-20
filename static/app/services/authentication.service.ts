@@ -25,9 +25,11 @@
 		export class AuthenticationService {
 		
 		  public isLoggedIn: boolean;
+			
 		
 		  constructor(
 		    private _router: Router
+				
 				//,private profile: ProfileService
 			){
 		      this.isLoggedIn = false;
@@ -36,7 +38,7 @@
 		  logout() {
 		    localStorage.removeItem('user');
 		    this.isLoggedIn = false;
-				//this.profile.setUserRole(undefined);
+				localStorage.setItem('userRole', 'none');
 		    this._router.navigate(['login']);
 		  }
 		
@@ -46,7 +48,7 @@
 		      localStorage.setItem('user', JSON.stringify(authenticatedUser));
 		      this._router.navigate(['login']);
 		      this.isLoggedIn = true;
-			  	//this.profile.setUserRole(authenticatedUser.role);
+			  	localStorage.setItem('userRole', authenticatedUser.role);
 		      return true;
 		    }
 		    return false;

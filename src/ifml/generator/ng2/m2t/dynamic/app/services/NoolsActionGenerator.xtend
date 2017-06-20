@@ -55,6 +55,16 @@ public class NoolsActionGenerator{
 							$("#actionArea > #«attr.getNamedItem('id').nodeValue»").remove();
 						'''
 					}
+					case "addViewComponentOperation": {
+						output += '''
+							$("#«attr.getNamedItem('viewComponent').nodeValue»").show();
+						'''
+					}
+					case "deleteViewComponentOperation": {
+						output += '''
+							$("#«attr.getNamedItem('viewComponent').nodeValue»").hide();
+						'''
+					}
 					case "clearNavOperation": {
 						output += '''
 							_«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper».clearNavigation();

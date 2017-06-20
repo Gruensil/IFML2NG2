@@ -75,7 +75,7 @@ declare var google: any;
         if (results != undefined) {
 			var condition = results.weather[0].main;
 			switch(condition){
-				case "Sun":{ this.weather = Weather.sunny; break;}
+				case "Clear":{ this.weather = Weather.sunny; break;}
 
 				case "Rain":{ this.weather = Weather.rainy; break;}
 

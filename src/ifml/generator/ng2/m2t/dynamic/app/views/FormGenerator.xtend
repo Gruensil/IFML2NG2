@@ -15,6 +15,10 @@ public class FormGenerator extends AbstractViewElementGenerator<FormImpl>{
 		
 		output += '''
 			<form id="«el.id»" name="«el.name»" class="form-horizontal">
+			
+			<!-- PROTECTED REGION ID «el.name» ENABLED START -->
+					  	
+			<!-- PROTECTED REGION END -->
 		'''
 		
 		for(field : fields){

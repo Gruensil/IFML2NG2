@@ -103,7 +103,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 			    
 				private timeInit: number = 0;      //initialization for the Timer
 				private timeFast: number = 750;    //update Time for the Fast Update in ms
-				private timeSlow: number = 6000;   //update Time for the Slow Update in ms
+				private timeSlow: number = 8000;   //update Time for the Slow Update in ms
 				
 				
 				constructor(
@@ -132,7 +132,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 					//Manager checks APIs fast
 					let timerFast = Observable.timer(this.timeInit,this.timeFast);
 					timerFast.subscribe(t => {
-					    console.log(t);
+					    //console.log(t);
 					    if(this.active){
 					    	this.fast();
 					    }
@@ -141,7 +141,7 @@ class ContextControllerGenerator extends AbstractFileGenerator<Document> {
 					//Manager checks APIs slow
 					let timerSlow = Observable.timer(this.timeInit,this.timeSlow);
 					timerSlow.subscribe(t => {
-					    console.log(t);
+					    //console.log(t);
 					    if(this.active){
 					    	this.slow();
 					    }

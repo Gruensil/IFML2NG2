@@ -14,12 +14,6 @@
         //     this.getAmbientLight();
         // });
 
-        // window.addEventListener('online', event => {
-
-        //     console.log("online" + event.returnValue);
-
-        // });
-
         // Updates Movement information for vertical movement
         window.addEventListener("devicemotion", event => {
 
@@ -34,9 +28,9 @@
 
 			var w = y+z+x;
 
-            if (w > 17 || w < 8) {
+            if (w > 15.5 || w < 8) {
                 this.movement = 2;
-            }else if(w > 15 || w < 11){
+            }else if(w > 14 || w < 8.5){
                     this.movement = 1;
             }else{
                 this.movement = 0;
@@ -67,5 +61,9 @@
 
 
 // PROTECTED REGION ID deviceType ENABLED START
-            this.deviceType = navigator.platform;
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini|Mobile/.test(navigator.userAgent)){
+                this.deviceType = "mobile";
+            }else{
+                this.deviceType = "desktop";
+            }
 // PROTECTED REGION END

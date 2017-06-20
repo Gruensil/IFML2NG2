@@ -153,6 +153,17 @@
 																	<xs:attribute name="langKey" use="required"/>
 																</xs:complexType>
 															</xs:element>
+															<xs:element name="addViewComponentOperation">
+																<xs:complexType>
+																	<xs:attribute name="viewComponent" use="required"/>
+																	<xs:attribute name="target" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="deleteViewComponentOperation">
+																<xs:complexType>
+																	<xs:attribute name="viewComponent" use="required"/>
+																</xs:complexType>
+															</xs:element>
 															<xs:element name="addViewComponentButtonOperation">
 																<xs:complexType>
 																	<xs:attribute name="id" use="required"/>

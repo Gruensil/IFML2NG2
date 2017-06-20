@@ -57,7 +57,8 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 				templateUrl: '«folderName»«fileName».html',
 				providers: [«FOR service : ServiceCollection.sharedInstance.providers SEPARATOR ','»«service.name»«ENDFOR»],
 				directives: [NgClass «IF it.viewElements.exists[el|el instanceof ListImpl]»,SearchComponent«ENDIF» ],
-				«FOR vElem : it.viewElements BEFORE 'pipes: [' SEPARATOR ',' AFTER ']'»«IF (vElem instanceof ListImpl)»«vElem.name.toFirstUpper»Filter«ENDIF»«ENDFOR»
+«««				«FOR vElem : it.viewElements BEFORE 'pipes: [' SEPARATOR ',' AFTER ']'»«IF (vElem instanceof ListImpl)»«vElem.name.toFirstUpper»Filter«ENDIF»«ENDFOR»
+				pipes: [«FOR vElem : it.viewElements»«IF (vElem instanceof ListImpl)»«vElem.name.toFirstUpper»Filter,«ENDIF»«ENDFOR»]
 			})
 			
 			export class «it.name.toFirstUpper»Component {
@@ -202,6 +203,11 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 	override protected generateTemplate(ViewContainerImpl it) {
 		'''
 			<div class="col-md-12">
+			
+				<!-- PROTECTED REGION ID «it.name.toFirstLower» ENABLED START -->
+							  	
+				<!-- PROTECTED REGION END -->
+				
 				<div name="content">
 	 	«new ViewElementGenerator().generateCode(it.viewElements.toList)»
 				</div>
