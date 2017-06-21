@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="contextMLModel">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="contextModel">
+		  <xs:complexType>
+			<xs:sequence>
+			  <xs:element name="entity" maxOccurs="unbounded" minOccurs="1">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="property" maxOccurs="unbounded" minOccurs="1">
+					  <xs:complexType>
+						<xs:simpleContent>
+						  <xs:extension base="xs:string">
+							<xs:attribute type="xs:string" name="name" use="required"/>
+							<xs:attribute type="xs:string" name="type" use="required"/>
+							<xs:attribute type="xs:string" name="provider" use="required"/>
+							<xs:attribute type="xs:string" name="update" use="required"/>
+						  </xs:extension>
+						</xs:simpleContent>
+					  </xs:complexType>
+					</xs:element>
+				  </xs:sequence>
+				  <xs:attribute type="xs:string" name="name" use="required"/>
+				</xs:complexType>
+			  </xs:element>
+			  <xs:element name="providers">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="provider" maxOccurs="unbounded" minOccurs="0">
+					  <xs:complexType>
+						<xs:simpleContent>
+						  <xs:extension base="xs:string">
+							<xs:attribute type="xs:string" name="name" use="required"/>
+						  </xs:extension>
+						</xs:simpleContent>
+					  </xs:complexType>
+					</xs:element>
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			  <xs:element name="defTypes">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="defType" maxOccurs="unbounded" minOccurs="0">
+					  <xs:complexType>
+						<xs:sequence>
+						  <xs:element name="enum" maxOccurs="unbounded" minOccurs="2">
+							<xs:complexType>
+							  <xs:simpleContent>
+								<xs:extension base="xs:string">
+								  <xs:attribute type="xs:string" name="name" use="required"/>
+								</xs:extension>
+							  </xs:simpleContent>
+							</xs:complexType>
+						  </xs:element>
+						</xs:sequence>
+						<xs:attribute type="xs:string" name="name" use="required"/>
+					  </xs:complexType>
+					</xs:element>
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			</xs:sequence>
+		  </xs:complexType>
+		</xs:element>
+		<xs:element name="adaptationModel">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="services" maxOccurs="1">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="service" maxOccurs="unbounded">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="function" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:attribute name="id" type="xs:string" use="required"/>
+													<xs:attribute name="name" type="xs:string" use="required"/>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="id" type="xs:string" use="required"/>
+										<xs:attribute name="type" type="xs:string" use="required"/>
+										<xs:attribute name="location" type="xs:string" use="required"/>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="flow" maxOccurs="unbounded" minOccurs="1">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="adaptationRule" maxOccurs="unbounded" minOccurs="1"> 
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="conditions" maxOccurs="1" minOccurs="1">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:choice minOccurs="1" maxOccurs="unbounded">
+															<xs:element name="conditionGroup">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="condition" minOccurs="1" maxOccurs="unbounded">
+																			<xs:complexType>
+																				<xs:sequence>
+																				</xs:sequence>
+																				<xs:attribute name="fact" type="xs:string" use="required"/>
+																				<xs:attribute name="operator" type="xs:string" use="required"/>
+																				<xs:attribute name="value" type="xs:string" use="required"/>
+																				<xs:attribute name="type" type="xs:string" use="required"/>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>	
+															<xs:element name="condition" maxOccurs="unbounded">
+																<xs:complexType>
+																	<xs:sequence>
+																	</xs:sequence>
+																	<xs:attribute name="fact" type="xs:string" use="required"/>
+																	<xs:attribute name="operator" type="xs:string" use="required"/>
+																	<xs:attribute name="value" type="xs:string" use="required"/>
+																	<xs:attribute name="type" type="xs:string" use="required"/>
+																</xs:complexType>
+															</xs:element>
+														</xs:choice>	
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="actions" maxOccurs="1" minOccurs="1">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:choice minOccurs="1" maxOccurs="unbounded">
+															<xs:element name="editFactOperation">
+																<xs:complexType>
+																	<xs:attribute name="set" use="required"/>
+																	<xs:attribute name="value"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="functionCall">
+																<xs:complexType>
+																	<xs:attribute name="service" use="required"/>
+																	<xs:attribute name="function" use="required"/>
+																	<xs:attribute name="value" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="addNavLinkOperation">
+																<xs:complexType>
+																	<xs:attribute name="viewContainer" use="required"/>
+																	<xs:attribute name="langKey" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="addViewComponentOperation">
+																<xs:complexType>
+																	<xs:attribute name="viewComponent" use="required"/>
+																	<xs:attribute name="target" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="deleteViewComponentOperation">
+																<xs:complexType>
+																	<xs:attribute name="viewComponent" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="addViewComponentButtonOperation">
+																<xs:complexType>
+																	<xs:attribute name="id" use="required"/>
+																	<xs:attribute name="langKey" use="required"/>
+																	<xs:attribute name="action" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="deleteViewComponentButtonOperation">
+																<xs:complexType>
+																	<xs:attribute name="id" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="deleteNavLinkOperation">
+																<xs:complexType>
+																	<xs:attribute name="viewContainer" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="redirectOperation">
+																<xs:complexType>
+																	<xs:attribute name="viewContainer" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="clearNavOperation">
+															</xs:element>
+															<xs:element name="editCssClassOperation">
+																<xs:complexType>
+																	<xs:attribute name="cssClass" use="required"/>
+																	<xs:attribute name="cssAttribute" use="required"/>
+																	<xs:attribute name="value" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="setDisplayProperty">
+																<xs:complexType>
+																	<xs:attribute name="property" use="required"/>
+																	<xs:attribute name="value" use="required"/>
+																	<xs:attribute name="type"/>
+																</xs:complexType>
+															</xs:element>
+														</xs:choice>	
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="name" type="xs:string" use="required"/>
+										<xs:attribute name="priority" type="xs:string" use="required"/>
+										<xs:attribute name="factType" type="xs:string" use="required"/>
+										<xs:attribute name="factName" type="xs:string" use="required"/>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+							<xs:attribute name="name" type="xs:string" use="required"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>

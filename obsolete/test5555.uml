@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Model xmi:id="_8kpXIICrEeakIrkbdVKNbg" name="test5555" URI="http://www.example.org/test5555">
+    <packagedElement xmi:type="uml:Class" xmi:id="_8kpXIYCrEeakIrkbdVKNbg" name="Book">
+      <ownedAttribute xmi:id="_8kpXIoCrEeakIrkbdVKNbg" name="bookId" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXI4CrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXJICrEeakIrkbdVKNbg" name="bookStatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXJYCrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXJoCrEeakIrkbdVKNbg" name="bookInfo" type="_8kpXJ4CrEeakIrkbdVKNbg" isOrdered="true" association="_8kpXLoCrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8kpXJ4CrEeakIrkbdVKNbg" name="BookInfo">
+      <ownedAttribute xmi:id="_8kpXKICrEeakIrkbdVKNbg" name="isbn" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXKYCrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXKoCrEeakIrkbdVKNbg" name="title" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXK4CrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXLICrEeakIrkbdVKNbg" name="author" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXLYCrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8kpXLoCrEeakIrkbdVKNbg" memberEnd="_8kpXJoCrEeakIrkbdVKNbg _8kpXL4CrEeakIrkbdVKNbg">
+      <ownedEnd xmi:id="_8kpXL4CrEeakIrkbdVKNbg" type="_8kpXIYCrEeakIrkbdVKNbg" association="_8kpXLoCrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8kpXMICrEeakIrkbdVKNbg" name="BookLending">
+      <ownedAttribute xmi:id="_8kpXMYCrEeakIrkbdVKNbg" name="until" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#Date"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXMoCrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXM4CrEeakIrkbdVKNbg" name="lentBook" type="_8kpXIYCrEeakIrkbdVKNbg" isOrdered="true" association="_8kpXNYCrEeakIrkbdVKNbg"/>
+      <ownedAttribute xmi:id="_8kpXNICrEeakIrkbdVKNbg" name="lentBy" type="_8kpXN4CrEeakIrkbdVKNbg" isOrdered="true" association="_8kpXQICrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8kpXNYCrEeakIrkbdVKNbg" memberEnd="_8kpXM4CrEeakIrkbdVKNbg _8kpXNoCrEeakIrkbdVKNbg">
+      <ownedEnd xmi:id="_8kpXNoCrEeakIrkbdVKNbg" type="_8kpXMICrEeakIrkbdVKNbg" association="_8kpXNYCrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8kpXN4CrEeakIrkbdVKNbg" name="Student">
+      <ownedAttribute xmi:id="_8kpXOICrEeakIrkbdVKNbg" name="studentId" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXOYCrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXOoCrEeakIrkbdVKNbg" name="firstname" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXO4CrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXPICrEeakIrkbdVKNbg" name="lastname" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXPYCrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8kpXPoCrEeakIrkbdVKNbg" name="studentStatus" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8kpXP4CrEeakIrkbdVKNbg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8kpXQICrEeakIrkbdVKNbg" memberEnd="_8kpXNICrEeakIrkbdVKNbg _8kpXQYCrEeakIrkbdVKNbg">
+      <ownedEnd xmi:id="_8kpXQYCrEeakIrkbdVKNbg" type="_8kpXMICrEeakIrkbdVKNbg" association="_8kpXQICrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8kpXQoCrEeakIrkbdVKNbg" name="BookReservation">
+      <ownedAttribute xmi:id="_8kpXQ4CrEeakIrkbdVKNbg" name="reservedBy" type="_8kpXN4CrEeakIrkbdVKNbg" isOrdered="true" association="_8kpXRYCrEeakIrkbdVKNbg"/>
+      <ownedAttribute xmi:id="_8kpXRICrEeakIrkbdVKNbg" name="reservedBook" type="_8kpXIYCrEeakIrkbdVKNbg" isOrdered="true" association="_8kpXR4CrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8kpXRYCrEeakIrkbdVKNbg" memberEnd="_8kpXQ4CrEeakIrkbdVKNbg _8kpXRoCrEeakIrkbdVKNbg">
+      <ownedEnd xmi:id="_8kpXRoCrEeakIrkbdVKNbg" type="_8kpXQoCrEeakIrkbdVKNbg" association="_8kpXRYCrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8kpXR4CrEeakIrkbdVKNbg" memberEnd="_8kpXRICrEeakIrkbdVKNbg _8kpXSICrEeakIrkbdVKNbg">
+      <ownedEnd xmi:id="_8kpXSICrEeakIrkbdVKNbg" type="_8kpXQoCrEeakIrkbdVKNbg" association="_8kpXR4CrEeakIrkbdVKNbg"/>
+    </packagedElement>
+    <profileApplication xmi:id="_8kpXSYCrEeakIrkbdVKNbg">
+      <eAnnotations xmi:id="_8kpXSoCrEeakIrkbdVKNbg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+</xmi:XMI>

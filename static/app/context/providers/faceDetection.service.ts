@@ -61,10 +61,10 @@ declare var $: any;
                                 // console.log("Emotions: " + JSON.stringify(faces[0].emotions, function(key, val) {
                                 // return val.toFixed ? Number(val.toFixed(0)) : val;
                                 // }));
-                                if(faces[0].emotions.joy>15){
-                                        this.mood = Mood.happy;
-                                }else if(faces[0].emotions.anger>15){
+                                if(faces[0].emotions.anger>10){
                                         this.mood = Mood.angry;
+                                }else if(faces[0].emotions.joy>15){
+                                        this.mood = Mood.happy;
                                 }else{
                                         this.mood = Mood.indifferent;
                                 }

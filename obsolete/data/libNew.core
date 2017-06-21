@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_EGEcMIDjEea11dlfBOUHWQ">
   <interactionFlowModel id="_h3pkgIC1Eea2S59Os6LSKA">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_h3vrIIC1Eea2S59Os6LSKA" name="searchBooks" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.14/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.15/@outInteractionFlows.0">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_h3vrIIC1Eea2S59Os6LSKA" name="searchBooks">
       <annotations text="&lt;&lt;authenticationRequirement>> role==staff || role==student"/>
       <viewElements xsi:type="ext:List" id="_nhxOsIC1Eea2S59Os6LSKA" name="inventoryList">
         <parameters id="_INUe4IC2Eea2S59Os6LSKA" name="bookBinding">
@@ -150,30 +150,6 @@
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_MwqAIIapEeaTJocisBH8lA" name="vReservedBook" featureConcept="//@domainModel/@domainElements.22"/>
         </viewComponentParts>
       </viewElements>
-    </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_dPjFoFWYEee_i6NdnvfQJg" name="helpWindow">
-      <viewElements xsi:type="ext:Form" id="_Lsyu0FW_Eee_i6NdnvfQJg" name="helpForm">
-        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_N4oe0FXAEee_i6NdnvfQJg" name="submitQuestion">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_6wiXIFXAEee_i6NdnvfQJg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.14"/>
-        </viewElementEvents>
-        <viewComponentParts xsi:type="ext:SimpleField" id="_NaPvIFW_Eee_i6NdnvfQJg" name="question">
-          <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </viewComponentParts>
-      </viewElements>
-      <viewElements xsi:type="ext:Form" id="_MjqscFW_Eee_i6NdnvfQJg" name="learnPlaces">
-        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_OjeyoFXAEee_i6NdnvfQJg" name="findClosestLocation">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_7QK5cFXAEee_i6NdnvfQJg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.15"/>
-        </viewElementEvents>
-        <viewComponentParts xsi:type="ext:SimpleField" id="_OIi_kFW_Eee_i6NdnvfQJg" name="location">
-          <type xsi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </viewComponentParts>
-      </viewElements>
-    </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_sCz-cFXAEee_i6NdnvfQJg" name="submitQuestionAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.13/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
-      <outInteractionFlows xsi:type="core:NavigationFlow" id="_8EFCoFXAEee_i6NdnvfQJg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0"/>
-    </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_slgb0FXAEee_i6NdnvfQJg" name="findLocationAction" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.13/@viewElements.1/@viewElementEvents.0/@outInteractionFlows.0">
-      <outInteractionFlows xsi:type="core:NavigationFlow" id="_8ygO4FXAEee_i6NdnvfQJg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0"/>
     </interactionFlowModelElements>
   </interactionFlowModel>
   <domainModel id="_EGEcMYDjEea11dlfBOUHWQ">
