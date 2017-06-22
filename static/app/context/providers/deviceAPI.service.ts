@@ -1,5 +1,9 @@
+// PROTECTED REGION ID deviceAPI ENABLED START
+    private acceleartionAvg = 1;
+    private i = 0;
+// PROTECTED REGION END 
  
- 
+
 // PROTECTED REGION ID constructor ENABLED START
         // window.addEventListener('devicelight', event => {
 
@@ -21,20 +25,33 @@
             // all combined have a value in still position of ~13
             // this is due acceleration of gravtiy
             // if the device is shaken or moved the value rises
-
+            
             var x = event.accelerationIncludingGravity.x;
             var y = event.accelerationIncludingGravity.y;
 			var z = event.accelerationIncludingGravity.z;
 
 			var w = y+z+x;
 
-            if (w > 15.5 || w < 8) {
+            if(w > 14 || w < 8.5){
+                this.acceleartionAvg = 20;
+            }
+            this.acceleartionAvg = this.acceleartionAvg/2;
+
+            if(this.i == 100){
+                console.log(this.acceleartionAvg);
+                this.i=0;
+            }else{
+                this.i++;
+            }
+
+            if(this.acceleartionAvg >= 2){
                 this.movement = 2;
-            }else if(w > 14 || w < 8.5){
-                    this.movement = 1;
+            }else if(this.acceleartionAvg >= 1){
+                this.movement = 1;
             }else{
                 this.movement = 0;
             }
+
         });
 
 

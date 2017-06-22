@@ -1,12 +1,8 @@
-C:\Users\Hagen\workspaceNeon\movies.core C:\Users\Hagen\workspaceNeon\adapt2.xml C:\Users\Hagen\workspaceNeon\IFML2NG2\static C:\gen
+LibSoft - Run Configuration:
 
-HOME
-
-Lib - Run Configuration
-C:\Users\Hagen\workspaceNeon\IFML2NG2\data\libNew.core C:\Users\Hagen\workspaceNeon\IFML2NG2\data\test5555.uml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt2.xml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt.xsd C:\Users\Hagen\workspaceNeon\IFML2NG2\static C:\gen
-
-Lib - It - Run Configuration
-C:\Users\Hagen\workspaceNeon\IFML2NG2\data\libNew.core C:\Users\Hagen\workspaceNeon\IFML2NG2\data\test5555.uml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt2it.xml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt.xsd C:\Users\Hagen\workspaceNeon\IFML2NG2\static C:\gen
-
-Movies -  Run Configuration
-C:\Users\Hagen\workspaceNeon\IFML2NG2\data\movies.core C:\Users\Hagen\workspaceNeon\IFML2NG2\data\movies.uml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adaptMovies2.xml C:\Users\Hagen\workspaceNeon\IFML2NG2\data\adapt.xsd C:\Users\Hagen\workspaceNeon\IFML2NG2\moviesStatic C:\genMovies
+[Filepath]\IFML2NG2\data\libraryIFML[Filepath]core
+[Filepath]\IFML2NG2\data\libraryUML_CD[Filepath]uml
+[Filepath]\IFML2NG2\data\adaptUI[Filepath]xml
+[Filepath]\IFML2NG2\data\adaptUI[Filepath]xsd
+[Filepath]\IFML2NG2\static
+[Filepath]\Gen
