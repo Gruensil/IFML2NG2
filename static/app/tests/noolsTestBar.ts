@@ -47,7 +47,7 @@ import { Weather } from '../context/types/Weather';
                         <th><h3>Platform</h3></th>
                         <tr>
                             <td>Device Type:</td>
-                            <td>{{deviceType}}</td> 
+                            <td>{{deviceType}}</td>
                         </tr>
                     </table>
                 </div>
@@ -65,6 +65,19 @@ import { Weather } from '../context/types/Weather';
                         <tr>
                             <td>Weather:</td>
                             <td>{{weather}}</td> 
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-3">
+                    <table class="table table-striped">
+                        <th><h3>App</h3></th>
+                        <tr>
+                            <td>User Role:</td>
+                            <td>{{userRole}}</td> 
+                        </tr>
+                        <tr>
+                            <td>Mood Checked:</td>
+                            <td>{{moodChecked}}</td> 
                         </tr>
                     </table>
                 </div>
@@ -94,6 +107,8 @@ export class NoolsTestBarComponent {
     private deviceType;
     private ambientLight;
     private weather;
+    private userRole;
+    private moodChecked;
 
 //    private userWeakVision: boolean;
 //    private userSelfEfficiacy: string;
@@ -115,7 +130,8 @@ export class NoolsTestBarComponent {
             this.deviceType = this.profile.getPlatform().getDeviceType();
             this.ambientLight = this.profile.getEnvironment().getAmbientLight();
             this.weather = Weather[this.profile.getEnvironment().getWeather()];
-            
+            this.userRole = this.profile.getApp().getUserRole();
+            this.moodChecked = this.profile.getApp().getMoodChecked();
             
 
             this._context.setNotChanged();

@@ -2,6 +2,7 @@
 
                 this.moodChecked = false;
                 this.outsideChecked = false;
+                this.userRole = "none";
 
 // PROTECTED REGION END
 
