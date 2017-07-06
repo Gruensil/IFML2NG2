@@ -18,7 +18,7 @@
 				,ContextControllerService
 				],
 		  template: `
-			<noolstestbar></noolstestbar>
+				<noolstestbar></noolstestbar>
 		    <div id="desktopViewContainter" class="container">
 		      <div id="headerBar" [ngClass]="_displayPropertiesService.displayProperties.headerBarClass" class="row" style="margin-right:0px;padding-left:0px;padding-right:0px;">
 		        <div class="col-md-12" style="width:100%; padding-left:0;padding-right:0px;">
@@ -27,11 +27,11 @@
 		        <div>
 		        </div>
 		      </div>
-		      <div class="row">
-				<navigation-component [navItems]="_displayPropertiesService.displayProperties.navigation"></navigation-component>
-				<div [ngClass]="_displayPropertiesService.displayProperties.routerOutletClass" style="margin-left:0;width:83.33332%">
-					<router-outlet></router-outlet>
-				</div>
+		      <div class="row" style="margin-right:0px;margin-left:0px;">
+						<navigation-component [navItems]="_displayPropertiesService.displayProperties.navigation"></navigation-component>
+						<div [ngClass]="_displayPropertiesService.displayProperties.routerOutletClass" style="margin-left:0;width:83.33332%">
+							<router-outlet></router-outlet>
+						</div>
 		      </div>
 		    </div>
 		  `,

@@ -51,6 +51,7 @@ declare var $: any;
                 detector.addEventListener("onStopSuccess", () => {
                 console.log("The detector reports stopped");
                 });
+                
                 this.mood = Mood.indifferent;
                 this.age = 0;
                 detector.addEventListener("onImageResultsSuccess", (faces: any, image: any, timestamp:any) => {
@@ -87,7 +88,7 @@ declare var $: any;
                                                 this.age = 40;
                                                 break;
                                         };
-                                        case '45 -54': {
+                                        case '45 - 54': {
                                                 this.age = 50;
                                                 break;
                                         };
