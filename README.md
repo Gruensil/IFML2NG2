@@ -27,12 +27,12 @@ The following runtime arguments need to be provided:
 
 1. Path to IFML model in ecore format
 2. Path to domain model in uml format
-3. Path to AdaptDSL file in xml format
-4. Path to AdaptDSL XML schema definition
+3. Path to AdaptUI file in xml format
+4. Path to AdaptUI XML schema definition
 5. Path to files which need to be copied to destination folder (e.g. static files)
 6. Path to destination folder
 
-If all these runtime arguments are provided and the generation process is successful, the message **M2T IFML2NG2 finished!** will be displayed in the console.
+If all these runtime arguments are provided and the generation process is successful, the message **M2T IFML2NG2 finished!** will be displayed in the console. If the destination folder is empty, some warnings may appear.
 
 ## Run Generated Application
 1. Install NPM packages (console in dest. folder: >npm install)
