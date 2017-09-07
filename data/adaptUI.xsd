@@ -180,7 +180,7 @@
 																	<xs:attribute name="viewContainer" use="required"/>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="redirectOperation">
+															<xs:element name="redirectNavLinkOperation">
 																<xs:complexType>
 																	<xs:attribute name="viewContainer" use="required"/>
 																</xs:complexType>

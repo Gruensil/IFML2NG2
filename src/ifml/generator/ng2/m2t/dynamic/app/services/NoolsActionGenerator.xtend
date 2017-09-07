@@ -40,7 +40,7 @@ public class NoolsActionGenerator{
 							_«ServiceCollection.sharedInstance.displayProperties.name.toFirstUpper».pushNavigation({path:'/«attr.getNamedItem("viewContainer").nodeValue»',key:'«attr.getNamedItem("langKey").nodeValue»'});
 						'''
 					}
-					case "redirectOperation": {
+					case "redirectNavLinkOperation": {
 						output += '''
 							_Router.navigate(['/«attr.getNamedItem("viewContainer").nodeValue»']);
 						'''
