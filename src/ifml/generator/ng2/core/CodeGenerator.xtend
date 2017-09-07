@@ -32,6 +32,9 @@ class GeneratorCore {
 			
 			val classes = umlModel.allOwnedElements.filter(typeof(ClassImpl));
 			
+			//Replace the names of view elements in the adapt Model with IDs
+			var insertedAdaptModel = new IFMLReferencer().insertIDReference(adaptModel, ifmlModel);			
+						
 			// Dynamic Generation
 			// Export Classes from uml model
 			classes.forEach[ c |
@@ -53,7 +56,7 @@ class GeneratorCore {
 			new RoutesGenerator().generateFile(windows);
 			new MainGenerator().generateFile(adaptModel);
 			// Services
-			new NoolsServiceGenerator().generateFile(adaptModel);
+			new NoolsServiceGenerator().generateFile(insertedAdaptModel);
 			
 			// Context Service 
 			new ContextServiceGenerator().generateFiles(adaptModel);

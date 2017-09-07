@@ -65,5 +65,7 @@ export var lang_EN_US: LangString[] = [
     {key: 'lentBy.lastname', text:'Lastname'},
     {key: 'vDueDate', text:'Until'},
 	
-    {key: 'bookReservations', text:'Reservations'}
+    {key: 'bookReservations', text:'Reservations'},
+    {key: 'submitQuestion', text:'submit Question'},
+    {key: 'findClosestLocation', text:'find learning location'}
 ];
