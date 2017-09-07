@@ -153,15 +153,14 @@
 																	<xs:attribute name="langKey" use="required"/>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="addViewComponentOperation">
+															<xs:element name="addInteractionObjectOperation">
 																<xs:complexType>
-																	<xs:attribute name="viewComponent" use="required"/>
-																	<xs:attribute name="target" use="required"/>
+																	<xs:attribute name="interactionObject" use="required"/>
 																</xs:complexType>
 															</xs:element>
-															<xs:element name="deleteViewComponentOperation">
+															<xs:element name="deleteInteractionObjectOperation">
 																<xs:complexType>
-																	<xs:attribute name="viewComponent" use="required"/>
+																	<xs:attribute name="interactionObject" use="required"/>
 																</xs:complexType>
 															</xs:element>
 															<xs:element name="addViewComponentButtonOperation">

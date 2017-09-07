@@ -45,14 +45,13 @@ class IFMLReferencer {
 			var actions = rule.firstChild.nextSibling
 			var action = actions.firstChild
 			while(action !== null){
-				if(action.nodeName == "addViewComponentOperation" || action.nodeName == "deleteViewComponentOperation"){
-					var viewComp = action.attributes.getNamedItem("viewComponent").getNodeValue
-					println(viewComp)
+				if(action.nodeName == "addInteractionObjectOperation" || action.nodeName == "deleteInteractionObjectOperation"){
+					var viewComp = action.attributes.getNamedItem("interactionObject").getNodeValue
 					//ID of Interaction Object is identified from ifml model
 					var elementID = getIFMLID(viewComp, ifmlModel)
-					println(elementID)
 					//New ID is inserted
-					action.attributes.getNamedItem("viewComponent").nodeValue = elementID
+					action.attributes.getNamedItem("interactionObject").nodeValue = elementID
+					println(viewComp + " was replaced by " + elementID)
 				}
 				action = action.nextSibling
 			}
@@ -76,37 +75,37 @@ class IFMLReferencer {
 		viewElementEvents.addAll(viewContainers.map[e | e.viewElements.map[i | i.viewElementEvents].flatten].flatten);
 		
 		for(i: interactionFlowElements){
-			if(i.id.compareTo(elementName) == 0){
+			if(i.name.compareTo(elementName) == 0){
 				return i.id
 			}
 		}
 		
 		for(i: actions){
-			if(i.id.compareTo(elementName) == 0){
+			if(i.name.compareTo(elementName) == 0){
 				return i.id
 			}
 		}
 		
 		for(i: viewContainers){
-			if(i.id.compareTo(elementName) == 0){
+			if(i.name.compareTo(elementName) == 0){
 				return i.id
 			}
 		}
 		
 		for(i: viewComponents){
-			if(i.id.compareTo(elementName) == 0){
+			if(i.name.compareTo(elementName) == 0){
 				return i.id
 			}
 		}
 		
 		for(i: viewComponentParts){
-			if(i.id.compareTo(elementName) == 0){
+			if(i.name.compareTo(elementName) == 0){
 				return i.id
 			}
 		}
 		
 		for(i: viewElementEvents){
-			if(i.id.compareTo(elementName) == 0){
+			if(i.name.compareTo(elementName) == 0){
 				return i.id
 			}
 		}

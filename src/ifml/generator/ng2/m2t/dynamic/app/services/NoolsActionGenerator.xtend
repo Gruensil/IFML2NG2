@@ -55,14 +55,14 @@ public class NoolsActionGenerator{
 							$("#actionArea > #«attr.getNamedItem('id').nodeValue»").remove();
 						'''
 					}
-					case "addViewComponentOperation": {
+					case "addInteractionObjectOperation": {
 						output += '''
-							$("#«attr.getNamedItem('viewComponent').nodeValue»").show();
+							$("#«attr.getNamedItem('interactionObject').nodeValue»").show();
 						'''
 					}
-					case "deleteViewComponentOperation": {
+					case "deleteInteractionObjectOperation": {
 						output += '''
-							$("#«attr.getNamedItem('viewComponent').nodeValue»").hide();
+							$("#«attr.getNamedItem('interactionObject').nodeValue»").hide();
 						'''
 					}
 					case "clearNavOperation": {
