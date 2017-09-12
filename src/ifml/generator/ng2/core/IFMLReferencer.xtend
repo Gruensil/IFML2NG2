@@ -45,19 +45,19 @@ class IFMLReferencer {
 			var actions = rule.firstChild.nextSibling
 			var action = actions.firstChild
 			while(action !== null){
-				if(action.nodeName == "addInteractionObjectOperation" || action.nodeName == "deleteInteractionObjectOperation"){
-					var viewComp = action.attributes.getNamedItem("interactionObject").getNodeValue
+				if(action.attributes.getNamedItem("interactionObject") != null){
+					var interObj = action.attributes.getNamedItem("interactionObject").getNodeValue
 					//ID of Interaction Object is identified from ifml model
-					var elementID = getIFMLID(viewComp, ifmlModel)
+					var elementID = getIFMLID(interObj, ifmlModel)
 					//New ID is inserted
 					action.attributes.getNamedItem("interactionObject").nodeValue = elementID
-					println(viewComp + " was replaced by " + elementID)
+					println(interObj + " was replaced by " + elementID)
 				}
 				action = action.nextSibling
 			}
-			rule = rule.nextSibling;	
+			rule = rule.nextSibling	
 		}
-		return contextML;
+		return contextML
 	}
 	
 	//Return the related ID to the interaction object from the IFML Model
@@ -109,7 +109,7 @@ class IFMLReferencer {
 				return i.id
 			}
 		}
-
+		println("No fitting ID of an interaction object was found in IFML model to be inserted in adaptation model. Please check your reference.")
 		return elementName
 	}
 }

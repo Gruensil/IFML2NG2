@@ -75,6 +75,34 @@ public class NoolsActionGenerator{
 							$('.«attr.getNamedItem("cssClass").nodeValue»').css('«attr.getNamedItem("cssAttribute").nodeValue»','«attr.getNamedItem("value").nodeValue»');
 						'''
 					}
+					case "editListOperation": {
+						if (attr.getNamedItem("attribute").nodeValue == "small" || attr.getNamedItem("attribute").nodeValue == "big") {
+							output += '''
+								$('#«attr.getNamedItem("interactionObject").nodeValue»').removeClass('sbig').removeClass('ssmall');
+								$('#«attr.getNamedItem("interactionObject").nodeValue»').addClass('s«attr.getNamedItem("attribute").nodeValue»');
+							'''
+						}else{
+							output += '''
+								$('#«attr.getNamedItem("interactionObject").nodeValue»').removeClass('cblue').removeClass('cred').removeClass('cgreen').removeClass('cgrey');
+								$('#«attr.getNamedItem("interactionObject").nodeValue»').addClass('c«attr.getNamedItem("attribute").nodeValue»');
+							'''
+						}
+					}
+					case "editFormOperation": {
+						output += '''
+						
+						'''
+					}
+					case "editViewComponentOperation": {
+						output += '''
+						
+						'''
+					}
+					case "editDataBindingOperation": {
+						output += '''
+						
+						'''
+					}
 					case "setDisplayProperty": {
 						if (attr.getNamedItem("type") == null || attr.getNamedItem("type").nodeValue == "string") {
 							output += '''

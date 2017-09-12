@@ -21,6 +21,7 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		    <link rel="stylesheet" href="styles/styles.css">
 		    <link rel="stylesheet" href="styles/sidebar.css">
 		    <link rel="stylesheet" href="styles/navigation.css">
+		    <link rel="stylesheet" href="styles/table.css">
 		
 		    <!-- 1. Load libraries -->
 		     <!-- Polyfill(s) for older browsers -->
