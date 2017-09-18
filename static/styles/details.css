@@ -1,0 +1,133 @@
+.dblue.table tbody th {
+    color: #354b68;
+}
+.dblue.table tbody td {
+    color: #354b68;
+    border-left: 1px solid #6888b1;
+}
+.dblue.table tbody th,
+.dblue.table tbody td{
+    background: #f4f6f9;
+}
+.dblue.table tbody tr:nth-child(even) th,
+.dblue.table tbody tr:nth-child(even) td{
+    background: #d9e1ec;
+}
+.dblue.table tbody tr:hover th,
+.dblue.table tbody tr:hover td{
+    background: #b4c3d8;
+}
+.dblue.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.dred.table tbody th {
+    color: #812a23;
+}
+.dred.table tbody td {
+    color: #812a23;
+    border-left: 1px solid #b93a32;
+}
+.dred.table tbody th,
+.dred.table tbody td{
+    background: #fbf3f2;
+}
+.dred.table tbody tr:nth-child(even) th,
+.dred.table tbody tr:nth-child(even) td{
+    background: #f3d6d4;
+}
+.dred.table tbody tr:hover th,
+.dred.table tbody tr:hover td{
+    background: #e7ada9;
+}
+.dred.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+
+.dgreen.table tbody th {
+    color: #3a6a22;
+}
+.dgreen.table tbody td {
+    color: #3a6a22;
+    border-left: 1px solid #94d274;
+}
+.dgreen.table tbody th,
+.dgreen.table tbody td{
+    background: #f7fcf5;
+}
+.dgreen.table tbody tr:nth-child(even) th,
+.dgreen.table tbody tr:nth-child(even) td{
+    background: #e4f4dc;
+}
+.dgreen.table tbody tr:hover th,
+.dgreen.table tbody tr:hover td{
+    background: #c9e9ba;
+}
+.dgreen.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+
+.dgrey.table tbody th {
+    color: #414244;
+}
+.dgrey.table tbody td {
+    color: #414244;
+    border-left: 1px solid #838487;
+}
+.dgrey.table tbody th,
+.dgrey.table tbody td{
+    background: #f8f8f8;
+}
+.dgrey.table tbody tr:nth-child(even) th,
+.dgrey.table tbody tr:nth-child(even) td{
+    background: #e6e6e7;
+}
+.dgrey.table tbody tr:hover th,
+.dgrey.table tbody tr:hover td{
+    background: #cdcecf;
+}
+.dgrey.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+
+.dsmall.table{
+    margin: 2%;
+    overflow: hidden;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+}
+.dsmall.table tbody th,
+.dsmall.table tbody td{
+    line-height: 22px;
+    padding: 4px;
+}
+.dsmall.table tbody th {
+    font-size: 18px;
+}
+.dsmall.table tbody td {
+    font-size: 16px;
+}
+
+
+.dbig.table{
+    margin: 2%;
+    overflow: hidden;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+}
+.dbig.table tbody th,
+.dbig.table tbody td{
+    line-height: 28px;
+    padding: 8px;
+}
+.dbig.table tbody th {
+    font-size: 24px;
+}
+.dbig.table tbody td {
+    font-size: 22px;
+}

@@ -187,6 +187,24 @@
 															</xs:element>
 															<xs:element name="clearNavOperation">
 															</xs:element>
+															<xs:element name="editFormOperation">
+																<xs:complexType>
+																	<xs:attribute name="interactionObject" use="required"/>
+																	<xs:attribute name="attribute" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="editListOperation">
+																<xs:complexType>
+																	<xs:attribute name="interactionObject" use="required"/>
+																	<xs:attribute name="attribute" use="required"/>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="editDetailsOperation">
+																<xs:complexType>
+																	<xs:attribute name="interactionObject" use="required"/>
+																	<xs:attribute name="attribute" use="required"/>
+																</xs:complexType>
+															</xs:element>
 															<xs:element name="editCssClassOperation">
 																<xs:complexType>
 																	<xs:attribute name="cssClass" use="required"/>

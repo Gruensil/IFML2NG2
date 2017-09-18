@@ -120,7 +120,7 @@
     </interactionFlowModelElements>
     <interactionFlowModelElements xsi:type="core:ViewContainer" id="_oMKJgIXZEea82rBnn6BioA" name="studentDetails" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.10/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0">
       <annotations text="&lt;&lt;authenticationRequirement>> role==staff"/>
-      <viewElements xsi:type="ext:Details" id="_LCX6cIXaEea82rBnn6BioA" name="studentDetails">
+      <viewElements xsi:type="ext:Details" id="_LCX6cIXaEea82rBnn6BioA" name="studentDetail">
         <parameters id="_ZnIj8IZUEeaEza32TP9ETw" name="studentBinding">
           <type xsi:type="uml:Class" href="libraryUML_CD.uml#_8kpXN4CrEeakIrkbdVKNbg"/>
         </parameters>

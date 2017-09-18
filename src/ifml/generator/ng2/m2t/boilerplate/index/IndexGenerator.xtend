@@ -21,7 +21,6 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		    <link rel="stylesheet" href="styles/styles.css">
 		    <link rel="stylesheet" href="styles/sidebar.css">
 		    <link rel="stylesheet" href="styles/navigation.css">
-		    <link rel="stylesheet" href="styles/table.css">
 		
 		    <!-- 1. Load libraries -->
 		     <!-- Polyfill(s) for older browsers -->
@@ -41,7 +40,12 @@ class IndexGenerator extends AbstractFileGenerator<String> {
 		    
 		  	<!-- 3. Add Provider API scripts -->
 «««		  	This is the Protected Region the static index code for APIs is inserted (/static/index.html)
-		  	<!-- PROTECTED REGION ID index ENABLED START -->
+		  	<!-- PROTECTED REGION ID apis ENABLED START -->
+		  	<!-- PROTECTED REGION END -->
+		  	
+		  	<!-- 4. Add User Defined Stlyesheets -->
+«««		  	This is the Protected Region the reference to user defined stylesheets is inserted (/static/index.html)
+		  	<!-- PROTECTED REGION ID styles ENABLED START -->
 		  	<!-- PROTECTED REGION END -->
 		    
 		  </head>

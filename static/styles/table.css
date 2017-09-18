@@ -1,4 +1,4 @@
-.cblue table {
+.cblue.table {
     background: #fff;
 }
 .cblue.table thead th {
@@ -29,8 +29,6 @@
 
 .cgrey.table {
     border-collapse: collapse;
-}
-.cgrey{
     background: #fff;
     overflow: hidden;
 }
@@ -62,8 +60,6 @@
 
 .cred.table {
     border-collapse: collapse;
-}
-.cred{
     background: #fff;
     overflow: hidden;
 }
@@ -95,8 +91,6 @@
 
 .cgreen.table {
     border-collapse: collapse;
-}
-.cgreen{
     background: #fff;
     overflow: hidden;
 }

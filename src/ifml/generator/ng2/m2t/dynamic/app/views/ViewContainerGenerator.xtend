@@ -205,7 +205,6 @@ class ViewContainerGenerator extends AbstractClassGenerator<ViewContainerImpl> {
 			<div class="col-md-12">
 			
 				<!-- PROTECTED REGION ID «it.name.toFirstLower» ENABLED START -->
-							  	
 				<!-- PROTECTED REGION END -->
 				
 				<div name="content">
